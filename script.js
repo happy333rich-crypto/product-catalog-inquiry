@@ -153,11 +153,23 @@ window.CatalogApp = {
     }, { once: true });
   };
 
+  app.readStoredImageData = async (productId) => {
+    const encodedId = encodeURIComponent(productId);
+    const single = await fetch(`image-data/${encodedId}.txt`, { cache: "force-cache" });
+    if (single.ok) return (await single.text()).trim();
+
+    const parts = [];
+    for (let part = 1; part <= 3; part += 1) {
+      const response = await fetch(`image-data/${encodedId}-${part}.txt`, { cache: "force-cache" });
+      if (!response.ok) break;
+      parts.push((await response.text()).trim());
+    }
+    return parts.join("");
+  };
+
   app.loadStoredProductImage = async (product, image, placeholder) => {
     try {
-      const response = await fetch(`image-data/${encodeURIComponent(product.id)}.txt`, { cache: "force-cache" });
-      if (!response.ok) return;
-      const base64 = (await response.text()).trim();
+      const base64 = await app.readStoredImageData(product.id);
       if (!base64) return;
       app.showProductImage(product, image, placeholder, `data:image/webp;base64,${base64}`);
     } catch (error) {
