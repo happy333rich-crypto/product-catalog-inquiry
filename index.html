@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#6d9278">
   <meta name="description" content="產品電子型錄與詢價清單">
-  <meta name="build-version" content="20260705-9">
+  <meta name="build-version" content="20260705-10">
   <title>產品電子型錄｜加入詢價清單</title>
-  <link rel="stylesheet" href="style.css?v=20260705-9">
+  <link rel="stylesheet" href="style.css?v=20260705-10">
   <style>.product-meta > div:last-child { display: none; }</style>
-  <script src="script.js?v=20260705-9" defer></script>
-  <script src="cart.js?v=20260705-9" defer></script>
-  <script src="inquiry.js?v=20260705-9" defer></script>
+  <script src="cache-bust.js?v=20260705-10" defer></script>
+  <script src="script.js?v=20260705-10" defer></script>
+  <script src="cart.js?v=20260705-10" defer></script>
+  <script src="inquiry.js?v=20260705-10" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -42,8 +43,8 @@
     <section class="catalog-section" aria-labelledby="catalog-title">
       <div class="catalog-heading">
         <div>
-          <p class="eyebrow">第一批上架</p>
-          <h2 id="catalog-title">衛生紙與濕式衛生紙</h2>
+          <p class="eyebrow">紙品試行版</p>
+          <h2 id="catalog-title">紙品與濕式衛生紙</h2>
         </div>
         <p class="result-count" aria-live="polite"><span data-result-count>0</span> 項商品</p>
       </div>
@@ -52,7 +53,7 @@
         <label class="search-field">
           <span class="sr-only">搜尋商品</span>
           <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <input type="search" data-search placeholder="搜尋品名、貨號或條碼" autocomplete="off">
+          <input type="search" data-search placeholder="搜尋品名或條碼" autocomplete="off">
         </label>
 
         <label>
