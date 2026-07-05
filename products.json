@@ -132,6 +132,66 @@
     "active": true
   },
   {
+    "id": "E14094",
+    "brand": "春風",
+    "category": "抽取衛生紙",
+    "sku": "E14094",
+    "barcode": "4712425029073",
+    "name": "春風三層絲嵐抽取衛生紙",
+    "spec": "120抽×24包",
+    "casePack": 3,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "E50001",
+    "brand": "原萃",
+    "category": "抽取衛生紙",
+    "sku": "E50001",
+    "barcode": "4718008401014",
+    "name": "原萃抽取式衛生紙",
+    "spec": "100抽×10包",
+    "casePack": 10,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "E80500",
+    "brand": "力可潔",
+    "category": "清潔紙品",
+    "sku": "E80500",
+    "barcode": "4713282011331",
+    "name": "力可潔多功能高效擦拭布",
+    "spec": "150張×6捲",
+    "casePack": 6,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "E80560",
+    "brand": "力可潔",
+    "category": "廚房紙巾",
+    "sku": "E80560",
+    "barcode": "4713282011416",
+    "name": "力可潔掛抽式瞬吸水洗廚房紙巾",
+    "spec": "60張",
+    "casePack": 36,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "E80580",
+    "brand": "力可潔",
+    "category": "清潔紙品",
+    "sku": "E80580",
+    "barcode": "4713282011232",
+    "name": "力可潔拋棄式萬用清潔布",
+    "spec": "30張",
+    "casePack": 90,
+    "image": "",
+    "active": true
+  },
+  {
     "id": "800430",
     "brand": "舒潔",
     "category": "平版衛生紙",
