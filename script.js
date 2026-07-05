@@ -142,6 +142,29 @@ window.CatalogApp = {
     app.renderProducts();
   };
 
+  app.showProductImage = (product, image, placeholder, source) => {
+    image.src = source;
+    image.alt = `${product.name}商品圖片`;
+    image.hidden = false;
+    placeholder.hidden = true;
+    image.addEventListener("error", () => {
+      image.hidden = true;
+      placeholder.hidden = false;
+    }, { once: true });
+  };
+
+  app.loadStoredProductImage = async (product, image, placeholder) => {
+    try {
+      const response = await fetch(`image-data/${encodeURIComponent(product.id)}.txt`, { cache: "force-cache" });
+      if (!response.ok) return;
+      const base64 = (await response.text()).trim();
+      if (!base64) return;
+      app.showProductImage(product, image, placeholder, `data:image/webp;base64,${base64}`);
+    } catch (error) {
+      console.warn(`商品 ${product.id} 圖片暫時無法載入`, error);
+    }
+  };
+
   app.renderProducts = () => {
     const fragment = document.createDocumentFragment();
     app.state.filtered.forEach((product) => {
@@ -159,14 +182,9 @@ window.CatalogApp = {
       card.querySelector(".product-sku").textContent = product.sku;
 
       if (product.image) {
-        image.src = product.image;
-        image.alt = `${product.name}商品圖片`;
-        image.hidden = false;
-        placeholder.hidden = true;
-        image.addEventListener("error", () => {
-          image.hidden = true;
-          placeholder.hidden = false;
-        }, { once: true });
+        app.showProductImage(product, image, placeholder, product.image);
+      } else {
+        app.loadStoredProductImage(product, image, placeholder);
       }
 
       app.updateAddButton(button, product.id);
