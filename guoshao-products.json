@@ -1,0 +1,74 @@
+[
+  {
+    "id": "H20010",
+    "brand": "唐鑫",
+    "category": "酒精／消毒用品",
+    "sku": "H20010",
+    "barcode": "4712352970417",
+    "name": "唐鑫75%酒精",
+    "spec": "4000ml",
+    "casePack": 6,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "H20020",
+    "brand": "唐鑫",
+    "category": "酒精／消毒用品",
+    "sku": "H20020",
+    "barcode": "4712352970400",
+    "name": "唐鑫75%酒精",
+    "spec": "500ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "H20030",
+    "brand": "唐鑫",
+    "category": "酒精／消毒用品",
+    "sku": "H20030",
+    "barcode": "4712352981215",
+    "name": "唐鑫75%酒精（附噴頭）",
+    "spec": "500ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "H22010",
+    "brand": "水滴貝貝",
+    "category": "濕巾",
+    "sku": "H22010",
+    "barcode": "4710982096422",
+    "name": "水滴貝貝超厚純水柔濕巾",
+    "spec": "80抽",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "H22030",
+    "brand": "克司博",
+    "category": "清潔濕巾",
+    "sku": "H22030",
+    "barcode": "4719873174782",
+    "name": "克司博廚房去污抗菌濕巾",
+    "spec": "60抽",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "H22040",
+    "brand": "克司博",
+    "category": "濕巾",
+    "sku": "H22040",
+    "barcode": "4719873174645",
+    "name": "克司博純水濕巾（含蓋）",
+    "spec": "90抽",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  }
+]
