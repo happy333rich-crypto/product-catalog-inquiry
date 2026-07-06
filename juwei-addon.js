@@ -2,13 +2,14 @@
 
 (() => {
   const app = window.CatalogApp;
-  const VERSION = "20260706-2";
+  const VERSION = "20260706-9";
   const CELL_SIZE = 120;
+  const DIRECT_IMAGE_IDS = new Set([
+    "E80650", "E80660", "E80670", "E80740", "E80760", "E80770",
+    "E80790", "E80855", "E80870", "E80880", "E80950", "E80960"
+  ]);
   const MAP = {
-    E80500: [0, 0], E80510: [1, 0], E80560: [2, 0], E80580: [3, 0],
-    E80650: [0, 1], E80670: [1, 1], E80660: [2, 1], E80760: [3, 1],
-    E80770: [0, 2], E80790: [1, 2], E80740: [2, 2], E80870: [3, 2],
-    E80950: [0, 3], E80960: [1, 3], E80880: [2, 3], E80855: [3, 3]
+    E80500: [0, 0], E80510: [1, 0], E80560: [2, 0], E80580: [3, 0]
   };
   const spriteState = { image: null, cache: new Map() };
 
@@ -28,10 +29,11 @@
 
   const originalGetSpriteProductImage = app.getSpriteProductImage;
   app.getSpriteProductImage = (productId) => {
+    const id = String(productId);
+    if (DIRECT_IMAGE_IDS.has(id)) return "";
+
     const original = originalGetSpriteProductImage(productId);
     if (original) return original;
-
-    const id = String(productId);
     if (spriteState.cache.has(id)) return spriteState.cache.get(id);
 
     const position = MAP[id];
@@ -103,8 +105,7 @@
       await loadJuweiSprite();
       app.applyFilters();
     } catch (error) {
-      console.error(error);
-      app.showToast("鉅瑋商品已載入，部分圖片稍後補上");
+      console.warn("鉅瑋舊圖庫未載入，已改用個別圖片", error);
     }
   };
 })();
