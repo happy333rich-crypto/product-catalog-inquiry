@@ -9,7 +9,8 @@ window.CatalogApp = {
     products: [],
     filtered: [],
     cart: {},
-    filters: { search: "", brand: "", category: "" }
+    filters: { search: "", brand: "", category: "" },
+    sprite: { map: {}, image: null, cache: new Map() }
   },
   el: {},
   toastTimer: null,
@@ -18,6 +19,27 @@ window.CatalogApp = {
 
 (() => {
   const app = window.CatalogApp;
+  const BUILD_VERSION = "20260706-2";
+  const SPRITE_CELL_SIZE = 80;
+  const SPRITE_COLUMNS = 8;
+  const SPRITE_PARTS = [
+    "sprite80-1.txt",
+    "sprite80-2.txt",
+    "sprite80-3a.txt",
+    "sprite80-3b.txt",
+    "sprite80-3c1.txt",
+    "sprite80-3c2.txt",
+    "sprite80-3c3.txt",
+    "sprite80-3c4.txt",
+    "sprite80-3d1.txt",
+    "sprite80-3d2.txt",
+    "sprite80-3d3.txt",
+    "sprite80-3d4.txt"
+  ];
+  const STORED_IMAGE_PRIORITY = new Set(["818360"]);
+  const PRODUCT_NAME_OVERRIDES = {
+    E14094: "春風三層絲嵐抽取衛生紙"
+  };
 
   app.loadJSON = (key, fallback) => {
     try {
@@ -70,6 +92,36 @@ window.CatalogApp = {
     };
   };
 
+  app.loadSpriteCatalog = async () => {
+    const mapRequest = fetch(`image-data/catalog-map.json?v=${BUILD_VERSION}`, { cache: "no-store" });
+    const partRequests = SPRITE_PARTS.map((file) =>
+      fetch(`image-data/${file}?v=${BUILD_VERSION}`, { cache: "no-store" })
+    );
+    const [mapResponse, ...partResponses] = await Promise.all([mapRequest, ...partRequests]);
+
+    if (!mapResponse.ok || partResponses.some((response) => !response.ok)) {
+      throw new Error("商品圖片圖庫讀取失敗");
+    }
+
+    const map = await mapResponse.json();
+    const parts = await Promise.all(partResponses.map((response) => response.text()));
+    const base64 = parts.join("").replace(/\s+/g, "");
+    const sprite = new Image();
+
+    await new Promise((resolve, reject) => {
+      sprite.onload = resolve;
+      sprite.onerror = () => reject(new Error("商品圖片圖庫解碼失敗"));
+      sprite.src = `data:image/webp;base64,${base64}`;
+    });
+
+    if (sprite.naturalWidth !== SPRITE_COLUMNS * SPRITE_CELL_SIZE) {
+      console.warn("商品圖片圖庫尺寸與預期不同", sprite.naturalWidth, sprite.naturalHeight);
+    }
+
+    app.state.sprite.map = map;
+    app.state.sprite.image = sprite;
+  };
+
   app.init = async () => {
     app.cacheElements();
     app.state.cart = app.loadJSON(app.keys.cart, {});
@@ -80,14 +132,21 @@ window.CatalogApp = {
     app.updateCartUI();
 
     try {
-      const response = await fetch("products.json", { cache: "no-store" });
+      await app.loadSpriteCatalog().catch((error) => {
+        console.warn("商品圖片圖庫暫時無法載入，改用個別圖片", error);
+      });
+
+      const response = await fetch(`products.json?v=${BUILD_VERSION}`, { cache: "no-store" });
       if (!response.ok) throw new Error(`商品資料讀取失敗（${response.status}）`);
       const products = await response.json();
       if (!Array.isArray(products)) throw new Error("products.json 格式不正確");
 
-      app.state.products = products.filter((p) =>
-        p && p.active === true && p.id && p.brand && p.category && p.name && p.spec
-      );
+      app.state.products = products
+        .filter((p) => p && p.active === true && p.id && p.brand && p.category && p.name && p.spec)
+        .map((product) => ({
+          ...product,
+          name: PRODUCT_NAME_OVERRIDES[product.id] || product.name
+        }));
       app.fillFilters();
       app.applyFilters();
       app.updateCartUI();
@@ -155,26 +214,73 @@ window.CatalogApp = {
 
   app.readStoredImageData = async (productId) => {
     const encodedId = encodeURIComponent(productId);
-    const single = await fetch(`image-data/${encodedId}.txt`, { cache: "force-cache" });
+    const single = await fetch(`image-data/${encodedId}.txt?v=${BUILD_VERSION}`, { cache: "no-store" });
     if (single.ok) return (await single.text()).trim();
 
     const parts = [];
     for (let part = 1; part <= 3; part += 1) {
-      const response = await fetch(`image-data/${encodedId}-${part}.txt`, { cache: "force-cache" });
+      const response = await fetch(`image-data/${encodedId}-${part}.txt?v=${BUILD_VERSION}`, { cache: "no-store" });
       if (!response.ok) break;
       parts.push((await response.text()).trim());
     }
     return parts.join("");
   };
 
-  app.loadStoredProductImage = async (product, image, placeholder) => {
+  app.loadStoredProductImage = async (product, image, placeholder, fallbackSource = "") => {
     try {
       const base64 = await app.readStoredImageData(product.id);
-      if (!base64) return;
-      app.showProductImage(product, image, placeholder, `data:image/webp;base64,${base64}`);
+      if (base64) {
+        app.showProductImage(product, image, placeholder, `data:image/webp;base64,${base64}`);
+        return;
+      }
+      if (fallbackSource) app.showProductImage(product, image, placeholder, fallbackSource);
     } catch (error) {
-      console.warn(`商品 ${product.id} 圖片暫時無法載入`, error);
+      if (fallbackSource) {
+        app.showProductImage(product, image, placeholder, fallbackSource);
+      } else {
+        console.warn(`商品 ${product.id} 圖片暫時無法載入`, error);
+      }
     }
+  };
+
+  app.getSpriteProductImage = (productId) => {
+    const id = String(productId);
+    if (app.state.sprite.cache.has(id)) return app.state.sprite.cache.get(id);
+
+    const position = app.state.sprite.map[id];
+    const sprite = app.state.sprite.image;
+    if (!position || !sprite) return "";
+
+    const [column, row] = position;
+    const canvas = document.createElement("canvas");
+    canvas.width = 320;
+    canvas.height = 240;
+    const context = canvas.getContext("2d");
+    if (!context) return "";
+
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.imageSmoothingEnabled = true;
+    context.imageSmoothingQuality = "high";
+
+    const targetSize = 220;
+    const targetX = (canvas.width - targetSize) / 2;
+    const targetY = (canvas.height - targetSize) / 2;
+    context.drawImage(
+      sprite,
+      column * SPRITE_CELL_SIZE,
+      row * SPRITE_CELL_SIZE,
+      SPRITE_CELL_SIZE,
+      SPRITE_CELL_SIZE,
+      targetX,
+      targetY,
+      targetSize,
+      targetSize
+    );
+
+    const source = canvas.toDataURL("image/webp", 0.82);
+    app.state.sprite.cache.set(id, source);
+    return source;
   };
 
   app.renderProducts = () => {
@@ -193,8 +299,13 @@ window.CatalogApp = {
       card.querySelector(".product-case-pack").textContent = String(product.casePack);
       card.querySelector(".product-sku").textContent = product.sku;
 
+      const spriteSource = app.getSpriteProductImage(product.id);
       if (product.image) {
         app.showProductImage(product, image, placeholder, product.image);
+      } else if (STORED_IMAGE_PRIORITY.has(product.id)) {
+        app.loadStoredProductImage(product, image, placeholder, spriteSource);
+      } else if (spriteSource) {
+        app.showProductImage(product, image, placeholder, spriteSource);
       } else {
         app.loadStoredProductImage(product, image, placeholder);
       }
