@@ -1,0 +1,110 @@
+[
+  {
+    "id": "405170",
+    "brand": "好奇",
+    "category": "濕巾",
+    "sku": "405170",
+    "barcode": "4710036401370",
+    "name": "好奇純水濕巾外出包",
+    "spec": "20抽",
+    "casePack": 60,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "404840",
+    "brand": "好奇",
+    "category": "濕巾",
+    "sku": "404840",
+    "barcode": "4710036400014",
+    "name": "好奇綠茶濕巾厚型",
+    "spec": "80抽",
+    "casePack": 18,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "405500",
+    "brand": "好奇",
+    "category": "濕巾",
+    "sku": "405500",
+    "barcode": "4710036400403",
+    "name": "好奇純水濕巾厚型",
+    "spec": "80抽",
+    "casePack": 18,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "404810",
+    "brand": "好奇",
+    "category": "濕巾",
+    "sku": "404810",
+    "barcode": "4710036400410",
+    "name": "好奇純水濕巾加量",
+    "spec": "100抽",
+    "casePack": 18,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "404731",
+    "brand": "好奇",
+    "category": "濕巾",
+    "sku": "404731",
+    "barcode": "4710036402667",
+    "name": "好奇史迪奇純水濕巾",
+    "spec": "70抽",
+    "casePack": 18,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "405161",
+    "brand": "好奇",
+    "category": "濕巾",
+    "sku": "405161",
+    "barcode": "4710036402063",
+    "name": "好奇迪士尼純水濕巾",
+    "spec": "70抽",
+    "casePack": 18,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "406030",
+    "brand": "好奇",
+    "category": "濕巾",
+    "sku": "406030",
+    "barcode": "4710036406030",
+    "name": "好奇迷你純水濕巾",
+    "spec": "8抽×4包",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "I03250",
+    "brand": "優生",
+    "category": "濕巾",
+    "sku": "I03250",
+    "barcode": "4710091162278",
+    "name": "優生柔濕巾清爽型",
+    "spec": "80抽",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "L54110",
+    "brand": "沙威隆",
+    "category": "濕巾",
+    "sku": "L54110",
+    "barcode": "4718262102047",
+    "name": "沙威隆抗菌濕巾",
+    "spec": "10抽×4入",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  }
+]
