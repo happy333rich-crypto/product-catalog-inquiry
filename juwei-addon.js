@@ -2,7 +2,7 @@
 
 (() => {
   const app = window.CatalogApp;
-  const VERSION = "20260706-1";
+  const VERSION = "20260706-2";
   const CELL_SIZE = 120;
   const MAP = {
     E80500: [0, 0], E80510: [1, 0], E80560: [2, 0], E80580: [3, 0],
@@ -66,17 +66,23 @@
     return source;
   };
 
+  const rebuildCatalog = () => {
+    [app.el.brand, app.el.category].forEach((select) => {
+      while (select.options.length > 1) select.remove(1);
+    });
+    app.fillFilters();
+    app.applyFilters();
+    app.updateCartUI();
+  };
+
   const originalInit = app.init;
   app.init = async () => {
     await originalInit();
 
     try {
-      const [productsResponse] = await Promise.all([
-        fetch(`juwei-products.json?v=${VERSION}`, { cache: "no-store" }),
-        loadJuweiSprite()
-      ]);
-
+      const productsResponse = await fetch(`juwei-products.json?v=${VERSION}`, { cache: "no-store" });
       if (!productsResponse.ok) throw new Error(`鉅瑋商品資料讀取失敗（${productsResponse.status}）`);
+
       const additions = await productsResponse.json();
       if (!Array.isArray(additions)) throw new Error("juwei-products.json 格式不正確");
 
@@ -86,17 +92,19 @@
         .forEach((product) => merged.set(product.id, product));
 
       app.state.products = [...merged.values()];
-
-      [app.el.brand, app.el.category].forEach((select) => {
-        while (select.options.length > 1) select.remove(1);
-      });
-
-      app.fillFilters();
-      app.applyFilters();
-      app.updateCartUI();
+      rebuildCatalog();
     } catch (error) {
       console.error(error);
       app.showToast("鉅瑋商品暫時無法載入");
+      return;
+    }
+
+    try {
+      await loadJuweiSprite();
+      app.applyFilters();
+    } catch (error) {
+      console.error(error);
+      app.showToast("鉅瑋商品已載入，部分圖片稍後補上");
     }
   };
 })();
