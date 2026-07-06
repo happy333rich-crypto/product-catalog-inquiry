@@ -2,7 +2,7 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260705-10";
+  const version = "20260706-2";
 
   window.fetch = (input, init = {}) => {
     const rawUrl = typeof input === "string" ? input : input.url;
