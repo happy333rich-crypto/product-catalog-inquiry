@@ -2,7 +2,7 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260706-6";
+  const version = "20260706-7";
 
   const withVersion = (url) => {
     const separator = url.includes("?") ? "&" : "?";
