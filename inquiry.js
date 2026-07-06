@@ -135,5 +135,16 @@
     }
   };
 
-  app.init();
+  const loadYouPinAddon = () => new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = "you-pin-addon.js?v=20260706-3";
+    script.onload = resolve;
+    script.onerror = () => {
+      console.error("優品擴充功能載入失敗");
+      resolve();
+    };
+    document.head.appendChild(script);
+  });
+
+  loadYouPinAddon().then(() => app.init());
 })();
