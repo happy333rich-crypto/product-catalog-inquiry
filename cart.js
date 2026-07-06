@@ -81,11 +81,6 @@
   };
 
   app.updateCartUI = () => {
-    if (app.state.products.length) {
-      Object.keys(app.state.cart).forEach((id) => {
-        if (!app.getProduct(id)) delete app.state.cart[id];
-      });
-    }
     const entries = app.getCartEntries();
     const count = entries.length;
     app.el.cartCounts.forEach((node) => { node.textContent = String(count); });
