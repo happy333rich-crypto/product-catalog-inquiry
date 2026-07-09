@@ -2,7 +2,7 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260706-7";
+  const version = "20260709-1";
 
   const withVersion = (url) => {
     const separator = url.includes("?") ? "&" : "?";
@@ -14,10 +14,11 @@
 
     if (/^products\.json(?:\?|$)/.test(rawUrl)) {
       const requestOptions = { ...init, cache: "reload" };
-      const [productsResponse, wetWipesResponse, guoshaoResponse] = await Promise.all([
+      const [productsResponse, wetWipesResponse, guoshaoResponse, crocodileResponse] = await Promise.all([
         originalFetch(withVersion("products.json"), requestOptions),
         originalFetch(withVersion("wet-wipes.json"), requestOptions),
-        originalFetch(withVersion("guoshao-products.json"), requestOptions)
+        originalFetch(withVersion("guoshao-products.json"), requestOptions),
+        originalFetch(withVersion("crocodile-products.json"), requestOptions)
       ]);
 
       if (!productsResponse.ok) return productsResponse;
@@ -25,6 +26,7 @@
       const products = await productsResponse.json();
       let wetWipes = [];
       let guoshao = [];
+      let crocodile = [];
 
       if (wetWipesResponse.ok) {
         const data = await wetWipesResponse.json();
@@ -36,11 +38,17 @@
         if (Array.isArray(data)) guoshao = data;
       }
 
+      if (crocodileResponse.ok) {
+        const data = await crocodileResponse.json();
+        if (Array.isArray(data)) crocodile = data;
+      }
+
       const seen = new Set();
       const combined = [
         ...(Array.isArray(products) ? products : []),
         ...wetWipes,
-        ...guoshao
+        ...guoshao,
+        ...crocodile
       ].filter((product) => {
         const id = product && product.id ? String(product.id) : "";
         if (!id || seen.has(id)) return false;
@@ -57,7 +65,7 @@
       });
     }
 
-    if (/^(wet-wipes\.json|guoshao-products\.json|image-data\/)/.test(rawUrl)) {
+    if (/^(wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|image-data\/)/.test(rawUrl)) {
       return originalFetch(withVersion(rawUrl), {
         ...init,
         cache: "reload"
