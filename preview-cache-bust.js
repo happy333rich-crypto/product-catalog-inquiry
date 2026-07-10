@@ -2,7 +2,7 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260710-preview-4";
+  const version = "20260710-preview-5";
 
   const withVersion = (url) => {
     const separator = url.includes("?") ? "&" : "?";
@@ -14,12 +14,20 @@
 
     if (/^products\.json(?:\?|$)/.test(rawUrl)) {
       const requestOptions = { ...init, cache: "reload" };
-      const [productsResponse, wetWipesResponse, guoshaoResponse, crocodileResponse, previewResponse] = await Promise.all([
+      const [
+        productsResponse,
+        wetWipesResponse,
+        guoshaoResponse,
+        crocodileResponse,
+        previewResponse,
+        unileverExtraResponse
+      ] = await Promise.all([
         originalFetch(withVersion("products.json"), requestOptions),
         originalFetch(withVersion("wet-wipes.json"), requestOptions),
         originalFetch(withVersion("guoshao-products.json"), requestOptions),
         originalFetch(withVersion("crocodile-products.json"), requestOptions),
-        originalFetch(withVersion("preview-products.json"), requestOptions)
+        originalFetch(withVersion("preview-products.json"), requestOptions),
+        originalFetch(withVersion("unilever-extra-preview.json"), requestOptions)
       ]);
 
       if (!productsResponse.ok) return productsResponse;
@@ -47,8 +55,9 @@
         }
       }
 
-      if (previewResponse.ok) {
-        const data = await previewResponse.json();
+      for (const response of [previewResponse, unileverExtraResponse]) {
+        if (!response.ok) continue;
+        const data = await response.json();
         if (Array.isArray(data)) additions.push(...data);
       }
 
@@ -72,7 +81,7 @@
       });
     }
 
-    if (/^(wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|preview-products\.json|image-data\/)/.test(rawUrl)) {
+    if (/^(wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|preview-products\.json|unilever-extra-preview\.json|image-data\/)/.test(rawUrl)) {
       return originalFetch(withVersion(rawUrl), {
         ...init,
         cache: "reload"
