@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "id": "G10260",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10260",
+    "barcode": "4710312020066",
+    "name": "必安住油性殺蟲劑",
+    "spec": "600g",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10261",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10261",
+    "barcode": "4710312020066",
+    "name": "必安住殺蟲劑芳香",
+    "spec": "600g",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10262",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10262",
+    "barcode": "4710312020134",
+    "name": "必安住水性殺蟲劑",
+    "spec": "600g",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10263",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10263",
+    "barcode": "4710312020219",
+    "name": "必安住防蹣殺蟲劑",
+    "spec": "600g",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10265",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10265",
+    "barcode": "4710312020080",
+    "name": "必安住油性跳蚤蟑螂藥",
+    "spec": "600g",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10266",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10266",
+    "barcode": "4710312020097",
+    "name": "必安住水性跳蚤蟑螂藥",
+    "spec": "600g",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10273",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10273",
+    "barcode": "4710312020547",
+    "name": "必安住臭蟲蟑螂白蟻藥",
+    "spec": "600ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10340",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10340",
+    "barcode": "4710312020226",
+    "name": "必安住水蒸式殺蹣滅蟑劑",
+    "spec": "15g",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  }
+]
