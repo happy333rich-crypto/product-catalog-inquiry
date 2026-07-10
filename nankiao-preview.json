@@ -1,0 +1,86 @@
+[
+  {
+    "id": "N50001",
+    "brand": "南僑",
+    "category": "香皂清潔",
+    "sku": "N50001",
+    "barcode": "4710060004516",
+    "name": "南僑水晶肥皂檸檬清香",
+    "spec": "200g單顆",
+    "casePack": 60,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N50010",
+    "brand": "南僑",
+    "category": "香皂清潔",
+    "sku": "N50010",
+    "barcode": "4710060100881",
+    "name": "南僑水晶肥皂",
+    "spec": "160g×3入",
+    "casePack": 28,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N50030",
+    "brand": "南僑",
+    "category": "香皂清潔",
+    "sku": "N50030",
+    "barcode": "4710060009429",
+    "name": "南僑水晶肥皂",
+    "spec": "200g×3入",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N50050",
+    "brand": "南僑",
+    "category": "香皂清潔",
+    "sku": "N50050",
+    "barcode": "4710060008231",
+    "name": "南僑水晶肥皂檸檬清香",
+    "spec": "150g×3入",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N50100",
+    "brand": "南僑",
+    "category": "洗衣清潔",
+    "sku": "N50100",
+    "barcode": "4710060009320",
+    "name": "南僑洗衣液體皂檸檬香茅",
+    "spec": "1400g",
+    "casePack": 6,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N50150",
+    "brand": "南僑",
+    "category": "洗衣清潔",
+    "sku": "N50150",
+    "barcode": "4710060009337",
+    "name": "南僑洗衣液體皂櫻花百合",
+    "spec": "1400g",
+    "casePack": 6,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N50190",
+    "brand": "南僑",
+    "category": "洗衣清潔",
+    "sku": "N50190",
+    "barcode": "4710060009344",
+    "name": "南僑洗衣液體皂薰衣馬鞭草",
+    "spec": "1400g",
+    "casePack": 6,
+    "image": "",
+    "active": true
+  }
+]
