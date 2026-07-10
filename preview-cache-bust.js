@@ -2,7 +2,7 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260710-preview-1";
+  const version = "20260710-preview-2";
 
   const withVersion = (url) => {
     const separator = url.includes("?") ? "&" : "?";
@@ -27,9 +27,28 @@
       const products = await productsResponse.json();
       const additions = [];
 
-      for (const response of [wetWipesResponse, guoshaoResponse, crocodileResponse, previewResponse]) {
-        if (!response.ok) continue;
-        const data = await response.json();
+      if (wetWipesResponse.ok) {
+        const data = await wetWipesResponse.json();
+        if (Array.isArray(data)) additions.push(...data);
+      }
+
+      if (guoshaoResponse.ok) {
+        const data = await guoshaoResponse.json();
+        if (Array.isArray(data)) additions.push(...data);
+      }
+
+      if (crocodileResponse.ok) {
+        const data = await crocodileResponse.json();
+        if (Array.isArray(data)) {
+          additions.push(...data.map((product) => ({
+            ...product,
+            brand: "鱷魚/必安住"
+          })));
+        }
+      }
+
+      if (previewResponse.ok) {
+        const data = await previewResponse.json();
         if (Array.isArray(data)) additions.push(...data);
       }
 
