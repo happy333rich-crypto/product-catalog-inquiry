@@ -2,7 +2,7 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260710-preview-5";
+  const version = "20260710-preview-6";
 
   const withVersion = (url) => {
     const separator = url.includes("?") ? "&" : "?";
@@ -20,14 +20,16 @@
         guoshaoResponse,
         crocodileResponse,
         previewResponse,
-        unileverExtraResponse
+        unileverExtraResponse,
+        nankiaoResponse
       ] = await Promise.all([
         originalFetch(withVersion("products.json"), requestOptions),
         originalFetch(withVersion("wet-wipes.json"), requestOptions),
         originalFetch(withVersion("guoshao-products.json"), requestOptions),
         originalFetch(withVersion("crocodile-products.json"), requestOptions),
         originalFetch(withVersion("preview-products.json"), requestOptions),
-        originalFetch(withVersion("unilever-extra-preview.json"), requestOptions)
+        originalFetch(withVersion("unilever-extra-preview.json"), requestOptions),
+        originalFetch(withVersion("nankiao-preview.json"), requestOptions)
       ]);
 
       if (!productsResponse.ok) return productsResponse;
@@ -55,7 +57,7 @@
         }
       }
 
-      for (const response of [previewResponse, unileverExtraResponse]) {
+      for (const response of [previewResponse, unileverExtraResponse, nankiaoResponse]) {
         if (!response.ok) continue;
         const data = await response.json();
         if (Array.isArray(data)) additions.push(...data);
@@ -81,7 +83,7 @@
       });
     }
 
-    if (/^(wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|preview-products\.json|unilever-extra-preview\.json|image-data\/)/.test(rawUrl)) {
+    if (/^(wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|preview-products\.json|unilever-extra-preview\.json|nankiao-preview\.json|image-data\/)/.test(rawUrl)) {
       return originalFetch(withVersion(rawUrl), {
         ...init,
         cache: "reload"
