@@ -1,0 +1,122 @@
+[
+  {
+    "id": "N01920",
+    "brand": "白蘭",
+    "category": "洗衣清潔",
+    "sku": "N01920",
+    "barcode": "4710094118005",
+    "name": "熊寶貝馨香洗衣精",
+    "spec": "2.5kg",
+    "casePack": 4,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N01921",
+    "brand": "白蘭",
+    "category": "洗衣清潔",
+    "sku": "N01921",
+    "barcode": "4710094117985",
+    "name": "熊寶貝溫和洗衣精",
+    "spec": "2.5kg",
+    "casePack": 4,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N01922",
+    "brand": "白蘭",
+    "category": "洗衣清潔",
+    "sku": "N01922",
+    "barcode": "4710094117961",
+    "name": "熊寶貝清新洗衣精",
+    "spec": "2.5kg",
+    "casePack": 4,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N01950",
+    "brand": "白蘭",
+    "category": "洗衣清潔",
+    "sku": "N01950",
+    "barcode": "4710094118012",
+    "name": "熊寶貝馨香精華洗衣精補充包",
+    "spec": "1.6kg",
+    "casePack": 6,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N20501",
+    "brand": "白蘭",
+    "category": "護衣清潔",
+    "sku": "N20501",
+    "barcode": "4710094112782",
+    "name": "熊寶貝沁藍海洋柔軟護衣精",
+    "spec": "3.2L",
+    "casePack": 4,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N20511",
+    "brand": "白蘭",
+    "category": "護衣清潔",
+    "sku": "N20511",
+    "barcode": "4710094112836",
+    "name": "熊寶貝海洋香護衣精補充包",
+    "spec": "1.84L",
+    "casePack": 6,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N20521",
+    "brand": "白蘭",
+    "category": "護衣清潔",
+    "sku": "N20521",
+    "barcode": "4710094112799",
+    "name": "熊寶貝玫瑰甜心柔軟護衣精",
+    "spec": "3.2L",
+    "casePack": 4,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N20531",
+    "brand": "白蘭",
+    "category": "護衣清潔",
+    "sku": "N20531",
+    "barcode": "4710094112843",
+    "name": "熊寶貝玫瑰香護衣精補充包",
+    "spec": "1.84L",
+    "casePack": 6,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N45730",
+    "brand": "白蘭",
+    "category": "沐浴清潔",
+    "sku": "N45730",
+    "barcode": "8999999591809",
+    "name": "麗仕水嫩柔膚香皂",
+    "spec": "80g×6入",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "N45740",
+    "brand": "白蘭",
+    "category": "沐浴清潔",
+    "sku": "N45740",
+    "barcode": "8999999591779",
+    "name": "麗仕煥活冰爽香皂",
+    "spec": "80g×6入",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  }
+]
