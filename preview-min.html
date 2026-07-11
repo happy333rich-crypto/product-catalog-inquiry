@@ -10,13 +10,14 @@
     main{max-width:1100px;margin:auto;padding:20px}
     .filters{display:grid;grid-template-columns:1fr 220px;gap:12px;margin:16px 0}
     input,select{width:100%;min-height:44px;padding:10px 12px;border:1px solid #dce3de;border-radius:12px;background:#fff}
-    .status{padding:18px;background:#fff;border:1px solid #dce3de;border-radius:16px;margin:16px 0}
+    .status,.diagnostics{padding:18px;background:#fff;border:1px solid #dce3de;border-radius:16px;margin:16px 0}
+    .diagnostics{font-size:.82rem;line-height:1.7;white-space:pre-wrap}
     .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
     .card{background:#fff;border:1px solid #dce3de;border-radius:18px;overflow:hidden}
     .image{aspect-ratio:1/1;display:grid;place-items:center;background:#f5f8f5;color:#657269;padding:16px;text-align:center}
     .image img{max-width:100%;max-height:100%;object-fit:contain}
     .content{padding:14px}.brand{font-size:.78rem;color:#4f765d;font-weight:700}.name{font-weight:700;margin:6px 0}.meta{font-size:.82rem;color:#657269}
-    .error{background:#fdeaea;border-color:#e2a5a5;color:#8a2424}
+    .error{background:#fdeaea;border-color:#e2a5a5;color:#8a2424}.ok{color:#2f6b44}.bad{color:#a13434}
     @media(max-width:760px){.filters{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   </style>
 </head>
@@ -29,10 +30,15 @@
     <select id="brand"><option value="">全部品牌</option></select>
   </div>
   <div id="status" class="status">正在載入商品資料…</div>
+  <details>
+    <summary>載入診斷</summary>
+    <div id="diagnostics" class="diagnostics">尚未開始</div>
+  </details>
   <div id="grid" class="grid"></div>
 </main>
 <script>
 (() => {
+  const VERSION = '20260711-min-2';
   const files = [
     'products.json','wet-wipes.json','guoshao-products.json','crocodile-products.json',
     'preview-products.json','unilever-extra-preview.json','nankiao-preview.json',
@@ -50,44 +56,65 @@
     return brand || '其他';
   };
   const status = document.getElementById('status');
+  const diagnostics = document.getElementById('diagnostics');
   const grid = document.getElementById('grid');
   const brandSelect = document.getElementById('brand');
   const search = document.getElementById('search');
   let products = [];
 
+  const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const render = () => {
     const q = search.value.trim().toLowerCase();
     const brand = brandSelect.value;
     const list = products.filter(p => (!brand || p.brand === brand) && (!q || `${p.name} ${p.barcode||''} ${p.sku||''}`.toLowerCase().includes(q)));
     status.className = 'status';
     status.textContent = `已載入 ${products.length} 項，目前顯示 ${list.length} 項`;
-    grid.innerHTML = list.map(p => `<article class="card"><div class="image">${p.image ? `<img src="${String(p.image).replace(/"/g,'&quot;')}" alt="${String(p.name).replace(/"/g,'&quot;')}">` : '圖片整理中'}</div><div class="content"><div class="brand">${p.brand}</div><div class="name">${p.name}</div><div class="meta">${p.spec||''}<br>箱入數：${p.casePack ?? ''}</div></div></article>`).join('');
+    grid.innerHTML = list.map(p => `<article class="card"><div class="image">${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}">` : '圖片整理中'}</div><div class="content"><div class="brand">${escapeHtml(p.brand)}</div><div class="name">${escapeHtml(p.name)}</div><div class="meta">${escapeHtml(p.spec)}<br>箱入數：${escapeHtml(p.casePack)}</div></div></article>`).join('');
   };
 
-  Promise.all(files.map(async file => {
+  const fetchWithTimeout = async (file) => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 12000);
     try {
-      const r = await fetch(`${file}?v=20260711-min-1`, {cache:'no-store'});
-      if (!r.ok) return [];
-      const data = await r.json();
-      return Array.isArray(data) ? data : [];
-    } catch (_) { return []; }
-  })).then(groups => {
+      const response = await fetch(`${file}?v=${VERSION}`, { cache:'no-store', signal:controller.signal });
+      if (!response.ok) return { file, ok:false, count:0, error:`HTTP ${response.status}` };
+      const data = await response.json();
+      if (!Array.isArray(data)) return { file, ok:false, count:0, error:'不是陣列格式' };
+      return { file, ok:true, count:data.length, data };
+    } catch (error) {
+      return { file, ok:false, count:0, error:error.name === 'AbortError' ? '逾時' : error.message };
+    } finally {
+      clearTimeout(timer);
+    }
+  };
+
+  Promise.all(files.map(fetchWithTimeout)).then(results => {
+    diagnostics.innerHTML = results.map(result => result.ok
+      ? `<span class="ok">✓ ${escapeHtml(result.file)}：${result.count} 筆</span>`
+      : `<span class="bad">✗ ${escapeHtml(result.file)}：${escapeHtml(result.error)}</span>`
+    ).join('\n');
+
     const map = new Map();
-    groups.flat().forEach(p => {
+    results.filter(result => result.ok).flatMap(result => result.data).forEach(p => {
       const id = p && p.id ? String(p.id) : '';
       if (!id || excluded.has(id) || p.active === false) return;
       const product = {...p, brand: normalizeBrand(p.brand)};
       if (['紅恐龍','蟑愛呷','蟻愛呷','家能淨'].some(k => String(product.name||'').includes(k))) product.brand = '鱷魚/必安住';
       map.set(id, product);
     });
+
     products = [...map.values()].sort((a,b) => (rank.get(a.brand) ?? 999) - (rank.get(b.brand) ?? 999) || String(a.name).localeCompare(String(b.name),'zh-Hant',{numeric:true}));
+    if (!products.length) throw new Error('所有商品資料檔都沒有成功載入');
+
     [...new Set(products.map(p=>p.brand))].sort((a,b)=>(rank.get(a)??999)-(rank.get(b)??999)||a.localeCompare(b,'zh-Hant')).forEach(b => {
-      const o = document.createElement('option'); o.value=b; o.textContent=b; brandSelect.appendChild(o);
+      const option = document.createElement('option'); option.value=b; option.textContent=b; brandSelect.appendChild(option);
     });
     render();
   }).catch(err => {
-    status.className='status error'; status.textContent=`商品載入失敗：${err.message}`;
+    status.className='status error';
+    status.textContent=`商品載入失敗：${err.message}`;
   });
+
   search.addEventListener('input',render);
   brandSelect.addEventListener('change',render);
 })();
