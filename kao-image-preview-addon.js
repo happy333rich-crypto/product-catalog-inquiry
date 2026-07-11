@@ -4,13 +4,9 @@
   const app = window.CatalogApp;
   if (!app) return;
 
-  const imageOverrides = {
-    "608350": "https://www.kotex.com.tw/-/media/feature/kotex/apac/tw/product/pdp-page/_teatree/_teatreesuper_image1_1572_1152.jpg?rev=-1",
-    "608360": "https://www.kotex.com.tw/-/media/feature/kotex/apac/tw/product/pdp-page/_teatree/_teatreesuper_image1_1572_1152.jpg?rev=-1",
-    "608521": "https://www.kotex.com.tw/-/media/feature/kotex/apac/tw/product/pdp-page/_soft/kotex__soft_image1_1572_1152.jpg?rev=-1",
-    "608541": "https://www.kotex.com.tw/-/media/feature/kotex/apac/tw/product/pdp-page/_soft/kotex__soft_image1_1572_1152.jpg?rev=-1",
-    "608561": "https://www.kotex.com.tw/-/media/feature/kotex/apac/tw/product/pdp-page/_soft/kotex__soft_image1_1572_1152.jpg?rev=-1"
-  };
+  // 圖片必須逐 SKU 精確核對：貨號／條碼／尺寸／片數皆一致才可加入。
+  // 目前先撤下先前共用系列圖的錯誤配圖，避免不同尺寸顯示同一包裝。
+  const imageOverrides = {};
 
   const originalInit = app.init;
   app.init = async () => {
