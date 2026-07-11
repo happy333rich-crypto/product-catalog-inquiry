@@ -116,7 +116,7 @@
     "name": "舒潔棉柔厚韌三層抽取衛生紙",
     "spec": "90抽×6包",
     "casePack": 8,
-    "image": "",
+    "image": "images/kleenex-cotton-thick-6.jpg",
     "active": true
   },
   {
@@ -128,7 +128,7 @@
     "name": "舒潔棉柔厚韌三層抽取衛生紙",
     "spec": "90抽×24包",
     "casePack": 3,
-    "image": "",
+    "image": "images/kleenex-cotton-thick-24.jpg",
     "active": true
   },
   {
@@ -140,7 +140,7 @@
     "name": "舒潔極絨厚四層抽取衛生紙",
     "spec": "60抽×6包",
     "casePack": 8,
-    "image": "",
+    "image": "images/kleenex-ultra-thick-6.jpg",
     "active": true
   },
   {
@@ -149,10 +149,10 @@
     "category": "抽取衛生紙",
     "sku": "811700",
     "barcode": "4710114811701",
-    "name": "舒潔好絨軟抽取衛生紙",
+    "name": "舒潔雲絨舒適抽取衛生紙",
     "spec": "90抽×8包",
     "casePack": 8,
-    "image": "",
+    "image": "images/kleenex-cloud-fleece-8.jpg",
     "active": true
   },
   {
@@ -164,7 +164,7 @@
     "name": "舒潔雲柔抽取衛生紙",
     "spec": "100抽×10包",
     "casePack": 6,
-    "image": "",
+    "image": "images/kleenex-cloud-soft-10.jpg",
     "active": true
   },
   {
@@ -237,7 +237,7 @@
     "spec": "15抽×3入",
     "casePack": 14,
     "image": "",
-    "active": true
+    "active": false
   },
   {
     "id": "882560",
@@ -345,7 +345,7 @@
     "spec": "150張×2入",
     "casePack": 16,
     "image": "",
-    "active": true
+    "active": false
   },
   {
     "id": "862420",
@@ -441,7 +441,7 @@
     "spec": "10抽×3包",
     "casePack": 20,
     "image": "",
-    "active": true
+    "active": false
   },
   {
     "id": "E11006",
