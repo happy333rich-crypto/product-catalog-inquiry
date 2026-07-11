@@ -23,6 +23,7 @@
     "原萃",
     "靠得住",
     "好奇",
+    "立可潔",
     "居居加/居美媞/妙妙熊/鉅瑋",
     "白蘭",
     "南僑",
@@ -51,7 +52,7 @@
     if (containsAny(text, paperKeywords)) return 1;
     if (brand.includes("靠得住") || brand.includes("護得住")) return 2;
     if (brand.includes("好奇")) return 3;
-    if (containsAny(text, beautyKeywords) || brand.includes("居居加") || brand.includes("居美媞") || brand.includes("妙妙熊") || brand.includes("鉅瑋")) return 4;
+    if (brand.includes("立可潔") || containsAny(text, beautyKeywords) || brand.includes("居居加") || brand.includes("居美媞") || brand.includes("妙妙熊") || brand.includes("鉅瑋")) return 4;
     if (brand.includes("白蘭") || name.includes("熊寶貝") || name.includes("麗仕")) return 5;
     if (brand.includes("南僑")) return 6;
     if (brand.includes("鱷魚") || brand.includes("必安住") || name.includes("紅恐龍") || name.includes("蟑愛呷") || name.includes("蟻愛呷") || name.includes("家能淨")) return 7;
