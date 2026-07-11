@@ -1,17 +1,5 @@
 [
   {
-    "id": "N50001",
-    "brand": "南僑",
-    "category": "香皂清潔",
-    "sku": "N50001",
-    "barcode": "4710060004516",
-    "name": "南僑水晶肥皂檸檬清香",
-    "spec": "200g單顆",
-    "casePack": 60,
-    "image": "",
-    "active": true
-  },
-  {
     "id": "N50010",
     "brand": "南僑",
     "category": "香皂清潔",
@@ -20,18 +8,6 @@
     "name": "南僑水晶肥皂",
     "spec": "160g×3入",
     "casePack": 28,
-    "image": "",
-    "active": true
-  },
-  {
-    "id": "N50030",
-    "brand": "南僑",
-    "category": "香皂清潔",
-    "sku": "N50030",
-    "barcode": "4710060009429",
-    "name": "南僑水晶肥皂",
-    "spec": "200g×3入",
-    "casePack": 24,
     "image": "",
     "active": true
   },
