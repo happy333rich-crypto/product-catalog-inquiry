@@ -15,6 +15,24 @@
     }
   ];
 
+  const fixedBrandOrder = [
+    "舒潔",
+    "可麗舒/可立雅",
+    "春風",
+    "蒲公英",
+    "原萃",
+    "靠得住",
+    "居居加/居美媞/妙妙熊/鉅瑋",
+    "好奇",
+    "白蘭",
+    "南僑",
+    "鱷魚/必安住",
+    "優品",
+    "清檜",
+    "優生"
+  ];
+  const fixedBrandRank = new Map(fixedBrandOrder.map((brand, index) => [brand, index]));
+
   const normalize = (value) => String(value || "").replace(/\s+/g, "").toLowerCase();
   const containsAny = (text, keywords) => keywords.some((keyword) => text.includes(keyword));
 
@@ -40,19 +58,6 @@
     if (brand.includes("優品")) return 8;
     if (brand.includes("清檜")) return 9;
     if (brand.includes("優生")) return 10;
-    return 99;
-  };
-
-  const paperBrandRank = (product) => {
-    const brand = normalize(product.brand);
-    const name = normalize(product.name);
-    const text = `${brand} ${name}`;
-
-    if (text.includes("舒潔")) return 1;
-    if (text.includes("可麗舒") || text.includes("可立雅")) return 2;
-    if (text.includes("春風")) return 3;
-    if (text.includes("蒲公英")) return 4;
-    if (text.includes("原翠")) return 5;
     return 99;
   };
 
@@ -103,22 +108,17 @@
     return 9;
   };
 
+  const brandRank = (brand) => fixedBrandRank.has(brand) ? fixedBrandRank.get(brand) : 999;
+
   const productComparator = (a, b) => {
-    const groupA = workflowGroup(a);
-    const groupB = workflowGroup(b);
-    const groupDifference = groupA - groupB;
+    const groupDifference = workflowGroup(a) - workflowGroup(b);
     if (groupDifference) return groupDifference;
 
-    if (groupA === 1) {
-      const paperBrandDifference = paperBrandRank(a) - paperBrandRank(b);
-      if (paperBrandDifference) return paperBrandDifference;
-    }
+    const brandDifference = brandRank(a.brand) - brandRank(b.brand);
+    if (brandDifference) return brandDifference;
 
     const categoryDifference = categoryRank(a) - categoryRank(b);
     if (categoryDifference) return categoryDifference;
-
-    const brandDifference = String(a.brand).localeCompare(String(b.brand), "zh-Hant");
-    if (brandDifference) return brandDifference;
 
     const nameDifference = String(a.name).localeCompare(String(b.name), "zh-Hant", { numeric: true });
     if (nameDifference) return nameDifference;
@@ -126,25 +126,23 @@
     return String(a.spec).localeCompare(String(b.spec), "zh-Hant", { numeric: true });
   };
 
-  const firstProductIndexBy = (key) => {
-    const order = new Map();
-    app.state.products.forEach((product, index) => {
-      const value = product[key];
-      if (!order.has(value)) order.set(value, index);
-    });
-    return order;
-  };
-
   const refillFilters = () => {
-    const brandOrder = firstProductIndexBy("brand");
-    const categoryOrder = firstProductIndexBy("category");
+    const brands = [...new Set(app.state.products.map((product) => product.brand))]
+      .sort((a, b) => {
+        const rankDifference = brandRank(a) - brandRank(b);
+        return rankDifference || a.localeCompare(b, "zh-Hant");
+      });
 
-    const valuesFor = (key, order) => [...new Set(app.state.products.map((product) => product[key]))]
-      .sort((a, b) => (order.get(a) - order.get(b)) || a.localeCompare(b, "zh-Hant"));
+    const categoryOrder = new Map();
+    app.state.products.forEach((product, index) => {
+      if (!categoryOrder.has(product.category)) categoryOrder.set(product.category, index);
+    });
+    const categories = [...new Set(app.state.products.map((product) => product.category))]
+      .sort((a, b) => (categoryOrder.get(a) - categoryOrder.get(b)) || a.localeCompare(b, "zh-Hant"));
 
     [
-      [app.el.brand, valuesFor("brand", brandOrder)],
-      [app.el.category, valuesFor("category", categoryOrder)]
+      [app.el.brand, brands],
+      [app.el.category, categories]
     ].forEach(([select, values]) => {
       while (select.options.length > 1) select.remove(1);
       values.forEach((value) => {
