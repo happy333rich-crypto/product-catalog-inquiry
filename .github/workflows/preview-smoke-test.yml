@@ -1,0 +1,74 @@
+name: Preview smoke test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'preview-min.html'
+      - 'products.json'
+      - 'wet-wipes.json'
+      - 'guoshao-products.json'
+      - 'crocodile-products.json'
+      - 'preview-products.json'
+      - 'unilever-extra-preview.json'
+      - 'nankiao-preview.json'
+      - 'yusheng-preview.json'
+      - 'qinghui-preview.json'
+      - 'kao-preview-*.json'
+      - 'chungtai-extra-preview.json'
+      - 'you-pin-products.json'
+      - '.github/workflows/preview-smoke-test.yml'
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start local site
+        run: |
+          python3 -m http.server 4173 > /tmp/catalog-http.log 2>&1 &
+          echo $! > /tmp/catalog-http.pid
+          sleep 2
+      - name: Open preview and verify catalog
+        run: |
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+            const errors = [];
+            page.on('pageerror', error => errors.push(error.message));
+            page.on('console', message => {
+              if (message.type() === 'error') errors.push(message.text());
+            });
+            const response = await page.goto('http://127.0.0.1:4173/preview-min.html', { waitUntil: 'networkidle' });
+            if (!response || !response.ok()) throw new Error(`Preview HTTP status: ${response ? response.status() : 'no response'}`);
+            await page.waitForFunction(() => {
+              const text = document.querySelector('#status')?.textContent || '';
+              return text.includes('已載入') || text.includes('失敗');
+            }, { timeout: 15000 });
+            const status = await page.locator('#status').innerText();
+            const cards = await page.locator('.card').count();
+            const brands = await page.locator('#brand option').count();
+            const firstBrands = await page.locator('#brand option').allTextContents();
+            console.log({ status, cards, brands, firstBrands: firstBrands.slice(0, 10), errors });
+            if (!status.includes('已載入')) throw new Error(status);
+            if (cards < 1) throw new Error('No product cards rendered');
+            if (brands < 2) throw new Error('Brand filter was not populated');
+            if (errors.length) throw new Error(`Browser errors: ${errors.join(' | ')}`);
+            await browser.close();
+          })().catch(error => {
+            console.error(error);
+            process.exit(1);
+          });
+          NODE
