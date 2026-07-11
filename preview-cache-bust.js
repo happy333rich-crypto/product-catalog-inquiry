@@ -2,7 +2,7 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260711-preview-13";
+  const version = "20260711-preview-26";
   const excludedProductIds = new Set(["608871", "608891", "608911"]);
 
   const withVersion = (url) => {
@@ -92,4 +92,9 @@
 
     return originalFetch(input, init);
   };
+
+  const diagnostics = document.createElement("script");
+  diagnostics.src = `preview-diagnostics.js?v=${version}`;
+  diagnostics.defer = true;
+  document.head.appendChild(diagnostics);
 })();
