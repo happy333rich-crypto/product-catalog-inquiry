@@ -38,6 +38,16 @@
   ];
   const fixedBrandRank = new Map(fixedBrandOrder.map((brand, index) => [brand, index]));
 
+  const removedProductIds = new Set([
+    "843070", // 舒潔 ufufy 濕式面紙
+    "890180", // 舒潔食品級摺疊紙巾 150張×2入，只保留單包
+    "841870"  // 舒潔淨99抗菌濕巾
+  ]);
+
+  const productNameCorrections = {
+    "811700": "舒潔雲絨舒適抽取衛生紙"
+  };
+
   const normalize = (value) => String(value || "").replace(/\s+/g, "").toLowerCase();
   const containsAny = (text, keywords) => keywords.some((keyword) => text.includes(keyword));
   const brandRank = (brand) => fixedBrandRank.has(brand) ? fixedBrandRank.get(brand) : 999;
@@ -47,6 +57,15 @@
     "捲筒衛生紙", "捲衛", "擦手紙", "袖珍面紙", "旅行包", "面紙", "衛生紙"
   ];
   const beautyKeywords = ["洗臉巾", "卸妝棉", "潔顏巾", "旅行毛巾", "旅行浴巾", "毛巾", "浴巾"];
+
+  const applyConfirmedProductCorrections = () => {
+    app.state.products = app.state.products
+      .filter((product) => !removedProductIds.has(String(product.id)))
+      .map((product) => {
+        const correctedName = productNameCorrections[String(product.id)];
+        return correctedName ? { ...product, name: correctedName } : product;
+      });
+  };
 
   const normalizeBrandGroups = () => {
     app.state.products = app.state.products.map((product) => {
@@ -139,6 +158,7 @@
   };
 
   const orderedFillFilters = () => {
+    applyConfirmedProductCorrections();
     normalizeBrandGroups();
     app.state.products.sort(productComparator);
 
@@ -173,6 +193,7 @@
 
   const originalApplyFilters = app.applyFilters;
   app.applyFilters = () => {
+    applyConfirmedProductCorrections();
     normalizeBrandGroups();
     app.state.products.sort(productComparator);
     originalApplyFilters();
