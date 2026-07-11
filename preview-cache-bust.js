@@ -2,7 +2,7 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260710-preview-12";
+  const version = "20260711-preview-13";
   const excludedProductIds = new Set(["608871", "608891", "608911"]);
 
   const withVersion = (url) => {
@@ -27,7 +27,8 @@
         originalFetch(withVersion("qinghui-preview.json"), requestOptions),
         originalFetch(withVersion("kao-preview-1.json"), requestOptions),
         originalFetch(withVersion("kao-preview-2.json"), requestOptions),
-        originalFetch(withVersion("kao-preview-3.json"), requestOptions)
+        originalFetch(withVersion("kao-preview-3.json"), requestOptions),
+        originalFetch(withVersion("chungtai-extra-preview.json"), requestOptions)
       ]);
 
       const [productsResponse, wetWipesResponse, guoshaoResponse, crocodileResponse, ...extraResponses] = responses;
@@ -82,7 +83,7 @@
       });
     }
 
-    if (/^(wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|preview-products\.json|unilever-extra-preview\.json|nankiao-preview\.json|yusheng-preview\.json|qinghui-preview\.json|kao-preview-[123]\.json|image-data\/)/.test(rawUrl)) {
+    if (/^(wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|preview-products\.json|unilever-extra-preview\.json|nankiao-preview\.json|yusheng-preview\.json|qinghui-preview\.json|kao-preview-[123]\.json|chungtai-extra-preview\.json|image-data\/)/.test(rawUrl)) {
       return originalFetch(withVersion(rawUrl), {
         ...init,
         cache: "reload"
