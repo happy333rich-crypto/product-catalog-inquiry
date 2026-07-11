@@ -9,11 +9,12 @@
 }
 
 .product-image-wrap {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   background: #ffffff;
   border-bottom: 1px solid var(--line);
   display: grid;
   place-items: center;
+  overflow: hidden;
 }
 
 .product-image {
@@ -21,8 +22,9 @@
   height: 100%;
   object-fit: contain;
   object-position: center;
-  padding: 11%;
+  padding: 4%;
   background: #ffffff;
+  image-rendering: auto;
 }
 
 .image-placeholder {
@@ -61,7 +63,7 @@
 
 @media (max-width: 720px) {
   .product-image {
-    padding: 9%;
+    padding: 3%;
   }
 
   .product-name {
