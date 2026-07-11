@@ -2,7 +2,8 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260710-preview-11";
+  const version = "20260710-preview-12";
+  const excludedProductIds = new Set(["608871", "608891", "608911"]);
 
   const withVersion = (url) => {
     const separator = url.includes("?") ? "&" : "?";
@@ -67,7 +68,7 @@
         ...additions
       ].filter((product) => {
         const id = product && product.id ? String(product.id) : "";
-        if (!id || seen.has(id)) return false;
+        if (!id || excludedProductIds.has(id) || seen.has(id)) return false;
         seen.add(id);
         return true;
       });
