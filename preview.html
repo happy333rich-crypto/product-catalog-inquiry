@@ -9,7 +9,7 @@
   <p style="font-family:sans-serif;padding:24px;text-align:center;">測試版載入中…</p>
   <script>
     (async () => {
-      const version = "20260710-preview-6";
+      const version = "20260710-preview-7";
       try {
         const response = await fetch(`index.html?v=${version}`, { cache: "no-store" });
         if (!response.ok) throw new Error(`測試頁讀取失敗（${response.status}）`);
