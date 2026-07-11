@@ -1,0 +1,38 @@
+[
+  {
+    "id": "GG0010",
+    "brand": "清檜",
+    "category": "居家除蟲",
+    "sku": "GG0010",
+    "barcode": "4714263725902",
+    "name": "清檜天然防蟑螂螞蟻噴劑",
+    "spec": "500ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "GG0200",
+    "brand": "清檜",
+    "category": "居家清潔",
+    "sku": "GG0200",
+    "barcode": "4714263726084",
+    "name": "清檜抗菌驅離萬用清潔劑",
+    "spec": "600ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "GG0205",
+    "brand": "清檜",
+    "category": "居家清潔",
+    "sku": "GG0205",
+    "barcode": "4714263726091",
+    "name": "清檜抗菌防護活氧泡泡清潔劑",
+    "spec": "750g",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  }
+]
