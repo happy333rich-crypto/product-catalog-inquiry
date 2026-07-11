@@ -2,7 +2,15 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260709-1";
+  const version = "20260711-2";
+  const removedProductIds = new Set([
+    "843070", // 舒潔 ufufy 濕式面紙
+    "890180", // 舒潔食品級摺疊紙巾 150張×2入
+    "841870"  // 舒潔淨99抗菌濕巾
+  ]);
+  const productNameOverrides = {
+    "811700": "舒潔雲絨舒適抽取衛生紙"
+  };
 
   const withVersion = (url) => {
     const separator = url.includes("?") ? "&" : "?";
@@ -49,12 +57,17 @@
         ...wetWipes,
         ...guoshao,
         ...crocodile
-      ].filter((product) => {
-        const id = product && product.id ? String(product.id) : "";
-        if (!id || seen.has(id)) return false;
-        seen.add(id);
-        return true;
-      });
+      ]
+        .filter((product) => {
+          const id = product && product.id ? String(product.id) : "";
+          if (!id || seen.has(id) || removedProductIds.has(id)) return false;
+          seen.add(id);
+          return true;
+        })
+        .map((product) => ({
+          ...product,
+          name: productNameOverrides[String(product.id)] || product.name
+        }));
 
       return new Response(JSON.stringify(combined), {
         status: 200,
