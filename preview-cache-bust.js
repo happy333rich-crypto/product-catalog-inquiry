@@ -2,8 +2,16 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-  const version = "20260711-preview-26";
-  const excludedProductIds = new Set(["608871", "608891", "608911"]);
+  const version = "20260711-preview-27";
+  const excludedProductIds = new Set([
+    "608871", "608891", "608911",
+    "843070", // 舒潔 ufufy 濕式面紙
+    "890180", // 舒潔食品級摺疊紙巾 150張×2入
+    "841870"  // 舒潔淨99抗菌濕巾
+  ]);
+  const productNameOverrides = {
+    "811700": "舒潔雲絨舒適抽取衛生紙"
+  };
 
   const withVersion = (url) => {
     const separator = url.includes("?") ? "&" : "?";
@@ -67,12 +75,17 @@
       const combined = [
         ...(Array.isArray(products) ? products : []),
         ...additions
-      ].filter((product) => {
-        const id = product && product.id ? String(product.id) : "";
-        if (!id || excludedProductIds.has(id) || seen.has(id)) return false;
-        seen.add(id);
-        return true;
-      });
+      ]
+        .filter((product) => {
+          const id = product && product.id ? String(product.id) : "";
+          if (!id || excludedProductIds.has(id) || seen.has(id)) return false;
+          seen.add(id);
+          return true;
+        })
+        .map((product) => ({
+          ...product,
+          name: productNameOverrides[String(product.id)] || product.name
+        }));
 
       return new Response(JSON.stringify(combined), {
         status: 200,
