@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#6d9278">
+  <meta name="description" content="產品電子型錄測試版">
+  <meta name="build-version" content="20260711-preview-direct-1">
+  <title>測試版｜產品電子型錄</title>
+  <link rel="stylesheet" href="style.css?v=20260711-preview-direct-1">
+  <link rel="stylesheet" href="image-standard-preview.css?v=20260711-preview-direct-1">
+  <style>
+    .product-meta > div:last-child { display: none; }
+    .preview-banner { position: sticky; top: 0; z-index: 1000; padding: 10px 16px; background: #fff3cd; border-bottom: 1px solid #e6cf83; color: #664d03; font-weight: 700; text-align: center; }
+  </style>
+  <script src="preview-cache-bust.js?v=20260711-preview-direct-1" defer></script>
+  <script src="script.js?v=20260711-preview-direct-1" defer></script>
+  <script src="cart.js?v=20260711-preview-direct-1" defer></script>
+  <script src="juwei-addon.js?v=20260711-preview-direct-1" defer></script>
+  <script src="preview-brand-group.js?v=20260711-preview-direct-1" defer></script>
+  <script src="white-lan-preview-addon.js?v=20260711-preview-direct-1" defer></script>
+  <script src="kao-image-preview-addon.js?v=20260711-preview-direct-1" defer></script>
+  <script src="inquiry.js?v=20260711-preview-direct-1" defer></script>
+</head>
+<body>
+  <div class="preview-banner">測試版｜確認完成後才會更新正式網站</div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-mark" href="#top" aria-label="回到商品列表頂端">
+        <span class="brand-icon" aria-hidden="true">紙</span>
+        <span><strong>產品電子型錄</strong><small>挑選商品，快速整理詢價內容</small></span>
+      </a>
+      <button class="header-cart-button" type="button" data-open-cart aria-label="開啟詢價清單">詢價清單 <span class="cart-badge" data-cart-count>0</span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">新利珍產品型錄</p>
+        <h1 id="hero-title">精選商品，輕鬆完成詢價</h1>
+        <p>瀏覽商品規格，將需要的品項加入詢價清單，我們將依您的需求提供報價與合作方案。</p>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="catalog-title">
+      <div class="catalog-heading">
+        <div><p class="eyebrow">產品型錄</p><h2 id="catalog-title">紙品、濕巾、居家清潔與生活用品</h2></div>
+        <p class="result-count" aria-live="polite"><span data-result-count>0</span> 項商品</p>
+      </div>
+
+      <div class="filters" aria-label="商品搜尋與篩選">
+        <label class="search-field"><span class="sr-only">搜尋商品</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input type="search" data-search placeholder="搜尋品名或條碼" autocomplete="off"></label>
+        <label><span>品牌</span><select data-brand-filter><option value="">全部品牌</option></select></label>
+        <label><span>分類</span><select data-category-filter><option value="">全部分類</option></select></label>
+        <button class="button button-ghost reset-button" type="button" data-reset-filters>清除篩選</button>
+      </div>
+
+      <div class="status-panel" data-loading-status><span class="spinner" aria-hidden="true"></span>正在載入商品資料…</div>
+      <div class="product-grid" data-product-grid aria-live="polite"></div>
+      <div class="empty-state" data-empty-state hidden><span aria-hidden="true">🔎</span><h3>沒有找到符合的商品</h3><p>換個關鍵字，或清除品牌與分類篩選再試一次。</p><button class="button button-secondary" type="button" data-empty-reset>清除篩選</button></div>
+    </section>
+  </main>
+
+  <button class="mobile-cart-bar" type="button" data-open-cart><span>查看詢價清單</span><span class="mobile-cart-meta"><span data-cart-count>0</span> 項</span></button>
+  <div class="drawer-backdrop" data-cart-backdrop hidden></div>
+  <aside class="cart-drawer" data-cart-drawer aria-labelledby="cart-title" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">已選商品</p><h2 id="cart-title">詢價清單</h2></div><button class="icon-button" type="button" data-close-cart aria-label="關閉詢價清單">×</button></div>
+    <div class="drawer-scroll-area">
+      <section class="cart-section" aria-labelledby="selected-products-title">
+        <div class="section-row"><h3 id="selected-products-title">商品與數量</h3><button class="text-button danger-text" type="button" data-clear-cart>清空全部</button></div>
+        <div class="cart-items" data-cart-items></div>
+        <div class="cart-empty" data-cart-empty><span aria-hidden="true">🧺</span><p>還沒有加入商品。</p><button class="button button-secondary" type="button" data-browse-products>回去挑商品</button></div>
+      </section>
+      <section class="customer-section" aria-labelledby="customer-title">
+        <h3 id="customer-title">詢價人資料</h3><p class="form-help">標示 * 的欄位必填。第一版資料只暫存在這台裝置，不會上傳。</p>
+        <form data-customer-form novalidate><div class="form-grid">
+          <label><span>店家名稱 *</span><input type="text" name="storeName" autocomplete="organization" required placeholder="例如：佳佳樂太平店"><small class="field-error" data-error-for="storeName"></small></label>
+          <label><span>聯絡人 *</span><input type="text" name="contactName" autocomplete="name" required placeholder="請輸入姓名"><small class="field-error" data-error-for="contactName"></small></label>
+          <label><span>聯絡電話 *</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required placeholder="09xx-xxx-xxx"><small class="field-error" data-error-for="phone"></small></label>
+          <label><span>縣市／地區</span><input type="text" name="area" autocomplete="address-level1" placeholder="例如：台中市太平區"></label>
+          <label class="full-width"><span>備註</span><textarea name="note" rows="3" placeholder="例如：希望週三前回覆、另詢問活動搭贈"></textarea></label>
+        </div></form>
+      </section>
+      <section class="generated-section" data-generated-section hidden aria-labelledby="generated-title"><div class="section-row"><h3 id="generated-title">已產生詢價內容</h3><span class="success-label">可以複製了</span></div><textarea class="generated-text" data-generated-text rows="12" readonly></textarea><button class="button button-secondary full-button" type="button" data-copy-inquiry>一鍵複製詢價內容</button></section>
+    </div>
+    <div class="drawer-footer"><button class="button button-primary full-button" type="button" data-generate-inquiry>產生詢價內容</button><p>送出前仍可回頭調整商品與數量。</p></div>
+  </aside>
+
+  <div class="toast" data-toast role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <template id="product-card-template">
+    <article class="product-card"><div class="product-image-wrap"><img class="product-image" alt="" loading="lazy" hidden><div class="image-placeholder" aria-hidden="true"><span>圖片整理中</span><small>尚未完成配圖</small></div><span class="brand-pill"></span></div><div class="product-content"><div class="product-category"></div><h3 class="product-name"></h3><dl class="product-meta"><div><dt>規格</dt><dd class="product-spec"></dd></div><div><dt>箱入數</dt><dd class="product-case-pack"></dd></div><div><dt>貨號</dt><dd class="product-sku"></dd></div></dl><button class="button button-primary add-button" type="button">加入詢價</button></div></article>
+  </template>
+
+  <template id="cart-item-template">
+    <article class="cart-item"><div class="cart-item-main"><div><span class="cart-item-brand"></span><h4 class="cart-item-name"></h4><p class="cart-item-spec"></p></div><button class="icon-button remove-button" type="button" aria-label="刪除商品">×</button></div><div class="quantity-row"><span>詢價箱數</span><div class="quantity-control"><button type="button" class="quantity-button minus-button" aria-label="減少一箱">−</button><input class="quantity-input" type="number" min="1" max="999" inputmode="numeric" aria-label="詢價箱數"><button type="button" class="quantity-button plus-button" aria-label="增加一箱">＋</button></div></div></article>
+  </template>
+
+  <noscript><p class="noscript-message">此型錄需要開啟 JavaScript 才能使用搜尋與詢價清單。</p></noscript>
+</body>
+</html>
