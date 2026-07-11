@@ -12,6 +12,10 @@
     {
       brands: new Set(["可麗舒", "可立雅"]),
       label: "可麗舒/可立雅"
+    },
+    {
+      brands: new Set(["立可潔", "力可潔"]),
+      label: "力可潔"
     }
   ];
 
@@ -23,7 +27,7 @@
     "原萃",
     "靠得住",
     "好奇",
-    "立可潔",
+    "力可潔",
     "居居加/居美媞/妙妙熊/鉅瑋",
     "白蘭",
     "南僑",
@@ -60,7 +64,7 @@
     if (containsAny(text, paperKeywords)) return 1;
     if (brand.includes("靠得住") || brand.includes("護得住")) return 2;
     if (brand.includes("好奇")) return 3;
-    if (brand.includes("立可潔")) return 4;
+    if (brand.includes("力可潔") || brand.includes("立可潔")) return 4;
     if (containsAny(text, beautyKeywords) || brand.includes("居居加") || brand.includes("居美媞") || brand.includes("妙妙熊") || brand.includes("鉅瑋")) return 5;
     if (brand.includes("白蘭") || name.includes("熊寶貝") || name.includes("麗仕")) return 6;
     if (brand.includes("南僑")) return 7;
