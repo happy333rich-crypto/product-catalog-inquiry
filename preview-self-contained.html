@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>自包含測試版｜產品電子型錄</title>
+  <style>
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;background:#faf8f2;color:#1f2a24}
+    header{position:sticky;top:0;z-index:5;background:#fff3cd;border-bottom:1px solid #e6cf83;padding:12px 16px;font-weight:800}
+    main{max-width:960px;margin:auto;padding:20px}.status{padding:14px 16px;background:#eef5f0;border:1px solid #bcd1c2;border-radius:14px;margin:14px 0}
+    .filters{display:grid;grid-template-columns:1fr 220px;gap:12px;margin:16px 0}input,select{width:100%;min-height:44px;border:1px solid #dce3de;border-radius:12px;background:#fff;padding:10px 12px;font:inherit;box-sizing:border-box}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{background:#fff;border:1px solid #dce3de;border-radius:18px;overflow:hidden}.image{aspect-ratio:1/1;display:grid;place-items:center;background:#f5f8f5;color:#657269}.content{padding:14px}.brand{font-size:.8rem;color:#4f765d;font-weight:800}.name{font-weight:800;margin:6px 0}.meta{font-size:.86rem;color:#657269}
+    @media(max-width:700px){.filters{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+</head>
+<body>
+<header>自包含測試版｜不載入任何外部檔案</header>
+<main>
+  <h1>產品電子型錄</h1>
+  <div class="status" id="status">頁面已成功執行</div>
+  <div class="filters"><input id="search" type="search" placeholder="搜尋品名"><select id="brand"><option value="">全部品牌</option></select></div>
+  <div class="grid" id="grid"></div>
+</main>
+<script>
+(() => {
+  const products = [
+    {brand:'舒潔',name:'舒潔抽取衛生紙',spec:'100抽×10包'},
+    {brand:'可麗舒/可立雅',name:'可麗舒抽取衛生紙',spec:'100抽×10包'},
+    {brand:'春風',name:'春風抽取衛生紙',spec:'110抽×24包'},
+    {brand:'蒲公英',name:'蒲公英環保抽取衛生紙',spec:'100抽×10包'},
+    {brand:'原萃',name:'原萃抽取衛生紙',spec:'100抽×10包'},
+    {brand:'靠得住',name:'茶樹沁涼棉 23cm',spec:'18片'},
+    {brand:'好奇',name:'好奇紙尿褲',spec:'測試品項'},
+    {brand:'力可潔',name:'力可潔清潔用品',spec:'測試品項'},
+    {brand:'居居加/居美媞/妙妙熊/鉅瑋',name:'洗臉巾',spec:'測試品項'}
+  ];
+  const order=['舒潔','可麗舒/可立雅','春風','蒲公英','原萃','靠得住','好奇','力可潔','居居加/居美媞/妙妙熊/鉅瑋'];
+  products.sort((a,b)=>order.indexOf(a.brand)-order.indexOf(b.brand));
+  const grid=document.getElementById('grid'),brand=document.getElementById('brand'),search=document.getElementById('search');
+  order.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=b;brand.appendChild(o)});
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const render=()=>{const q=search.value.trim().toLowerCase(),b=brand.value;const list=products.filter(p=>(!b||p.brand===b)&&(!q||p.name.toLowerCase().includes(q)));document.getElementById('status').textContent=`頁面已成功執行｜顯示 ${list.length} 項`;grid.innerHTML=list.map(p=>`<article class="card"><div class="image">圖片整理中</div><div class="content"><div class="brand">${esc(p.brand)}</div><div class="name">${esc(p.name)}</div><div class="meta">${esc(p.spec)}</div></div></article>`).join('')};
+  search.addEventListener('input',render);brand.addEventListener('change',render);render();
+})();
+</script>
+</body>
+</html>
