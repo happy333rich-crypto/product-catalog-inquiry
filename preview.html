@@ -9,7 +9,7 @@
   <p style="font-family:sans-serif;padding:24px;text-align:center;">測試版載入中…</p>
   <script>
     (async () => {
-      const version = "20260711-preview-21";
+      const version = "20260711-preview-22";
       try {
         const response = await fetch(`index.html?v=${version}`, { cache: "no-store" });
         if (!response.ok) throw new Error(`測試頁讀取失敗（${response.status}）`);
@@ -21,9 +21,9 @@
           .replace(/cache-bust\.js\?v=[^"']+/, `preview-cache-bust.js?v=${version}`)
           .replace(
             /(<script src="juwei-addon\.js\?v=[^"']+" defer><\/script>)/,
-            `$1\n  <script src="preview-brand-group.js?v=${version}" defer><\/script>\n  <script src="white-lan-preview-addon.js?v=${version}" defer><\/script>\n  <script src="kao-image-preview-addon.js?v=${version}" defer><\/script>`
+            `$1\n  <script src="preview-brand-group.js?v=${version}" defer><\/script>\n  <script src="white-lan-preview-addon.js?v=${version}" defer><\/script>\n  <script src="kao-image-preview-addon.js?v=${version}" defer><\/script>\n  <script src="image-standard-preview.js?v=${version}" defer><\/script>`
           )
-          .replace("</head>", `<style>
+          .replace("</head>", `<link rel="stylesheet" href="image-standard-preview.css?v=${version}">\n<style>
             .preview-banner { position: sticky; top: 0; z-index: 1000; padding: 10px 16px; background: #fff3cd; border-bottom: 1px solid #e6cf83; color: #664d03; font-weight: 700; text-align: center; }
           </style></head>`)
           .replace("<body>", `<body><div class="preview-banner">測試版｜確認完成後才會更新正式網站</div>`);
