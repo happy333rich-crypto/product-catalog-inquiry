@@ -43,6 +43,19 @@
     return 99;
   };
 
+  const paperBrandRank = (product) => {
+    const brand = normalize(product.brand);
+    const name = normalize(product.name);
+    const text = `${brand} ${name}`;
+
+    if (text.includes("舒潔")) return 1;
+    if (text.includes("可麗舒") || text.includes("可立雅")) return 2;
+    if (text.includes("春風")) return 3;
+    if (text.includes("蒲公英")) return 4;
+    if (text.includes("原翠")) return 5;
+    return 99;
+  };
+
   const paperTypeRank = (product) => {
     const text = normalize(`${product.category} ${product.name}`);
     if (containsAny(text, ["抽取衛生紙", "抽衛"])) return 1;
@@ -83,16 +96,23 @@
     if (group === 7 || group === 8 || group === 9) {
       if (containsAny(text, ["殺蟲", "蟑螂", "螞蟻", "白蟻", "除蟲"])) return 1;
       if (containsAny(text, ["蚊香", "防蚊", "驅蚊", "電蚊香"])) return 2;
-      if (containsAny(text, ["捕鼠", "鼠"] )) return 3;
-      if (containsAny(text, ["除霉", "防霉", "清潔劑", "清潔"] )) return 4;
+      if (containsAny(text, ["捕鼠", "鼠"])) return 3;
+      if (containsAny(text, ["除霉", "防霉", "清潔劑", "清潔"])) return 4;
       return 9;
     }
     return 9;
   };
 
   const productComparator = (a, b) => {
-    const groupDifference = workflowGroup(a) - workflowGroup(b);
+    const groupA = workflowGroup(a);
+    const groupB = workflowGroup(b);
+    const groupDifference = groupA - groupB;
     if (groupDifference) return groupDifference;
+
+    if (groupA === 1) {
+      const paperBrandDifference = paperBrandRank(a) - paperBrandRank(b);
+      if (paperBrandDifference) return paperBrandDifference;
+    }
 
     const categoryDifference = categoryRank(a) - categoryRank(b);
     if (categoryDifference) return categoryDifference;
