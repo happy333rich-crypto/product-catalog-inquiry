@@ -2,34 +2,20 @@
 
 (() => {
   const app = window.CatalogApp;
-  const VERSION = "20260706-11";
+  const VERSION = "20260711-12";
   const CELL_SIZE = 120;
   const DIRECT_IMAGE_IDS = new Set([
     "E80650", "E80660", "E80670", "E80740", "E80760", "E80770",
     "E80790", "E80855", "E80870", "E80880", "E80950", "E80960"
   ]);
-  const IMAGE_FILE_ID_MAP = {
-    E80650: "E80870",
-    E80660: "E80880",
-    E80670: "E80855",
-    E80740: "E80660",
-    E80760: "E80760",
-    E80770: "E80770",
-    E80790: "E80670",
-    E80855: "E80960",
-    E80870: "E80650",
-    E80880: "E80790",
-    E80950: "E80950",
-    E80960: "E80740"
-  };
   const MAP = {
     E80500: [0, 0], E80510: [1, 0], E80560: [2, 0], E80580: [3, 0]
   };
   const spriteState = { image: null, cache: new Map() };
 
+  // 每個 SKU 只能讀取同貨號的獨立圖片，不允許跨 SKU 對照或共用系列圖。
   const originalReadStoredImageData = app.readStoredImageData;
-  app.readStoredImageData = (productId) =>
-    originalReadStoredImageData(IMAGE_FILE_ID_MAP[String(productId)] || productId);
+  app.readStoredImageData = (productId) => originalReadStoredImageData(String(productId));
 
   const loadJuweiSprite = async () => {
     const response = await fetch(`image-data/juwei-sprite.txt?v=${VERSION}`, { cache: "no-store" });
