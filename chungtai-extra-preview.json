@@ -1,0 +1,50 @@
+[
+  {
+    "id": "G10264",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10264",
+    "barcode": "4710312030324",
+    "name": "紅恐龍蟑螂螞蟻藥",
+    "spec": "600g",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10362",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10362",
+    "barcode": "4710312150015",
+    "name": "蟑愛呷殺蟑餌劑",
+    "spec": "3g×12入",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10371",
+    "brand": "鱷魚/必安住",
+    "category": "居家除蟲",
+    "sku": "G10371",
+    "barcode": "4710312160014",
+    "name": "蟻愛呷攻巢螞蟻餌劑（黑盒）",
+    "spec": "2入",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10500",
+    "brand": "鱷魚/必安住",
+    "category": "防霉抑菌",
+    "sku": "G10500",
+    "barcode": "4710312240228",
+    "name": "家能淨除霉凝膠",
+    "spec": "100ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  }
+]
