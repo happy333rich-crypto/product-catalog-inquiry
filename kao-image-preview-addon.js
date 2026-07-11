@@ -5,15 +5,15 @@
   if (!app) return;
 
   // 圖片必須逐 SKU 精確核對：貨號／條碼／尺寸／片數皆一致才可加入。
-  // Google Drive 公開圖改用 thumbnail 端點，避免 uc?export=view 在 GitHub Pages 無法穩定顯示。
+  // 已正式存入 repo 的圖片才列入 verifiedStoredImageIds。
   const imageOverrides = {
-    "160040": "https://drive.google.com/thumbnail?id=1u4AG9AQ8eLNuBot5zsdJjXlqqHF_IrmB&sz=w1000",
     "750140": "https://drive.google.com/thumbnail?id=1_kTrl0rvyjGhct0kGE8xdoxhnrPab2hn&sz=w1000",
     "852800": "https://drive.google.com/thumbnail?id=1Jsrl8St6CViSPI9vCkuR-hsg4iki9WZG&sz=w1000",
     "882280": "https://drive.google.com/thumbnail?id=1pMGmvEH1Y6vbw_iSlLPSgVummQ1KhWqP&sz=w1000"
   };
   const verifiedStoredImageIds = new Set([
-    "811700"
+    "811700",
+    "160040"
   ]);
 
   const removedProductIds = new Set([
