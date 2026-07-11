@@ -36,12 +36,20 @@
 
   const normalize = (value) => String(value || "").replace(/\s+/g, "").toLowerCase();
   const containsAny = (text, keywords) => keywords.some((keyword) => text.includes(keyword));
+  const brandRank = (brand) => fixedBrandRank.has(brand) ? fixedBrandRank.get(brand) : 999;
 
   const paperKeywords = [
     "抽取衛生紙", "抽衛", "平板衛生紙", "平版衛生紙", "廚房紙巾", "廚紙",
     "捲筒衛生紙", "捲衛", "擦手紙", "袖珍面紙", "旅行包", "面紙", "衛生紙"
   ];
   const beautyKeywords = ["洗臉巾", "卸妝棉", "潔顏巾", "旅行毛巾", "旅行浴巾", "毛巾", "浴巾"];
+
+  const normalizeBrandGroups = () => {
+    app.state.products = app.state.products.map((product) => {
+      const group = brandGroups.find(({ brands }) => brands.has(product.brand));
+      return group ? { ...product, brand: group.label } : product;
+    });
+  };
 
   const workflowGroup = (product) => {
     const brand = normalize(product.brand);
@@ -52,13 +60,14 @@
     if (containsAny(text, paperKeywords)) return 1;
     if (brand.includes("靠得住") || brand.includes("護得住")) return 2;
     if (brand.includes("好奇")) return 3;
-    if (brand.includes("立可潔") || containsAny(text, beautyKeywords) || brand.includes("居居加") || brand.includes("居美媞") || brand.includes("妙妙熊") || brand.includes("鉅瑋")) return 4;
-    if (brand.includes("白蘭") || name.includes("熊寶貝") || name.includes("麗仕")) return 5;
-    if (brand.includes("南僑")) return 6;
-    if (brand.includes("鱷魚") || brand.includes("必安住") || name.includes("紅恐龍") || name.includes("蟑愛呷") || name.includes("蟻愛呷") || name.includes("家能淨")) return 7;
-    if (brand.includes("優品")) return 8;
-    if (brand.includes("清檜")) return 9;
-    if (brand.includes("優生")) return 10;
+    if (brand.includes("立可潔")) return 4;
+    if (containsAny(text, beautyKeywords) || brand.includes("居居加") || brand.includes("居美媞") || brand.includes("妙妙熊") || brand.includes("鉅瑋")) return 5;
+    if (brand.includes("白蘭") || name.includes("熊寶貝") || name.includes("麗仕")) return 6;
+    if (brand.includes("南僑")) return 7;
+    if (brand.includes("鱷魚") || brand.includes("必安住") || name.includes("紅恐龍") || name.includes("蟑愛呷") || name.includes("蟻愛呷") || name.includes("家能淨")) return 8;
+    if (brand.includes("優品")) return 9;
+    if (brand.includes("清檜")) return 10;
+    if (brand.includes("優生")) return 11;
     return 99;
   };
 
@@ -85,7 +94,7 @@
       if (text.includes("棉條")) return 4;
       return 5;
     }
-    if (group === 5) {
+    if (group === 6) {
       if (text.includes("洗衣粉")) return 1;
       if (text.includes("洗衣精")) return 2;
       if (text.includes("護衣精")) return 3;
@@ -94,12 +103,12 @@
       if (text.includes("香皂")) return 6;
       return 9;
     }
-    if (group === 6) {
+    if (group === 7) {
       if (text.includes("肥皂")) return 1;
       if (text.includes("洗衣液體皂")) return 2;
       return 9;
     }
-    if (group === 7 || group === 8 || group === 9) {
+    if (group === 8 || group === 9 || group === 10) {
       if (containsAny(text, ["殺蟲", "蟑螂", "螞蟻", "白蟻", "除蟲"])) return 1;
       if (containsAny(text, ["蚊香", "防蚊", "驅蚊", "電蚊香"])) return 2;
       if (containsAny(text, ["捕鼠", "鼠"])) return 3;
@@ -108,8 +117,6 @@
     }
     return 9;
   };
-
-  const brandRank = (brand) => fixedBrandRank.has(brand) ? fixedBrandRank.get(brand) : 999;
 
   const productComparator = (a, b) => {
     const groupDifference = workflowGroup(a) - workflowGroup(b);
@@ -127,7 +134,10 @@
     return String(a.spec).localeCompare(String(b.spec), "zh-Hant", { numeric: true });
   };
 
-  const refillFilters = () => {
+  const orderedFillFilters = () => {
+    normalizeBrandGroups();
+    app.state.products.sort(productComparator);
+
     const brands = [...new Set(app.state.products.map((product) => product.brand))]
       .sort((a, b) => {
         const rankDifference = brandRank(a) - brandRank(b);
@@ -155,19 +165,19 @@
     });
   };
 
-  const originalInit = app.init;
+  app.fillFilters = orderedFillFilters;
 
+  const originalApplyFilters = app.applyFilters;
+  app.applyFilters = () => {
+    normalizeBrandGroups();
+    app.state.products.sort(productComparator);
+    originalApplyFilters();
+  };
+
+  const originalInit = app.init;
   app.init = async () => {
     await originalInit();
-
-    app.state.products = app.state.products
-      .map((product) => {
-        const group = brandGroups.find(({ brands }) => brands.has(product.brand));
-        return group ? { ...product, brand: group.label } : product;
-      })
-      .sort(productComparator);
-
-    refillFilters();
+    orderedFillFilters();
     app.applyFilters();
     app.updateCartUI();
   };
