@@ -8,7 +8,7 @@
     "name": "唐鑫75%酒精",
     "spec": "4000ml",
     "casePack": 6,
-    "image": "",
+    "image": "images/guoshao/H20010.jpg",
     "active": true
   },
   {
@@ -20,7 +20,7 @@
     "name": "唐鑫75%酒精",
     "spec": "500ml",
     "casePack": 24,
-    "image": "",
+    "image": "images/guoshao/H20020.jpg",
     "active": true
   },
   {
@@ -32,7 +32,7 @@
     "name": "唐鑫75%酒精（附噴頭）",
     "spec": "500ml",
     "casePack": 24,
-    "image": "",
+    "image": "images/guoshao/H20030.jpg",
     "active": true
   },
   {
@@ -44,7 +44,7 @@
     "name": "水滴貝貝超厚純水柔濕巾",
     "spec": "80抽",
     "casePack": 24,
-    "image": "",
+    "image": "images/guoshao/H22010.jpg",
     "active": true
   },
   {
@@ -56,7 +56,7 @@
     "name": "克司博廚房去污抗菌濕巾",
     "spec": "60抽",
     "casePack": 24,
-    "image": "",
+    "image": "images/guoshao/H22030.jpg",
     "active": true
   },
   {
@@ -68,7 +68,7 @@
     "name": "克司博純水濕巾（含蓋）",
     "spec": "90抽",
     "casePack": 24,
-    "image": "",
+    "image": "images/guoshao/H22040.jpg",
     "active": true
   }
 ]
