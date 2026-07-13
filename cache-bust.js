@@ -22,8 +22,10 @@
 
     if (/^products\.json(?:\?|$)/.test(rawUrl)) {
       const requestOptions = { ...init, cache: "reload" };
-      const [productsResponse, wetWipesResponse, guoshaoResponse, crocodileResponse] = await Promise.all([
+      const [productsResponse, yushengResponse, savlonResponse, wetWipesResponse, guoshaoResponse, crocodileResponse] = await Promise.all([
         originalFetch(withVersion("products.json"), requestOptions),
+        originalFetch(withVersion("yusheng-products.json"), requestOptions),
+        originalFetch(withVersion("savlon-products.json"), requestOptions),
         originalFetch(withVersion("wet-wipes.json"), requestOptions),
         originalFetch(withVersion("guoshao-products.json"), requestOptions),
         originalFetch(withVersion("crocodile-products.json"), requestOptions)
@@ -32,9 +34,21 @@
       if (!productsResponse.ok) return productsResponse;
 
       const products = await productsResponse.json();
+      let yusheng = [];
+      let savlon = [];
       let wetWipes = [];
       let guoshao = [];
       let crocodile = [];
+
+      if (yushengResponse.ok) {
+        const data = await yushengResponse.json();
+        if (Array.isArray(data)) yusheng = data;
+      }
+
+      if (savlonResponse.ok) {
+        const data = await savlonResponse.json();
+        if (Array.isArray(data)) savlon = data;
+      }
 
       if (wetWipesResponse.ok) {
         const data = await wetWipesResponse.json();
@@ -54,6 +68,8 @@
       const seen = new Set();
       const combined = [
         ...(Array.isArray(products) ? products : []),
+        ...yusheng,
+        ...savlon,
         ...wetWipes,
         ...guoshao,
         ...crocodile
@@ -78,7 +94,7 @@
       });
     }
 
-    if (/^(wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|image-data\/)/.test(rawUrl)) {
+    if (/^(yusheng-products\.json|savlon-products\.json|wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|image-data\/)/.test(rawUrl)) {
       return originalFetch(withVersion(rawUrl), {
         ...init,
         cache: "reload"
