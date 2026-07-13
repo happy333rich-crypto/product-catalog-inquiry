@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6d9278">
+  <title>自動報價｜產品電子型錄</title>
+  <script src="cache-bust.js?v=20260713-quote" defer></script>
+  <script src="quotation.js?v=20260713-quote" defer></script>
+  <style>
+    :root { --green:#244333; --line:#dce3de; --muted:#657269; --cream:#faf8f2; --orange:#f4a688; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--cream); color:#1f2a24; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif; line-height:1.5; }
+    header, main { max-width:1120px; margin:0 auto; padding:18px; }
+    header { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    h1 { margin:0; font-size:1.5rem; }
+    a { color:var(--green); font-weight:700; }
+    .panel { background:#fff; border:1px solid var(--line); border-radius:18px; padding:16px; margin-bottom:16px; box-shadow:0 10px 28px rgba(37,65,50,.07); }
+    .quote-info { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    label { display:grid; gap:6px; color:var(--green); font-size:.86rem; font-weight:700; }
+    input, textarea { width:100%; min-height:42px; border:1px solid var(--line); border-radius:10px; padding:9px 10px; font:inherit; background:#fbfcfb; }
+    textarea { min-height:76px; resize:vertical; }
+    .full { grid-column:1/-1; }
+    .search-layout { display:grid; grid-template-columns:360px 1fr; gap:16px; align-items:start; }
+    .result-list { display:grid; gap:8px; max-height:520px; overflow:auto; }
+    .result-row { text-align:left; border:1px solid var(--line); background:#fff; border-radius:12px; padding:10px; cursor:pointer; display:grid; gap:3px; }
+    .result-row:hover { border-color:var(--green); }
+    .result-row strong { color:var(--green); }
+    .result-row span, .result-row small { overflow-wrap:anywhere; }
+    .result-row small { color:var(--muted); }
+    table { width:100%; border-collapse:collapse; background:#fff; }
+    th, td { border-bottom:1px solid var(--line); padding:9px; text-align:left; vertical-align:top; }
+    th { color:var(--green); font-size:.84rem; }
+    td input { min-height:34px; max-width:92px; }
+    .actions { display:flex; justify-content:flex-end; gap:10px; align-items:center; margin-top:14px; }
+    button { border:0; border-radius:10px; padding:10px 14px; font:inherit; font-weight:800; cursor:pointer; }
+    .primary { background:var(--orange); color:#4f2415; }
+    .secondary { background:#dce9df; color:var(--green); }
+    .total { font-size:1.2rem; font-weight:900; color:var(--green); }
+    .print-title { display:none; }
+    @media (max-width:760px) {
+      header { align-items:flex-start; flex-direction:column; }
+      .quote-info, .search-layout { grid-template-columns:1fr; }
+      .panel { border-radius:14px; padding:12px; }
+      table { display:block; overflow-x:auto; white-space:nowrap; }
+      th, td { padding:8px; }
+    }
+    @media print {
+      @page { size:A4; margin:12mm; }
+      body { background:#fff; }
+      header, .search-panel, .no-print { display:none !important; }
+      main { max-width:none; padding:0; }
+      .panel { box-shadow:none; border:0; padding:0; margin:0 0 10mm; }
+      .print-title { display:block; margin:0 0 8mm; text-align:center; }
+      input, textarea { border:0; padding:0; min-height:auto; }
+      table { font-size:10.5pt; }
+      th, td { padding:5px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="no-print">
+    <div>
+      <h1>自動報價 MVP</h1>
+      <div>從目前商品資料搜尋，加入報價並列印成 A4 / PDF。</div>
+    </div>
+    <a href="index.html">回商品型錄</a>
+  </header>
+
+  <main>
+    <h1 class="print-title">商品報價單</h1>
+
+    <section class="panel quote-info" aria-label="報價資料">
+      <label>客戶名稱<input id="customerName" type="text" placeholder="請輸入客戶名稱"></label>
+      <label>報價日期<input id="quoteDate" type="date"></label>
+      <label>業務姓名<input id="salesName" type="text" placeholder="請輸入業務姓名"></label>
+      <label class="full">備註<textarea id="note" placeholder="可輸入交期、活動條件或其他說明"></textarea></label>
+    </section>
+
+    <section class="search-layout">
+      <div class="panel search-panel no-print">
+        <label>搜尋商品<input id="quoteSearch" type="search" placeholder="輸入 SKU、品牌或品名"></label>
+        <div id="searchResults" class="result-list" aria-live="polite"></div>
+      </div>
+
+      <div class="panel">
+        <table>
+          <thead>
+            <tr>
+              <th>SKU</th>
+              <th>品名</th>
+              <th>箱入數</th>
+              <th>數量</th>
+              <th>單價</th>
+              <th>建議售價</th>
+              <th>小計</th>
+              <th class="no-print">操作</th>
+            </tr>
+          </thead>
+          <tbody id="quoteBody"></tbody>
+        </table>
+        <div class="actions">
+          <button id="clearQuote" class="secondary no-print" type="button">清空報價</button>
+          <span class="total">總金額：<span id="quoteTotal">$0</span></span>
+          <button id="printQuote" class="primary no-print" type="button">列印 / 另存 PDF</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
