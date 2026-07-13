@@ -40,6 +40,27 @@ window.CatalogApp = {
   const PRODUCT_NAME_OVERRIDES = {
     E14094: "春風三層絲嵐抽取衛生紙"
   };
+  const BRAND_GROUP_ORDER = [
+    ["舒潔"],
+    ["可麗舒", "可立雅"],
+    ["春風"],
+    ["蒲公英"],
+    ["原萃"],
+    ["靠得住"],
+    ["好奇"],
+    ["力可潔"],
+    ["居居加", "居美媞", "妙妙熊", "鉅瑋", "居美媞/居居加/妙妙熊/鉅瑋"],
+    ["白蘭", "熊寶貝", "麗仕"],
+    ["南僑"],
+    ["鱷魚", "必安住"],
+    ["優品"],
+    ["清檜"],
+    ["優生"],
+    ["沙威隆"],
+    ["六禾"],
+    ["汪汪寶貝"],
+    ["唐鑫"]
+  ];
 
   app.loadJSON = (key, fallback) => {
     try {
@@ -67,6 +88,39 @@ window.CatalogApp = {
     app.el.toast.classList.add("show");
     app.toastTimer = setTimeout(() => app.el.toast.classList.remove("show"), 2600);
   };
+
+  app.normalizeText = (value) => String(value ?? "")
+    .normalize("NFKC")
+    .replace(/\s+/g, "")
+    .toLowerCase();
+
+  app.moneyValue = (value) => {
+    const numeric = Number(value);
+    return Number.isFinite(numeric) && numeric > 0 ? numeric : null;
+  };
+
+  app.priceLabel = (value) => {
+    const numeric = app.moneyValue(value);
+    return numeric === null ? "待確認" : `$${numeric}`;
+  };
+
+  app.lineSubtotal = (product, quantity) => {
+    const price = app.moneyValue(product?.taxPrice);
+    return price === null ? null : price * app.clampQuantity(quantity);
+  };
+
+  app.brandOrderIndex = (brand) => {
+    const normalized = app.normalizeText(brand);
+    const index = BRAND_GROUP_ORDER.findIndex((group) =>
+      group.some((item) => normalized.includes(app.normalizeText(item)))
+    );
+    return index === -1 ? 999 : index;
+  };
+
+  app.sortBrands = (brands) => brands.sort((a, b) => {
+    const orderDiff = app.brandOrderIndex(a) - app.brandOrderIndex(b);
+    return orderDiff || a.localeCompare(b, "zh-Hant");
+  });
 
   app.cacheElements = () => {
     app.el = {
@@ -158,7 +212,7 @@ window.CatalogApp = {
 
   app.bindCatalogEvents = () => {
     app.el.search.addEventListener("input", (event) => {
-      app.state.filters.search = event.target.value.trim().toLowerCase();
+      app.state.filters.search = app.normalizeText(event.target.value);
       app.applyFilters();
     });
     app.el.brand.addEventListener("change", (event) => {
@@ -175,8 +229,10 @@ window.CatalogApp = {
   };
 
   app.fillFilters = () => {
-    const unique = (key) => [...new Set(app.state.products.map((p) => p[key]))]
-      .sort((a, b) => a.localeCompare(b, "zh-Hant"));
+    const unique = (key) => {
+      const values = [...new Set(app.state.products.map((p) => p[key]).filter(Boolean))];
+      return key === "brand" ? app.sortBrands(values) : values.sort((a, b) => a.localeCompare(b, "zh-Hant"));
+    };
     [[app.el.brand, unique("brand")], [app.el.category, unique("category")]].forEach(([select, values]) => {
       values.forEach((value) => {
         const option = document.createElement("option");
@@ -190,7 +246,15 @@ window.CatalogApp = {
   app.applyFilters = () => {
     const { search, brand, category } = app.state.filters;
     app.state.filtered = app.state.products.filter((product) => {
-      const haystack = `${product.name} ${product.sku} ${product.barcode}`.toLowerCase();
+      const haystack = app.normalizeText([
+        product.id,
+        product.sku,
+        product.barcode,
+        product.brand,
+        product.category,
+        product.name,
+        product.spec
+      ].join(" "));
       return (!search || haystack.includes(search)) &&
         (!brand || product.brand === brand) &&
         (!category || product.category === category);
