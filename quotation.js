@@ -13,8 +13,17 @@
     const numeric = Number(value);
     return Number.isFinite(numeric) && numeric > 0 ? numeric : null;
   };
+  const editablePriceValue = (value) => {
+    if (value === "" || value === null || value === undefined) return null;
+    const numeric = Number(value);
+    return Number.isFinite(numeric) && numeric >= 0 ? numeric : null;
+  };
   const moneyLabel = (value) => {
     const numeric = moneyValue(value);
+    return numeric === null ? "待確認" : `$${numeric}`;
+  };
+  const editableMoneyLabel = (value) => {
+    const numeric = editablePriceValue(value);
     return numeric === null ? "待確認" : `$${numeric}`;
   };
   const clampQuantity = (value) => {
@@ -87,21 +96,43 @@
     });
   };
 
-  const renderQuote = () => {
+  const updateQuoteTotals = () => {
     const tbody = $("#quoteBody");
-    tbody.replaceChildren();
     let total = 0;
     let hasUnknown = false;
 
     state.quoteItems.forEach((item) => {
-      const product = getQuoteProduct(item);
-      const unitPrice = moneyValue(item.unitPrice);
       const quantity = clampQuantity(item.quantity);
+      const unitPrice = editablePriceValue(item.unitPrice);
       const subtotal = unitPrice === null ? null : unitPrice * quantity;
+      item.quantity = quantity;
+      item.unitPrice = unitPrice;
+
       if (subtotal === null) hasUnknown = true;
       else total += subtotal;
 
+      const row = Array.from(tbody.querySelectorAll("tr[data-product-id]")).find((node) => node.dataset.productId === item.productId);
+      if (!row) return;
+      row.querySelector("[data-line-subtotal]").textContent = subtotal === null ? "待確認" : `$${subtotal}`;
+    });
+
+    $("#quoteTotal").textContent = hasUnknown ? `$${total}（部分品項價格待確認）` : `$${total}`;
+  };
+
+  const renderQuote = () => {
+    const tbody = $("#quoteBody");
+    tbody.replaceChildren();
+
+    state.quoteItems.forEach((item) => {
+      const product = getQuoteProduct(item);
+      const unitPrice = editablePriceValue(item.unitPrice);
+      const quantity = clampQuantity(item.quantity);
+      const subtotal = unitPrice === null ? null : unitPrice * quantity;
+      item.quantity = quantity;
+      item.unitPrice = unitPrice;
+
       const tr = document.createElement("tr");
+      tr.dataset.productId = item.productId;
       tr.innerHTML = `
         <td>${product.sku || product.id}</td>
         <td>${product.name}</td>
@@ -109,27 +140,39 @@
         <td><input type="number" min="1" value="${quantity}" data-qty="${item.productId}"></td>
         <td><input type="number" min="0" value="${unitPrice ?? ""}" placeholder="待確認" data-price="${item.productId}"></td>
         <td>${moneyLabel(product.suggestedPrice)}</td>
-        <td>${subtotal === null ? "待確認" : `$${subtotal}`}</td>
+        <td data-line-subtotal>${subtotal === null ? "待確認" : `$${subtotal}`}</td>
         <td class="no-print"><button type="button" data-remove="${item.productId}">刪除</button></td>
       `;
       tbody.appendChild(tr);
     });
 
-    $("#quoteTotal").textContent = hasUnknown ? `$${total}（另有待確認）` : `$${total}`;
+    updateQuoteTotals();
+
     tbody.querySelectorAll("[data-qty]").forEach((input) => {
-      input.addEventListener("change", () => {
+      const updateQuantity = () => {
         const item = state.quoteItems.find((entry) => entry.productId === input.dataset.qty);
-        if (item) item.quantity = clampQuantity(input.value);
+        if (!item) return;
+        item.quantity = clampQuantity(input.value);
+        input.value = String(item.quantity);
         save();
-        renderQuote();
-      });
+        updateQuoteTotals();
+      };
+      input.addEventListener("input", updateQuantity);
+      input.addEventListener("change", updateQuantity);
     });
     tbody.querySelectorAll("[data-price]").forEach((input) => {
-      input.addEventListener("change", () => {
+      const updatePrice = () => {
         const item = state.quoteItems.find((entry) => entry.productId === input.dataset.price);
-        if (item) item.unitPrice = moneyValue(input.value);
+        if (!item) return;
+        item.unitPrice = editablePriceValue(input.value);
         save();
-        renderQuote();
+        updateQuoteTotals();
+      };
+      input.addEventListener("input", updatePrice);
+      input.addEventListener("change", () => {
+        updatePrice();
+        const item = state.quoteItems.find((entry) => entry.productId === input.dataset.price);
+        input.value = item?.unitPrice === null || item?.unitPrice === undefined ? "" : String(item.unitPrice);
       });
     });
     tbody.querySelectorAll("[data-remove]").forEach((button) => {
