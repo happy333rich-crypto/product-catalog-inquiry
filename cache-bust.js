@@ -22,12 +22,13 @@
 
     if (/^products\.json(?:\?|$)/.test(rawUrl)) {
       const requestOptions = { ...init, cache: "reload" };
-      const [productsResponse, yushengResponse, savlonResponse, unileverResponse, liuheResponse, wetWipesResponse, guoshaoResponse, crocodileResponse] = await Promise.all([
+      const [productsResponse, yushengResponse, savlonResponse, unileverResponse, liuheResponse, wangwangResponse, wetWipesResponse, guoshaoResponse, crocodileResponse] = await Promise.all([
         originalFetch(withVersion("products.json"), requestOptions),
         originalFetch(withVersion("yusheng-products.json"), requestOptions),
         originalFetch(withVersion("savlon-products.json"), requestOptions),
         originalFetch(withVersion("unilever-products.json"), requestOptions),
         originalFetch(withVersion("liuhe-products.json"), requestOptions),
+        originalFetch(withVersion("wangwang-products.json"), requestOptions),
         originalFetch(withVersion("wet-wipes.json"), requestOptions),
         originalFetch(withVersion("guoshao-products.json"), requestOptions),
         originalFetch(withVersion("crocodile-products.json"), requestOptions)
@@ -40,6 +41,7 @@
       let savlon = [];
       let unilever = [];
       let liuhe = [];
+      let wangwang = [];
       let wetWipes = [];
       let guoshao = [];
       let crocodile = [];
@@ -64,6 +66,11 @@
         if (Array.isArray(data)) liuhe = data;
       }
 
+      if (wangwangResponse.ok) {
+        const data = await wangwangResponse.json();
+        if (Array.isArray(data)) wangwang = data;
+      }
+
       if (wetWipesResponse.ok) {
         const data = await wetWipesResponse.json();
         if (Array.isArray(data)) wetWipes = data;
@@ -86,6 +93,7 @@
         ...savlon,
         ...unilever,
         ...liuhe,
+        ...wangwang,
         ...wetWipes,
         ...guoshao,
         ...crocodile
@@ -110,7 +118,7 @@
       });
     }
 
-    if (/^(yusheng-products\.json|savlon-products\.json|unilever-products\.json|liuhe-products\.json|wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|image-data\/)/.test(rawUrl)) {
+    if (/^(yusheng-products\.json|savlon-products\.json|unilever-products\.json|liuhe-products\.json|wangwang-products\.json|wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|image-data\/)/.test(rawUrl)) {
       return originalFetch(withVersion(rawUrl), {
         ...init,
         cache: "reload"
