@@ -68,9 +68,19 @@
       return;
     }
 
-    const lines = entries.map(({ product, quantity }, index) =>
-      `${index + 1}. ${product.name}｜${product.spec}｜數量 ${quantity} 箱`
-    );
+    const lines = entries.map(({ product, quantity }, index) => {
+      const subtotal = app.lineSubtotal(product, quantity);
+      return [
+        `${index + 1}. SKU：${product.sku || product.id}`,
+        `品名：${product.name}`,
+        `規格：${product.spec}`,
+        `單價：${app.priceLabel(product.taxPrice)}`,
+        `建議售價：${app.priceLabel(product.suggestedPrice)}`,
+        `箱入數：${product.casePack || "待確認"}`,
+        `數量：${quantity}`,
+        `小計：${subtotal === null ? "待確認" : `$${subtotal}`}`
+      ].join("｜");
+    });
     app.el.generatedText.value = [
       "【產品詢價】",
       `店家名稱：${customer.storeName}`,
@@ -104,47 +114,5 @@
     }
   };
 
-  const originalInit = app.init;
-  app.init = async () => {
-    await originalInit();
-
-    try {
-      const response = await fetch("wet-wipes.json?v=20260706-3", { cache: "no-store" });
-      if (!response.ok) throw new Error(`濕巾資料讀取失敗（${response.status}）`);
-
-      const additions = await response.json();
-      if (!Array.isArray(additions)) throw new Error("wet-wipes.json 格式不正確");
-
-      const merged = new Map(app.state.products.map((product) => [product.id, product]));
-      additions
-        .filter((product) => product && product.active === true && product.id)
-        .forEach((product) => merged.set(product.id, product));
-
-      app.state.products = [...merged.values()];
-
-      [app.el.brand, app.el.category].forEach((select) => {
-        while (select.options.length > 1) select.remove(1);
-      });
-
-      app.fillFilters();
-      app.applyFilters();
-      app.updateCartUI();
-    } catch (error) {
-      console.error(error);
-      app.showToast("濕巾資料暫時無法載入");
-    }
-  };
-
-  const loadYouPinAddon = () => new Promise((resolve) => {
-    const script = document.createElement("script");
-    script.src = "you-pin-addon.js?v=20260706-3";
-    script.onload = resolve;
-    script.onerror = () => {
-      console.error("優品擴充功能載入失敗");
-      resolve();
-    };
-    document.head.appendChild(script);
-  });
-
-  loadYouPinAddon().then(() => app.init());
+  app.init();
 })();
