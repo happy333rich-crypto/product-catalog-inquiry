@@ -1,0 +1,165 @@
+{
+  "generatedAt": "2026-07-13T00:00:00+08:00",
+  "basis": "remote-main-json-and-loader-inspection",
+  "remoteMainKnownCommitBeforeAudit": "abb036eadc6b34ddb973272102439e09559e5107",
+  "loadedSources": [
+    "products.json",
+    "yusheng-products.json",
+    "savlon-products.json",
+    "unilever-products.json",
+    "liuhe-products.json",
+    "wangwang-products.json",
+    "namchow-products.json",
+    "qinghui-products.json",
+    "wet-wipes.json",
+    "guoshao-products.json",
+    "crocodile-products.json",
+    "juwei-products.json",
+    "you-pin-products.json"
+  ],
+  "summary": {
+    "safeAutoFixApplied": false,
+    "reason": "This stage is audit-only except clearly safe format fixes. Price, barcode, SKU and product validity issues were reported only.",
+    "imageUploadSkipped": true,
+    "imageUploadReason": "Binary image upload remains out of scope for this stage. Existing pending image manifest is preserved locally only."
+  },
+  "loaderFindings": [
+    {
+      "severity": "medium",
+      "type": "duplicate-loader-path",
+      "detail": "wet-wipes.json is merged inside cache-bust.js and then loaded again in inquiry.js. Runtime Map merge prevents duplicate rows by id, but same SKU data can be overwritten by later load order.",
+      "affectedFiles": ["cache-bust.js", "inquiry.js", "wet-wipes.json"],
+      "safeToAutoFix": true,
+      "recommendedAction": "Remove redundant wet-wipes merge from inquiry.js after confirming cache-bust.js is always loaded before script.js."
+    },
+    {
+      "severity": "medium",
+      "type": "duplicate-loader-path",
+      "detail": "crocodile-products.json is merged inside cache-bust.js and then loaded again by crocodile-addon.js. Runtime Map merge prevents duplicate rows by id, but it is redundant and can cause stale overwrite risk.",
+      "affectedFiles": ["cache-bust.js", "crocodile-addon.js", "crocodile-products.json"],
+      "safeToAutoFix": true,
+      "recommendedAction": "Disable redundant crocodile addon loading or remove crocodile from cache-bust merge, keeping only one official load path."
+    },
+    {
+      "severity": "medium",
+      "type": "duplicate-script-load",
+      "detail": "you-pin-addon.js is included by index.html and also dynamically injected by inquiry.js. This can wrap app.init more than once and reload you-pin-products.json redundantly.",
+      "affectedFiles": ["index.html", "inquiry.js", "you-pin-addon.js"],
+      "safeToAutoFix": true,
+      "recommendedAction": "Keep index.html script tag and remove dynamic injection from inquiry.js."
+    },
+    {
+      "severity": "low",
+      "type": "actual-loaded-json-not-in-cache-bust",
+      "detail": "juwei-products.json and you-pin-products.json are loaded by addon scripts, not by cache-bust.js product merge. They are still actual runtime sources and must be included in audits.",
+      "affectedFiles": ["juwei-addon.js", "you-pin-addon.js"],
+      "safeToAutoFix": false,
+      "recommendedAction": "Leave as-is unless consolidating all product sources in one loader."
+    }
+  ],
+  "skuOverlapFindings": [
+    {
+      "severity": "medium",
+      "sku": "I03250",
+      "sources": ["yusheng-products.json", "wet-wipes.json"],
+      "detail": "Same SKU exists in full Yusheng catalog and wet-wipes add-on. Later load order may overwrite name/category/spec/image fields.",
+      "recommendedAction": "Keep one canonical source or ensure identical fields before allowing overwrite. Do not change price/barcode without source confirmation."
+    },
+    {
+      "severity": "medium",
+      "sku": "L54110",
+      "sources": ["savlon-products.json", "wet-wipes.json"],
+      "detail": "Same SKU exists in full Savlon catalog and wet-wipes add-on. Later load order may overwrite name/category/spec/image fields.",
+      "recommendedAction": "Keep one canonical source or ensure identical fields before allowing overwrite. Do not change price/barcode without source confirmation."
+    }
+  ],
+  "inactiveProductFindings": [
+    {
+      "severity": "info",
+      "sku": "843070",
+      "source": "products.json",
+      "status": "active_false_and_filtered_by_cache_bust_removedProductIds",
+      "detail": "舒潔 ufufy 濕式面紙 remains in source as inactive and is filtered from runtime display."
+    },
+    {
+      "severity": "info",
+      "sku": "841870",
+      "source": "products.json",
+      "status": "active_false_and_filtered_by_cache_bust_removedProductIds",
+      "detail": "舒潔淨99抗菌濕巾 remains in source as inactive and is filtered from runtime display."
+    },
+    {
+      "severity": "info",
+      "sku": "890180",
+      "source": "products.json",
+      "status": "active_false_and_filtered_by_cache_bust_removedProductIds",
+      "detail": "舒潔食品級摺疊紙巾 150張×2入 remains in source as inactive and is filtered from runtime display."
+    }
+  ],
+  "manualReviewFindings": [
+    {
+      "severity": "high",
+      "type": "suggested-price-zero",
+      "source": "yusheng-products.json",
+      "skus": ["I30310", "I30320", "I30330", "I30340", "I30350", "I30360", "I30380", "I30390", "I30395", "I99000"],
+      "detail": "Suggested price is 0. This may be intentional for display items or missing pricing. Not auto-fixed."
+    },
+    {
+      "severity": "high",
+      "type": "tax-price-zero",
+      "source": "yusheng-products.json",
+      "skus": ["I99000"],
+      "detail": "Tax price is 0. This may be a display fixture. Not auto-fixed."
+    },
+    {
+      "severity": "high",
+      "type": "suggested-price-zero-and-tax-price-zero",
+      "source": "savlon-products.json",
+      "skus": ["LLL014"],
+      "detail": "Suggested price and tax price are 0. This may be a display fixture. Not auto-fixed."
+    },
+    {
+      "severity": "medium",
+      "type": "barcode-non-numeric",
+      "source": "yusheng-products.json",
+      "skus": ["I99000"],
+      "detail": "Barcode equals SKU, not a standard numeric barcode. Not auto-fixed."
+    },
+    {
+      "severity": "medium",
+      "type": "barcode-non-numeric",
+      "source": "savlon-products.json",
+      "skus": ["LLL014"],
+      "detail": "Barcode equals SKU, not a standard numeric barcode. Not auto-fixed."
+    }
+  ],
+  "brandDisplayGroupsRecommended": [
+    ["舒潔"],
+    ["可麗舒", "可立雅"],
+    ["春風"],
+    ["蒲公英"],
+    ["原萃"],
+    ["靠得住"],
+    ["好奇"],
+    ["力可潔"],
+    ["居居加", "居美媞", "妙妙熊", "鉅瑋", "居美媞/居居加/妙妙熊/鉅瑋"],
+    ["白蘭", "熊寶貝", "麗仕"],
+    ["南僑"],
+    ["鱷魚", "必安住"],
+    ["優品"],
+    ["清檜"],
+    ["優生"],
+    ["沙威隆"],
+    ["六禾"],
+    ["汪汪寶貝"],
+    ["唐鑫"]
+  ],
+  "doNotAutoChange": [
+    "price",
+    "suggestedPrice",
+    "barcode",
+    "sku",
+    "product validity",
+    "image assignment that requires package visual judgment"
+  ]
+}
