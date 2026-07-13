@@ -22,10 +22,11 @@
 
     if (/^products\.json(?:\?|$)/.test(rawUrl)) {
       const requestOptions = { ...init, cache: "reload" };
-      const [productsResponse, yushengResponse, savlonResponse, wetWipesResponse, guoshaoResponse, crocodileResponse] = await Promise.all([
+      const [productsResponse, yushengResponse, savlonResponse, unileverResponse, wetWipesResponse, guoshaoResponse, crocodileResponse] = await Promise.all([
         originalFetch(withVersion("products.json"), requestOptions),
         originalFetch(withVersion("yusheng-products.json"), requestOptions),
         originalFetch(withVersion("savlon-products.json"), requestOptions),
+        originalFetch(withVersion("unilever-products.json"), requestOptions),
         originalFetch(withVersion("wet-wipes.json"), requestOptions),
         originalFetch(withVersion("guoshao-products.json"), requestOptions),
         originalFetch(withVersion("crocodile-products.json"), requestOptions)
@@ -36,6 +37,7 @@
       const products = await productsResponse.json();
       let yusheng = [];
       let savlon = [];
+      let unilever = [];
       let wetWipes = [];
       let guoshao = [];
       let crocodile = [];
@@ -48,6 +50,11 @@
       if (savlonResponse.ok) {
         const data = await savlonResponse.json();
         if (Array.isArray(data)) savlon = data;
+      }
+
+      if (unileverResponse.ok) {
+        const data = await unileverResponse.json();
+        if (Array.isArray(data)) unilever = data;
       }
 
       if (wetWipesResponse.ok) {
@@ -70,6 +77,7 @@
         ...(Array.isArray(products) ? products : []),
         ...yusheng,
         ...savlon,
+        ...unilever,
         ...wetWipes,
         ...guoshao,
         ...crocodile
@@ -94,7 +102,7 @@
       });
     }
 
-    if (/^(yusheng-products\.json|savlon-products\.json|wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|image-data\/)/.test(rawUrl)) {
+    if (/^(yusheng-products\.json|savlon-products\.json|unilever-products\.json|wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|image-data\/)/.test(rawUrl)) {
       return originalFetch(withVersion(rawUrl), {
         ...init,
         cache: "reload"
