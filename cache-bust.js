@@ -22,13 +22,14 @@
 
     if (/^products\.json(?:\?|$)/.test(rawUrl)) {
       const requestOptions = { ...init, cache: "reload" };
-      const [productsResponse, yushengResponse, savlonResponse, unileverResponse, liuheResponse, wangwangResponse, wetWipesResponse, guoshaoResponse, crocodileResponse] = await Promise.all([
+      const [productsResponse, yushengResponse, savlonResponse, unileverResponse, liuheResponse, wangwangResponse, namchowResponse, wetWipesResponse, guoshaoResponse, crocodileResponse] = await Promise.all([
         originalFetch(withVersion("products.json"), requestOptions),
         originalFetch(withVersion("yusheng-products.json"), requestOptions),
         originalFetch(withVersion("savlon-products.json"), requestOptions),
         originalFetch(withVersion("unilever-products.json"), requestOptions),
         originalFetch(withVersion("liuhe-products.json"), requestOptions),
         originalFetch(withVersion("wangwang-products.json"), requestOptions),
+        originalFetch(withVersion("namchow-products.json"), requestOptions),
         originalFetch(withVersion("wet-wipes.json"), requestOptions),
         originalFetch(withVersion("guoshao-products.json"), requestOptions),
         originalFetch(withVersion("crocodile-products.json"), requestOptions)
@@ -42,6 +43,7 @@
       let unilever = [];
       let liuhe = [];
       let wangwang = [];
+      let namchow = [];
       let wetWipes = [];
       let guoshao = [];
       let crocodile = [];
@@ -71,6 +73,11 @@
         if (Array.isArray(data)) wangwang = data;
       }
 
+      if (namchowResponse.ok) {
+        const data = await namchowResponse.json();
+        if (Array.isArray(data)) namchow = data;
+      }
+
       if (wetWipesResponse.ok) {
         const data = await wetWipesResponse.json();
         if (Array.isArray(data)) wetWipes = data;
@@ -94,6 +101,7 @@
         ...unilever,
         ...liuhe,
         ...wangwang,
+        ...namchow,
         ...wetWipes,
         ...guoshao,
         ...crocodile
@@ -118,7 +126,7 @@
       });
     }
 
-    if (/^(yusheng-products\.json|savlon-products\.json|unilever-products\.json|liuhe-products\.json|wangwang-products\.json|wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|image-data\/)/.test(rawUrl)) {
+    if (/^(yusheng-products\.json|savlon-products\.json|unilever-products\.json|liuhe-products\.json|wangwang-products\.json|namchow-products\.json|wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|image-data\/)/.test(rawUrl)) {
       return originalFetch(withVersion(rawUrl), {
         ...init,
         cache: "reload"
