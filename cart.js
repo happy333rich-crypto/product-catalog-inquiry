@@ -107,9 +107,17 @@
     entries.forEach(({ product, quantity }) => {
       const item = app.el.cartTemplate.content.firstElementChild.cloneNode(true);
       const input = item.querySelector(".quantity-input");
+      const subtotal = app.lineSubtotal(product, quantity);
       item.querySelector(".cart-item-brand").textContent = product.brand;
       item.querySelector(".cart-item-name").textContent = product.name;
-      item.querySelector(".cart-item-spec").textContent = `${product.spec}｜箱入數 ${product.casePack}`;
+      item.querySelector(".cart-item-spec").textContent = [
+        `SKU ${product.sku || product.id}`,
+        product.spec,
+        `單價 ${app.priceLabel(product.taxPrice)}`,
+        `建議售價 ${app.priceLabel(product.suggestedPrice)}`,
+        `箱入數 ${product.casePack || "待確認"}`,
+        `小計 ${subtotal === null ? "待確認" : `$${subtotal}`}`
+      ].join("｜");
       input.value = String(quantity);
       item.querySelector(".minus-button").addEventListener("click", () => app.setQuantity(product.id, quantity - 1));
       item.querySelector(".plus-button").addEventListener("click", () => app.setQuantity(product.id, quantity + 1));
