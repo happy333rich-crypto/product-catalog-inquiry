@@ -129,7 +129,7 @@
       await loadYouPinSprite();
       app.applyFilters();
     } catch (error) {
-      console.error(error);
+      console.warn("優品商品圖片暫時無法載入", error);
       app.showToast("優品商品已載入，部分圖片稍後補上");
     }
   };
