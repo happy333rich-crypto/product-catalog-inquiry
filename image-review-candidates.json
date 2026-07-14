@@ -1,0 +1,457 @@
+{
+    "generatedAt":  "2026-07-14T23:48:45+08:00",
+    "purpose":  "僅供人工確認；所有項目均未自動套圖。",
+    "candidateCount":  45,
+    "candidates":  [
+                       {
+                           "sku":  "721020",
+                           "brand":  "可麗舒",
+                           "productName":  "可麗舒抽取衛生紙",
+                           "productSpec":  "100抽×10包",
+                           "candidateImageFilename":  "可麗舒抽取衛生紙100抽24包.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-金百利家用紙品\\可麗舒抽取衛生紙100抽24包.JPG",
+                           "differenceReason":  "候選為100抽×24包，正式規格為100抽×10包。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "721510",
+                           "brand":  "可麗舒",
+                           "productName":  "可麗舒三層柔厚抽取衛生紙",
+                           "productSpec":  "100抽×10包",
+                           "candidateImageFilename":  "可麗舒三層柔厚抽取衛生紙100抽24包 3串.PNG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-金百利家用紙品\\可麗舒三層柔厚抽取衛生紙100抽24包 3串.PNG",
+                           "differenceReason":  "候選為100抽×24包，正式規格為100抽×10包。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "817580",
+                           "brand":  "舒潔",
+                           "productName":  "舒潔雲絨抽取衛生紙",
+                           "productSpec":  "90抽×8包",
+                           "candidateImageFilename":  "舒潔迪士尼雲絨抽衛90抽8包 8串(83057).JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-金百利家用紙品\\舒潔迪士尼雲絨抽衛90抽8包 8串(83057).JPG",
+                           "differenceReason":  "候選為迪士尼款，正式品名未標示迪士尼。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "882280",
+                           "brand":  "舒潔",
+                           "productName":  "舒潔拋棄式抹布",
+                           "productSpec":  "45張×2入",
+                           "candidateImageFilename":  "舒潔拋棄式抹布.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-金百利家用紙品\\舒潔拋棄式抹布.JPG",
+                           "differenceReason":  "候選檔未標示45張×2入。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "820830",
+                           "brand":  "舒潔",
+                           "productName":  "舒潔捲筒衛生紙",
+                           "productSpec":  "300張×6捲",
+                           "candidateImageFilename":  "舒潔棉柔捲筒衛生紙.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-金百利家用紙品\\舒潔棉柔捲筒衛生紙.JPG",
+                           "differenceReason":  "候選檔未標示300張×6捲。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "900130",
+                           "brand":  "舒潔",
+                           "productName":  "舒潔食品級摺疊紙巾",
+                           "productSpec":  "150張",
+                           "candidateImageFilename":  "舒潔食品級摺疊紙巾150張2入 16袋.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-金百利家用紙品\\舒潔食品級摺疊紙巾150張2入 16袋.JPG",
+                           "differenceReason":  "候選為150張×2入，正式規格為單包150張。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "862420",
+                           "brand":  "舒潔",
+                           "productName":  "舒潔旅行包面紙",
+                           "productSpec":  "70抽×4包",
+                           "candidateImageFilename":  "舒潔旅行包面紙.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-金百利家用紙品\\舒潔旅行包面紙.JPG",
+                           "differenceReason":  "候選檔未標示70抽×4包。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "870710",
+                           "brand":  "舒潔",
+                           "productName":  "舒潔迪士尼紙手帕",
+                           "productSpec":  "10抽×10包",
+                           "candidateImageFilename":  "舒潔迪士尼紙手帕10抽30包.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-金百利家用紙品\\舒潔迪士尼紙手帕10抽30包.JPG",
+                           "differenceReason":  "候選為10抽×30包，正式規格為10抽×10包。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "871130",
+                           "brand":  "舒潔",
+                           "productName":  "舒潔迪士尼紙手帕",
+                           "productSpec":  "10抽×15包",
+                           "candidateImageFilename":  "舒潔迪士尼紙手帕10抽30包.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-金百利家用紙品\\舒潔迪士尼紙手帕10抽30包.JPG",
+                           "differenceReason":  "候選為10抽×30包，正式規格為10抽×15包。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E11006",
+                           "brand":  "春風",
+                           "productName":  "春風平版衛生紙",
+                           "productSpec":  "300張×6包",
+                           "candidateImageFilename":  "春風平版衛生紙360張6包.PNG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\春風平版衛生紙360張6包.PNG",
+                           "differenceReason":  "候選為360張×6包，正式規格為300張×6包。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E14100",
+                           "brand":  "春風",
+                           "productName":  "春風三層抽取衛生紙",
+                           "productSpec":  "100抽×10包",
+                           "candidateImageFilename":  "春風３層厚手抽衛100抽10包 7串.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\春風３層厚手抽衛100抽10包 7串.JPG",
+                           "differenceReason":  "候選含厚手系列，正式品名未標示厚手。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E14090",
+                           "brand":  "春風",
+                           "productName":  "春風三層絲柔抽取衛生紙",
+                           "productSpec":  "90抽×4包",
+                           "candidateImageFilename":  "春風(布丁狗)３層厚手抽衛90抽20包 3串.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\春風(布丁狗)３層厚手抽衛90抽20包 3串.JPG",
+                           "differenceReason":  "候選為布丁狗90抽×20包，正式規格為90抽×4包。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E11205",
+                           "brand":  "春風",
+                           "productName":  "春風捲筒衛生紙",
+                           "productSpec":  "280張×6捲",
+                           "candidateImageFilename":  "春風捲筒衛生紙270張6捲.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\春風捲筒衛生紙270張6捲.JPG",
+                           "differenceReason":  "候選為270張×6捲，正式規格為280張×6捲。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E14280",
+                           "brand":  "春風",
+                           "productName":  "春風擦手紙",
+                           "productSpec":  "150抽",
+                           "candidateImageFilename":  "春風擦手紙.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\春風擦手紙.JPG",
+                           "differenceReason":  "候選檔未標示150抽。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E16207",
+                           "brand":  "春風",
+                           "productName":  "春風一秒攜隨行紙巾",
+                           "productSpec":  "60抽×6包",
+                           "candidateImageFilename":  "春風一秒攜隨行紙巾.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\春風一秒攜隨行紙巾.JPG",
+                           "differenceReason":  "候選檔未標示60抽×6包。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E16300",
+                           "brand":  "春風",
+                           "productName":  "春風布丁狗盒裝面紙",
+                           "productSpec":  "150抽×5盒",
+                           "candidateImageFilename":  "春風狗狗好朋友盒裝面紙150抽5盒 10串.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\春風狗狗好朋友盒裝面紙150抽5盒 10串.JPG",
+                           "differenceReason":  "候選為狗狗好朋友款，正式商品為布丁狗款。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E21211",
+                           "brand":  "春風",
+                           "productName":  "春風濕拭衛生紙",
+                           "productSpec":  "10抽×3包",
+                           "candidateImageFilename":  "春風濕拭衛生紙10抽3包 12袋.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\春風濕拭衛生紙10抽3包 12袋.JPG",
+                           "differenceReason":  "候選外箱標示12袋，正式商品箱入數為24；需確認是否同一單品。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E33220",
+                           "brand":  "蒲公英",
+                           "productName":  "蒲公英環保抽取衛生紙",
+                           "productSpec":  "100抽×12包",
+                           "candidateImageFilename":  "蒲公英環保三層抽衛120抽24包 3串.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\蒲公英環保三層抽衛120抽24包 3串.JPG",
+                           "differenceReason":  "候選為120抽×24包，正式規格為100抽×12包。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E33210",
+                           "brand":  "蒲公英",
+                           "productName":  "蒲公英環保捲筒衛生紙",
+                           "productSpec":  "270張×6捲",
+                           "candidateImageFilename":  "蒲公英環保捲筒衛生紙.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\蒲公英環保捲筒衛生紙.JPG",
+                           "differenceReason":  "候選檔未標示270張×6捲。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E33260",
+                           "brand":  "蒲公英",
+                           "productName":  "蒲公英環保大捲筒衛生紙",
+                           "productSpec":  "800g×3捲",
+                           "candidateImageFilename":  "蒲公英環保大捲筒衛生紙.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-正隆家用紙品\\蒲公英環保大捲筒衛生紙.JPG",
+                           "differenceReason":  "候選檔未標示800g×3捲。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "G10271",
+                           "brand":  "鱷魚",
+                           "productName":  "鱷魚水性快速殺螨滅蟑劑",
+                           "productSpec":  "600g",
+                           "candidateImageFilename":  "鱷魚水性殺蟲劑.jpg",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-鱷魚必安住全品項商品圖\\鱷魚水性殺蟲劑.jpg",
+                           "differenceReason":  "候選未明示快速殺螨滅蟑款。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "G10305",
+                           "brand":  "鱷魚",
+                           "productName":  "鱷魚米白電蚊香器組",
+                           "productSpec":  "電蚊香器＋液體蚊香",
+                           "candidateImageFilename":  "鱷魚粉櫻電蚊香器+無味液.jpg",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-鱷魚必安住全品項商品圖\\鱷魚粉櫻電蚊香器+無味液.jpg",
+                           "differenceReason":  "候選為粉櫻款，正式商品為米白款。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "G10341",
+                           "brand":  "鱷魚",
+                           "productName":  "鱷魚水蒸式殺蹣滅蟑劑",
+                           "productSpec":  "25g",
+                           "candidateImageFilename":  "必安住水蒸式殺螨滅蟑劑 15g.jpg",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-鱷魚必安住全品項商品圖\\必安住水蒸式殺螨滅蟑劑 15g.jpg",
+                           "differenceReason":  "候選品牌不同且為15g，正式規格為鱷魚25g。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "G10342",
+                           "brand":  "鱷魚",
+                           "productName":  "鱷魚水蒸式殺蹣滅蟑劑",
+                           "productSpec":  "25g×2入",
+                           "candidateImageFilename":  "必安住水蒸式殺蹣滅蟑劑25gx2入.jpg",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-鱷魚必安住全品項商品圖\\必安住水蒸式殺蹣滅蟑劑25gx2入.jpg",
+                           "differenceReason":  "候選品牌為必安住，正式品牌為鱷魚。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "G10343",
+                           "brand":  "鱷魚",
+                           "productName":  "鱷魚水蒸式殺蹣滅蟑劑",
+                           "productSpec":  "20g×3入",
+                           "candidateImageFilename":  "必安住水蒸式殺蹣滅蟑劑20gx3入.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-鱷魚必安住全品項商品圖\\必安住水蒸式殺蹣滅蟑劑20gx3入.JPG",
+                           "differenceReason":  "候選品牌為必安住，正式品牌為鱷魚。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "G10360",
+                           "brand":  "鱷魚",
+                           "productName":  "鱷魚加強殺蟑餌劑",
+                           "productSpec":  "3g×12入",
+                           "candidateImageFilename":  "鱷魚連環殺蟑餌劑3g12入.jpg",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-鱷魚必安住全品項商品圖\\鱷魚連環殺蟑餌劑3g12入.jpg",
+                           "differenceReason":  "候選為連環殺蟑餌劑，正式商品為加強殺蟑餌劑。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "E80870",
+                           "brand":  "居美媞/居居加/妙妙熊/鉅瑋",
+                           "productName":  "居居加竹纖極快乾毛浴巾旅行組",
+                           "productSpec":  "4入",
+                           "candidateImageFilename":  "妙妙熊寶寶毛浴巾兩入旅行組.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11506-居美媞+居居加+妙妙熊+鉅瑋產品商品圖\\妙妙熊寶寶毛浴巾兩入旅行組.JPG",
+                           "differenceReason":  "候選為2入，正式規格為4入。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "U21100",
+                           "brand":  "優品",
+                           "productName":  "優品馬桶自動清潔劑",
+                           "productSpec":  "255g",
+                           "candidateImageFilename":  "優品馬桶自動清潔劑9oz.PNG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-優品全品項商品圖\\優品馬桶自動清潔劑9oz.PNG",
+                           "differenceReason":  "候選標示9oz，正式規格為255g；未確認單位與版本。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "U22010",
+                           "brand":  "優品",
+                           "productName":  "優品鑽石級抗菌鎖鮮袋 S",
+                           "productSpec":  "S號",
+                           "candidateImageFilename":  "優品抗菌鎖鮮袋S20入.PNG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-優品全品項商品圖\\優品抗菌鎖鮮袋S20入.PNG",
+                           "differenceReason":  "候選標示S20入，正式資料未確認包裝入數。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "U22020",
+                           "brand":  "優品",
+                           "productName":  "優品鑽石級抗菌鎖鮮袋 M",
+                           "productSpec":  "M號",
+                           "candidateImageFilename":  "優品抗菌鎖鮮袋M15.PNG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-優品全品項商品圖\\優品抗菌鎖鮮袋M15.PNG",
+                           "differenceReason":  "候選標示M15入，正式資料未確認包裝入數。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "U22030",
+                           "brand":  "優品",
+                           "productName":  "優品鑽石級抗菌鎖鮮袋 L",
+                           "productSpec":  "L號",
+                           "candidateImageFilename":  "優品抗菌鎖鮮袋L10入.PNG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-優品全品項商品圖\\優品抗菌鎖鮮袋L10入.PNG",
+                           "differenceReason":  "候選標示L10入，正式資料未確認包裝入數。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "L53110",
+                           "brand":  "沙威隆",
+                           "productName":  "1181*沙威隆茶樹精油洗手乳250ml*12瓶",
+                           "productSpec":  "瓶",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "前次比對未保留可安全採用的特定候選檔；需確認茶樹精油洗手乳250ml。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "L53130",
+                           "brand":  "沙威隆",
+                           "productName":  "1180*沙威隆經典抗菌皂100g*72塊",
+                           "productSpec":  "塊",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "前次比對未保留可安全採用的特定候選檔；需確認經典抗菌皂100g單入。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "L53132",
+                           "brand":  "沙威隆",
+                           "productName":  "1180*沙威隆經典抗菌皂100g3入*24組",
+                           "productSpec":  "組",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "前次比對未保留可安全採用的特定候選檔；需確認經典抗菌皂100g3入。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "L53140",
+                           "brand":  "沙威隆",
+                           "productName":  "1180*沙威隆草本抗菌皂100g3入*12組",
+                           "productSpec":  "組",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "前次比對未保留可安全採用的特定候選檔；需確認草本抗菌皂100g3入。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "L53142",
+                           "brand":  "沙威隆",
+                           "productName":  "1180*沙威隆草本抗菌皂100g*36塊",
+                           "productSpec":  "塊",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "前次比對未保留可安全採用的特定候選檔；需確認草本抗菌皂100g單入。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "K17210",
+                           "brand":  "六禾",
+                           "productName":  "金字塔306明火打火機",
+                           "productSpec":  "個",
+                           "candidateImageFilename":  "金字塔明火打火機.png",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-六禾全品項產品圖\\金字塔明火打火機.png",
+                           "differenceReason":  "候選檔未標示306款式。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "K17100",
+                           "brand":  "六禾",
+                           "productName":  "金字塔6.5oz免洗紙杯",
+                           "productSpec":  "包",
+                           "candidateImageFilename":  "金字塔6.5oz免洗紙杯50入.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-六禾全品項產品圖\\金字塔6.5oz免洗紙杯50入.JPG",
+                           "differenceReason":  "候選標示50入，正式資料未明確記載入數。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "K17120",
+                           "brand":  "六禾",
+                           "productName":  "金字塔9oz免洗紙杯",
+                           "productSpec":  "包",
+                           "candidateImageFilename":  "金字塔9oz免洗紙杯50入.JPG",
+                           "candidateDrivePath":  "G:\\我的雲端硬碟\\恩-工作\\產品清單\\11507-六禾全品項產品圖\\金字塔9oz免洗紙杯50入.JPG",
+                           "differenceReason":  "候選標示50入，正式資料未明確記載入數。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "N01901",
+                           "brand":  "白蘭",
+                           "productName":  "200*白蘭陽光馨香洗衣精2.7kg*4罐",
+                           "productSpec":  "罐",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "先前列為候選，未保留可安全採用的特定檔案；需確認陽光馨香2.7kg。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "N01905",
+                           "brand":  "白蘭",
+                           "productName":  "200*白蘭強效除蹣洗衣精2.7kg*4罐",
+                           "productSpec":  "罐",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "先前列為候選，未保留可安全採用的特定檔案；需確認強效除蹣2.7kg。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "N01910",
+                           "brand":  "白蘭",
+                           "productName":  "201*白蘭蘆薈親膚洗衣精2.7kg*4罐",
+                           "productSpec":  "罐",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "先前列為候選，未保留可安全採用的特定檔案；需確認蘆薈親膚2.7kg。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "N01930",
+                           "brand":  "白蘭",
+                           "productName":  "202*白蘭強效除蹣洗衣精補充包1.6kg*6包",
+                           "productSpec":  "包",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "先前列為候選，未保留可安全採用的特定檔案；需確認強效除蹣補充包1.6kg。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "N20501",
+                           "brand":  "熊寶貝",
+                           "productName":  "196*熊寶貝海洋香護衣精3.2L*4罐",
+                           "productSpec":  "罐",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "先前列為候選，未保留可安全採用的特定檔案；需確認海洋香3.2L。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       },
+                       {
+                           "sku":  "N32010",
+                           "brand":  "白蘭",
+                           "productName":  "212*白蘭漂白水1.5L*6罐",
+                           "productSpec":  "罐",
+                           "candidateImageFilename":  null,
+                           "candidateDrivePath":  null,
+                           "differenceReason":  "先前列為候選，未保留可安全採用的特定檔案；需確認漂白水1.5L。",
+                           "suggestedManualCheck":  "核對包裝正面文字、品牌、商品類型與規格後，才可決定是否上線。"
+                       }
+                   ]
+}
