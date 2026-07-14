@@ -1,1145 +1,1028 @@
 {
-    "generatedAt":  "2026-07-14T23:56:25+08:00",
-    "scope":  "僅依既有比對結果分類；未修改任何商品、圖片或 active 狀態。",
-    "priorityCounts":  {
-                           "Priority 1":  59,
-                           "Priority 2":  45,
-                           "Priority 3":  9
-                       },
-    "priority1":  [
-                      {
-                          "sku":  "I01270",
-                          "brand":  "優生",
-                          "productName":  "409*優生NEO姆指型安撫奶嘴S*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01280",
-                          "brand":  "優生",
-                          "productName":  "409*優生NEO姆指型安撫奶嘴L*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01300",
-                          "brand":  "優生",
-                          "productName":  "410*優生真母感奶瓶奶嘴一般S(2+1)*12組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01301",
-                          "brand":  "優生",
-                          "productName":  "410*優生真母感奶瓶奶嘴一般M(2+1)*12組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01302",
-                          "brand":  "優生",
-                          "productName":  "410*優生真母感奶瓶奶嘴一般L(2+1)*12組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01305",
-                          "brand":  "優生",
-                          "productName":  "413*優生真母感奶瓶奶嘴寬口S(2+1)*12組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01306",
-                          "brand":  "優生",
-                          "productName":  "413*優生真母感奶瓶奶嘴寬口M(2+1)*12組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01307",
-                          "brand":  "優生",
-                          "productName":  "413*優生真母感奶瓶奶嘴寬口L(2+1)*12組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01310",
-                          "brand":  "優生",
-                          "productName":  "411*優生矽晶安撫奶嘴標準型S*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01320",
-                          "brand":  "優生",
-                          "productName":  "411*優生矽晶安撫奶嘴標準型L*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01330",
-                          "brand":  "優生",
-                          "productName":  "412*優生矽晶安撫奶嘴雙扁型S*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01340",
-                          "brand":  "優生",
-                          "productName":  "412*優生矽晶安撫奶嘴雙扁型L*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01350",
-                          "brand":  "優生",
-                          "productName":  "412*優生矽晶安撫奶嘴拇指型S*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I01360",
-                          "brand":  "優生",
-                          "productName":  "412*優生矽晶安撫奶嘴拇指型L*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I02110",
-                          "brand":  "優生",
-                          "productName":  "430*優生大容量奶粉盒*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I02130",
-                          "brand":  "優生",
-                          "productName":  "431*優生輕鬆扣奶嘴鏈*24個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I03030",
-                          "brand":  "優生",
-                          "productName":  "434*優生乳牙刷*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I03040",
-                          "brand":  "優生",
-                          "productName":  "436*優生咬牙固齒器(熊造型)*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I03050",
-                          "brand":  "優生",
-                          "productName":  "437*優生防逆流吸鼻器*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I03062",
-                          "brand":  "優生",
-                          "productName":  "438*優生奶嘴式餵藥器*12個",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I03210",
-                          "brand":  "優生",
-                          "productName":  "447*優生嬰兒爽身粉300g*12罐",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I03310",
-                          "brand":  "優生",
-                          "productName":  "449*嬌娃嬰兒爽身粉300g*12罐",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I04160",
-                          "brand":  "優生",
-                          "productName":  "471*史奴比牙線棒50支2+1盒*12組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I30210",
-                          "brand":  "優生",
-                          "productName":  "485*喜多PP奶瓶一般S120g2入*6組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I30220",
-                          "brand":  "優生",
-                          "productName":  "486*喜多PP奶瓶一般L240g2入*6組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I30230",
-                          "brand":  "優生",
-                          "productName":  "487*喜多PP奶瓶寬口S140g2入*6組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I30240",
-                          "brand":  "優生",
-                          "productName":  "488*喜多PP奶瓶寬口L270g2入*6組",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I40010",
-                          "brand":  "優生",
-                          "productName":  "595*小本熊暖暖包10片*24袋",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I40020",
-                          "brand":  "優生",
-                          "productName":  "596*小本熊暖暖貼10片*24袋",
-                          "category":  "母嬰用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "I99000",
-                          "brand":  "優生",
-                          "productName":  "潔P濕式衛生紙紙架*1",
-                          "category":  "不分類",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "L53123",
-                          "brand":  "沙威隆",
-                          "productName":  "1181*沙威隆青檸尤加利洗手乳250ml*12瓶",
-                          "category":  "香皂洗手",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N01820",
-                          "brand":  "白蘭",
-                          "productName":  "184*白蘭強效除蹣洗衣粉4.25kg*4包",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N01830",
-                          "brand":  "白蘭",
-                          "productName":  "181*白蘭蘆薈親膚洗衣粉4.5kg*4包",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N01840",
-                          "brand":  "白蘭",
-                          "productName":  "188*白蘭鮮豔護色洗衣粉4.5kg*4包",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N01850",
-                          "brand":  "白蘭",
-                          "productName":  "184*白蘭陽光馨香洗衣粉4.25kg*4包",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N01860",
-                          "brand":  "白蘭",
-                          "productName":  "182*白蘭強效除蹣洗衣粉1kg*20包",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N01870",
-                          "brand":  "白蘭",
-                          "productName":  "187*白蘭強效濃縮洗衣粉1.9kg*9包",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N01920",
-                          "brand":  "熊寶貝",
-                          "productName":  "200*白蘭熊寶貝紅馨香洗衣精2.5kg*4罐",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N01921",
-                          "brand":  "熊寶貝",
-                          "productName":  "200*白蘭熊寶貝白溫和洗衣精2.5kg*4罐",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N01922",
-                          "brand":  "熊寶貝",
-                          "productName":  "200*白蘭熊寶貝藍清新洗衣精2.5kg*4罐",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N01950",
-                          "brand":  "熊寶貝",
-                          "productName":  "202*白蘭熊寶貝紅馨香洗衣精補充包1.6kg*6包",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N20511",
-                          "brand":  "熊寶貝",
-                          "productName":  "195*熊寶貝海洋香護衣精補充包1.84L*6包",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "N20531",
-                          "brand":  "熊寶貝",
-                          "productName":  "195*熊寶貝玫瑰香護衣精補充包1.84L*6包",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "K16020",
-                          "brand":  "六禾",
-                          "productName":  "火鳳凰金盾智控瓦斯罐250g3入",
-                          "category":  "瓦斯用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "K16290",
-                          "brand":  "六禾",
-                          "productName":  "GREAT MOTHER520瓦斯爐",
-                          "category":  "瓦斯爐具",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "K17220",
-                          "brand":  "六禾",
-                          "productName":  "金字塔307防風打火機",
-                          "category":  "打火機",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "K17300",
-                          "brand":  "六禾",
-                          "productName":  "金字塔輕巧拖把組",
-                          "category":  "清潔用品",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "K17110",
-                          "brand":  "六禾",
-                          "productName":  "金字塔7oz免洗紙杯",
-                          "category":  "免洗餐具",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "G10250",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚蚊香鐵罐",
-                          "category":  "防蚊驅蟲",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "G10290",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚電蚊香片",
-                          "category":  "防蚊驅蟲",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "G10291",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚電蚊香片",
-                          "category":  "防蚊驅蟲",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "G10302",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚三用型電蚊香器組",
-                          "category":  "防蚊驅蟲",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "G10303",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚全自動電蚊香器組",
-                          "category":  "防蚊驅蟲",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "G10311",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚隨身風扇電蚊香藥劑",
-                          "category":  "防蚊驅蟲",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "G10520",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚除蟲菊水性殺蟲噴霧",
-                          "category":  "居家除蟲",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "U20110",
-                          "brand":  "優品",
-                          "productName":  "優品愛潔美A+除蟑錠",
-                          "category":  "居家除蟲",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "U22100",
-                          "brand":  "優品",
-                          "productName":  "優品防蟑防蠅清潔袋－小",
-                          "category":  "清潔袋",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "U22110",
-                          "brand":  "優品",
-                          "productName":  "優品防蟑防蠅清潔袋－中",
-                          "category":  "清潔袋",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      },
-                      {
-                          "sku":  "U22120",
-                          "brand":  "優品",
-                          "productName":  "優品防蟑防蠅清潔袋－大",
-                          "category":  "清潔袋",
-                          "priority":  "Priority 1",
-                          "classification":  "missing_exact_image",
-                          "nextStep":  "補一張與 SKU、規格、包裝完全一致的正式商品圖。",
-                          "userActionNeeded":  "補拍商品圖，或提供原廠正式圖。"
-                      }
-                  ],
-    "priority2":  [
-                      {
-                          "sku":  "721020",
-                          "brand":  "可麗舒",
-                          "productName":  "可麗舒抽取衛生紙",
-                          "category":  "抽取衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "721510",
-                          "brand":  "可麗舒",
-                          "productName":  "可麗舒三層柔厚抽取衛生紙",
-                          "category":  "抽取衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "817580",
-                          "brand":  "舒潔",
-                          "productName":  "舒潔雲絨抽取衛生紙",
-                          "category":  "抽取衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "882280",
-                          "brand":  "舒潔",
-                          "productName":  "舒潔拋棄式抹布",
-                          "category":  "清潔布／擦拭布",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "820830",
-                          "brand":  "舒潔",
-                          "productName":  "舒潔捲筒衛生紙",
-                          "category":  "捲筒衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "900130",
-                          "brand":  "舒潔",
-                          "productName":  "舒潔食品級摺疊紙巾",
-                          "category":  "摺疊紙巾",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "862420",
-                          "brand":  "舒潔",
-                          "productName":  "舒潔旅行包面紙",
-                          "category":  "旅行包面紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "870710",
-                          "brand":  "舒潔",
-                          "productName":  "舒潔迪士尼紙手帕",
-                          "category":  "袖珍面紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "871130",
-                          "brand":  "舒潔",
-                          "productName":  "舒潔迪士尼紙手帕",
-                          "category":  "袖珍面紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E11006",
-                          "brand":  "春風",
-                          "productName":  "春風平版衛生紙",
-                          "category":  "平版衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E14100",
-                          "brand":  "春風",
-                          "productName":  "春風三層抽取衛生紙",
-                          "category":  "抽取衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E14090",
-                          "brand":  "春風",
-                          "productName":  "春風三層絲柔抽取衛生紙",
-                          "category":  "抽取衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E11205",
-                          "brand":  "春風",
-                          "productName":  "春風捲筒衛生紙",
-                          "category":  "捲筒衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E14280",
-                          "brand":  "春風",
-                          "productName":  "春風擦手紙",
-                          "category":  "擦手紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E16207",
-                          "brand":  "春風",
-                          "productName":  "春風一秒攜隨行紙巾",
-                          "category":  "隨行紙巾",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E16300",
-                          "brand":  "春風",
-                          "productName":  "春風布丁狗盒裝面紙",
-                          "category":  "盒裝面紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E21211",
-                          "brand":  "春風",
-                          "productName":  "春風濕拭衛生紙",
-                          "category":  "濕式衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E33220",
-                          "brand":  "蒲公英",
-                          "productName":  "蒲公英環保抽取衛生紙",
-                          "category":  "抽取衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E33210",
-                          "brand":  "蒲公英",
-                          "productName":  "蒲公英環保捲筒衛生紙",
-                          "category":  "捲筒衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E33260",
-                          "brand":  "蒲公英",
-                          "productName":  "蒲公英環保大捲筒衛生紙",
-                          "category":  "捲筒衛生紙",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "L53110",
-                          "brand":  "沙威隆",
-                          "productName":  "1181*沙威隆茶樹精油洗手乳250ml*12瓶",
-                          "category":  "香皂洗手",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "L53130",
-                          "brand":  "沙威隆",
-                          "productName":  "1180*沙威隆經典抗菌皂100g*72塊",
-                          "category":  "香皂洗手",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "L53132",
-                          "brand":  "沙威隆",
-                          "productName":  "1180*沙威隆經典抗菌皂100g3入*24組",
-                          "category":  "香皂洗手",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "L53140",
-                          "brand":  "沙威隆",
-                          "productName":  "1180*沙威隆草本抗菌皂100g3入*12組",
-                          "category":  "香皂洗手",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "L53142",
-                          "brand":  "沙威隆",
-                          "productName":  "1180*沙威隆草本抗菌皂100g*36塊",
-                          "category":  "香皂洗手",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "N01901",
-                          "brand":  "白蘭",
-                          "productName":  "200*白蘭陽光馨香洗衣精2.7kg*4罐",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "N01905",
-                          "brand":  "白蘭",
-                          "productName":  "200*白蘭強效除蹣洗衣精2.7kg*4罐",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "N01910",
-                          "brand":  "白蘭",
-                          "productName":  "201*白蘭蘆薈親膚洗衣精2.7kg*4罐",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "N01930",
-                          "brand":  "白蘭",
-                          "productName":  "202*白蘭強效除蹣洗衣精補充包1.6kg*6包",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "N20501",
-                          "brand":  "熊寶貝",
-                          "productName":  "196*熊寶貝海洋香護衣精3.2L*4罐",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "N32010",
-                          "brand":  "白蘭",
-                          "productName":  "212*白蘭漂白水1.5L*6罐",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "K17210",
-                          "brand":  "六禾",
-                          "productName":  "金字塔306明火打火機",
-                          "category":  "打火機",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "K17100",
-                          "brand":  "六禾",
-                          "productName":  "金字塔6.5oz免洗紙杯",
-                          "category":  "免洗餐具",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "K17120",
-                          "brand":  "六禾",
-                          "productName":  "金字塔9oz免洗紙杯",
-                          "category":  "免洗餐具",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "G10271",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚水性快速殺螨滅蟑劑",
-                          "category":  "居家除蟲",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "G10305",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚米白電蚊香器組",
-                          "category":  "防蚊驅蟲",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "G10341",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚水蒸式殺蹣滅蟑劑",
-                          "category":  "居家除蟲",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "G10342",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚水蒸式殺蹣滅蟑劑",
-                          "category":  "居家除蟲",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "G10343",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚水蒸式殺蹣滅蟑劑",
-                          "category":  "居家除蟲",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "G10360",
-                          "brand":  "鱷魚",
-                          "productName":  "鱷魚加強殺蟑餌劑",
-                          "category":  "居家除蟲",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "E80870",
-                          "brand":  "居美媞/居居加/妙妙熊/鉅瑋",
-                          "productName":  "居居加竹纖極快乾毛浴巾旅行組",
-                          "category":  "毛巾／浴巾",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "U21100",
-                          "brand":  "優品",
-                          "productName":  "優品馬桶自動清潔劑",
-                          "category":  "浴廁清潔",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "U22010",
-                          "brand":  "優品",
-                          "productName":  "優品鑽石級抗菌鎖鮮袋 S",
-                          "category":  "保鮮袋",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "U22020",
-                          "brand":  "優品",
-                          "productName":  "優品鑽石級抗菌鎖鮮袋 M",
-                          "category":  "保鮮袋",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      },
-                      {
-                          "sku":  "U22030",
-                          "brand":  "優品",
-                          "productName":  "優品鑽石級抗菌鎖鮮袋 L",
-                          "category":  "保鮮袋",
-                          "priority":  "Priority 2",
-                          "classification":  "candidate_needs_review",
-                          "nextStep":  "先核對候選圖片的規格、包裝數與款式，再決定是否上線。",
-                          "userActionNeeded":  "確認 image-review-candidates.json 中候選圖是否為同一 SKU。"
-                      }
-                  ],
-    "priority3":  [
-                      {
-                          "sku":  "E50001",
-                          "brand":  "原萃",
-                          "productName":  "原萃抽取式衛生紙",
-                          "category":  "抽取衛生紙",
-                          "priority":  "Priority 3",
-                          "classification":  "no_brand_drive_folder",
-                          "nextStep":  "尚未有品牌專屬圖片來源，暫時維持圖片整理中。",
-                          "userActionNeeded":  "提供原萃 E50001 的正式圖片或圖片資料夾。"
-                      },
-                      {
-                          "sku":  "LLL014",
-                          "brand":  "沙威隆",
-                          "productName":  "沙威隆陳列紙架",
-                          "category":  "不分類",
-                          "priority":  "Priority 3",
-                          "classification":  "possible_inactive_or_obsolete",
-                          "nextStep":  "先確認是否仍販售，再決定是否補圖。",
-                          "userActionNeeded":  "確認此 SKU 是否仍需在前台保留。"
-                      },
-                      {
-                          "sku":  "N50001",
-                          "brand":  "南僑",
-                          "productName":  "***南僑水晶肥皂檸檬清香200g單顆*60塊",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 3",
-                          "classification":  "drive_folder_empty",
-                          "nextStep":  "品牌資料夾目前無圖片，先補齊可識別 SKU 的商品圖。",
-                          "userActionNeeded":  "提供該品牌商品圖片或原廠圖來源。"
-                      },
-                      {
-                          "sku":  "N50010",
-                          "brand":  "南僑",
-                          "productName":  "280*南僑水晶肥皂160g3入*28組",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 3",
-                          "classification":  "drive_folder_empty",
-                          "nextStep":  "品牌資料夾目前無圖片，先補齊可識別 SKU 的商品圖。",
-                          "userActionNeeded":  "提供該品牌商品圖片或原廠圖來源。"
-                      },
-                      {
-                          "sku":  "N50030",
-                          "brand":  "南僑",
-                          "productName":  "230@南僑水晶肥皂200g3入*24組",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 3",
-                          "classification":  "drive_folder_empty",
-                          "nextStep":  "品牌資料夾目前無圖片，先補齊可識別 SKU 的商品圖。",
-                          "userActionNeeded":  "提供該品牌商品圖片或原廠圖來源。"
-                      },
-                      {
-                          "sku":  "N50050",
-                          "brand":  "南僑",
-                          "productName":  "283*南僑水晶肥皂檸檬清香150g3入*24組",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 3",
-                          "classification":  "drive_folder_empty",
-                          "nextStep":  "品牌資料夾目前無圖片，先補齊可識別 SKU 的商品圖。",
-                          "userActionNeeded":  "提供該品牌商品圖片或原廠圖來源。"
-                      },
-                      {
-                          "sku":  "N50100",
-                          "brand":  "南僑",
-                          "productName":  "290*南僑洗衣液體皂檸檬香茅1400g*6袋",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 3",
-                          "classification":  "drive_folder_empty",
-                          "nextStep":  "品牌資料夾目前無圖片，先補齊可識別 SKU 的商品圖。",
-                          "userActionNeeded":  "提供該品牌商品圖片或原廠圖來源。"
-                      },
-                      {
-                          "sku":  "N50150",
-                          "brand":  "南僑",
-                          "productName":  "290*南僑洗衣液體皂櫻花百合1400g*6袋",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 3",
-                          "classification":  "drive_folder_empty",
-                          "nextStep":  "品牌資料夾目前無圖片，先補齊可識別 SKU 的商品圖。",
-                          "userActionNeeded":  "提供該品牌商品圖片或原廠圖來源。"
-                      },
-                      {
-                          "sku":  "N50190",
-                          "brand":  "南僑",
-                          "productName":  "290*南僑洗衣液體皂薰衣馬鞭草1400g*6袋",
-                          "category":  "家庭清潔",
-                          "priority":  "Priority 3",
-                          "classification":  "drive_folder_empty",
-                          "nextStep":  "品牌資料夾目前無圖片，先補齊可識別 SKU 的商品圖。",
-                          "userActionNeeded":  "提供該品牌商品圖片或原廠圖來源。"
-                      }
-                  ]
+  "generatedAt": "2026-07-14T15:57:50.919Z",
+  "totalMissing": 113,
+  "priorityCounts": {
+    "Priority 1": 60,
+    "Priority 2": 45,
+    "Priority 3": 8
+  },
+  "items": [
+    {
+      "sku": "K16020",
+      "brand": "六禾",
+      "productName": "火鳳凰金盾智控瓦斯罐250g3入",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "K16290",
+      "brand": "六禾",
+      "productName": "GREAT MOTHER520瓦斯爐",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "K17110",
+      "brand": "六禾",
+      "productName": "金字塔7oz免洗紙杯",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "K17220",
+      "brand": "六禾",
+      "productName": "金字塔307防風打火機",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "K17300",
+      "brand": "六禾",
+      "productName": "金字塔輕巧拖把組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N01820",
+      "brand": "白蘭",
+      "productName": "184*白蘭強效除蹣洗衣粉4.25kg*4包",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N01830",
+      "brand": "白蘭",
+      "productName": "181*白蘭蘆薈親膚洗衣粉4.5kg*4包",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N01840",
+      "brand": "白蘭",
+      "productName": "188*白蘭鮮豔護色洗衣粉4.5kg*4包",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N01850",
+      "brand": "白蘭",
+      "productName": "184*白蘭陽光馨香洗衣粉4.25kg*4包",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N01860",
+      "brand": "白蘭",
+      "productName": "182*白蘭強效除蹣洗衣粉1kg*20包",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N01870",
+      "brand": "白蘭",
+      "productName": "187*白蘭強效濃縮洗衣粉1.9kg*9包",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "L53123",
+      "brand": "沙威隆",
+      "productName": "1181*沙威隆青檸尤加利洗手乳250ml*12瓶",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "LLL014",
+      "brand": "沙威隆",
+      "productName": "沙威隆陳列紙架",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N01920",
+      "brand": "熊寶貝",
+      "productName": "200*白蘭熊寶貝紅馨香洗衣精2.5kg*4罐",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N01921",
+      "brand": "熊寶貝",
+      "productName": "200*白蘭熊寶貝白溫和洗衣精2.5kg*4罐",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N01922",
+      "brand": "熊寶貝",
+      "productName": "200*白蘭熊寶貝藍清新洗衣精2.5kg*4罐",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N01950",
+      "brand": "熊寶貝",
+      "productName": "202*白蘭熊寶貝紅馨香洗衣精補充包1.6kg*6包",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N20511",
+      "brand": "熊寶貝",
+      "productName": "195*熊寶貝海洋香護衣精補充包1.84L*6包",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N20531",
+      "brand": "熊寶貝",
+      "productName": "195*熊寶貝玫瑰香護衣精補充包1.84L*6包",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01270",
+      "brand": "優生",
+      "productName": "409*優生NEO姆指型安撫奶嘴S*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01280",
+      "brand": "優生",
+      "productName": "409*優生NEO姆指型安撫奶嘴L*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01300",
+      "brand": "優生",
+      "productName": "410*優生真母感奶瓶奶嘴一般S(2+1)*12組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01301",
+      "brand": "優生",
+      "productName": "410*優生真母感奶瓶奶嘴一般M(2+1)*12組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01302",
+      "brand": "優生",
+      "productName": "410*優生真母感奶瓶奶嘴一般L(2+1)*12組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01305",
+      "brand": "優生",
+      "productName": "413*優生真母感奶瓶奶嘴寬口S(2+1)*12組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01306",
+      "brand": "優生",
+      "productName": "413*優生真母感奶瓶奶嘴寬口M(2+1)*12組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01307",
+      "brand": "優生",
+      "productName": "413*優生真母感奶瓶奶嘴寬口L(2+1)*12組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01310",
+      "brand": "優生",
+      "productName": "411*優生矽晶安撫奶嘴標準型S*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01320",
+      "brand": "優生",
+      "productName": "411*優生矽晶安撫奶嘴標準型L*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01330",
+      "brand": "優生",
+      "productName": "412*優生矽晶安撫奶嘴雙扁型S*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01340",
+      "brand": "優生",
+      "productName": "412*優生矽晶安撫奶嘴雙扁型L*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01350",
+      "brand": "優生",
+      "productName": "412*優生矽晶安撫奶嘴拇指型S*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I01360",
+      "brand": "優生",
+      "productName": "412*優生矽晶安撫奶嘴拇指型L*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I02110",
+      "brand": "優生",
+      "productName": "430*優生大容量奶粉盒*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I02130",
+      "brand": "優生",
+      "productName": "431*優生輕鬆扣奶嘴鏈*24個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I03030",
+      "brand": "優生",
+      "productName": "434*優生乳牙刷*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I03040",
+      "brand": "優生",
+      "productName": "436*優生咬牙固齒器(熊造型)*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I03050",
+      "brand": "優生",
+      "productName": "437*優生防逆流吸鼻器*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I03062",
+      "brand": "優生",
+      "productName": "438*優生奶嘴式餵藥器*12個",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I03210",
+      "brand": "優生",
+      "productName": "447*優生嬰兒爽身粉300g*12罐",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I03310",
+      "brand": "優生",
+      "productName": "449*嬌娃嬰兒爽身粉300g*12罐",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I04160",
+      "brand": "優生",
+      "productName": "471*史奴比牙線棒50支2+1盒*12組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I30210",
+      "brand": "優生",
+      "productName": "485*喜多PP奶瓶一般S120g2入*6組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I30220",
+      "brand": "優生",
+      "productName": "486*喜多PP奶瓶一般L240g2入*6組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I30230",
+      "brand": "優生",
+      "productName": "487*喜多PP奶瓶寬口S140g2入*6組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I30240",
+      "brand": "優生",
+      "productName": "488*喜多PP奶瓶寬口L270g2入*6組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I40010",
+      "brand": "優生",
+      "productName": "595*小本熊暖暖包10片*24袋",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I40020",
+      "brand": "優生",
+      "productName": "596*小本熊暖暖貼10片*24袋",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "I99000",
+      "brand": "優生",
+      "productName": "潔P濕式衛生紙紙架*1",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "U20110",
+      "brand": "優品",
+      "productName": "優品愛潔美A+除蟑錠",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "U22100",
+      "brand": "優品",
+      "productName": "優品防蟑防蠅清潔袋－小",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "U22110",
+      "brand": "優品",
+      "productName": "優品防蟑防蠅清潔袋－中",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "U22120",
+      "brand": "優品",
+      "productName": "優品防蟑防蠅清潔袋－大",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "G10250",
+      "brand": "鱷魚",
+      "productName": "鱷魚蚊香鐵罐",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "G10290",
+      "brand": "鱷魚",
+      "productName": "鱷魚電蚊香片",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "G10291",
+      "brand": "鱷魚",
+      "productName": "鱷魚電蚊香片",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "G10302",
+      "brand": "鱷魚",
+      "productName": "鱷魚三用型電蚊香器組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "G10303",
+      "brand": "鱷魚",
+      "productName": "鱷魚全自動電蚊香器組",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "G10311",
+      "brand": "鱷魚",
+      "productName": "鱷魚隨身風扇電蚊香藥劑",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "G10520",
+      "brand": "鱷魚",
+      "productName": "鱷魚除蟲菊水性殺蟲噴霧",
+      "classification": "missing_exact_image",
+      "priority": "Priority 1",
+      "nextStep": "補齊此 SKU 的精確商品圖；不可使用規格或包裝不符的圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "K17100",
+      "brand": "六禾",
+      "productName": "金字塔6.5oz免洗紙杯",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "K17120",
+      "brand": "六禾",
+      "productName": "金字塔9oz免洗紙杯",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "K17210",
+      "brand": "六禾",
+      "productName": "金字塔306明火打火機",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "721020",
+      "brand": "可麗舒",
+      "productName": "可麗舒抽取衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "721510",
+      "brand": "可麗舒",
+      "productName": "可麗舒三層柔厚抽取衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "N01901",
+      "brand": "白蘭",
+      "productName": "200*白蘭陽光馨香洗衣精2.7kg*4罐",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "N01905",
+      "brand": "白蘭",
+      "productName": "200*白蘭強效除蹣洗衣精2.7kg*4罐",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "N01910",
+      "brand": "白蘭",
+      "productName": "201*白蘭蘆薈親膚洗衣精2.7kg*4罐",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "N01930",
+      "brand": "白蘭",
+      "productName": "202*白蘭強效除蹣洗衣精補充包1.6kg*6包",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "N32010",
+      "brand": "白蘭",
+      "productName": "212*白蘭漂白水1.5L*6罐",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "L53110",
+      "brand": "沙威隆",
+      "productName": "1181*沙威隆茶樹精油洗手乳250ml*12瓶",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "L53130",
+      "brand": "沙威隆",
+      "productName": "1180*沙威隆經典抗菌皂100g*72塊",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "L53132",
+      "brand": "沙威隆",
+      "productName": "1180*沙威隆經典抗菌皂100g3入*24組",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "L53140",
+      "brand": "沙威隆",
+      "productName": "1180*沙威隆草本抗菌皂100g3入*12組",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "L53142",
+      "brand": "沙威隆",
+      "productName": "1180*沙威隆草本抗菌皂100g*36塊",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E80870",
+      "brand": "居美媞/居居加/妙妙熊/鉅瑋",
+      "productName": "居居加竹纖極快乾毛浴巾旅行組",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E11006",
+      "brand": "春風",
+      "productName": "春風平版衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E11205",
+      "brand": "春風",
+      "productName": "春風捲筒衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E14090",
+      "brand": "春風",
+      "productName": "春風三層絲柔抽取衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E14100",
+      "brand": "春風",
+      "productName": "春風三層抽取衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E14280",
+      "brand": "春風",
+      "productName": "春風擦手紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E16207",
+      "brand": "春風",
+      "productName": "春風一秒攜隨行紙巾",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E16300",
+      "brand": "春風",
+      "productName": "春風布丁狗盒裝面紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E21211",
+      "brand": "春風",
+      "productName": "春風濕拭衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "817580",
+      "brand": "舒潔",
+      "productName": "舒潔雲絨抽取衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "820830",
+      "brand": "舒潔",
+      "productName": "舒潔捲筒衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "862420",
+      "brand": "舒潔",
+      "productName": "舒潔旅行包面紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "870710",
+      "brand": "舒潔",
+      "productName": "舒潔迪士尼紙手帕",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "871130",
+      "brand": "舒潔",
+      "productName": "舒潔迪士尼紙手帕",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "882280",
+      "brand": "舒潔",
+      "productName": "舒潔拋棄式抹布",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "900130",
+      "brand": "舒潔",
+      "productName": "舒潔食品級摺疊紙巾",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "N20501",
+      "brand": "熊寶貝",
+      "productName": "196*熊寶貝海洋香護衣精3.2L*4罐",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E33210",
+      "brand": "蒲公英",
+      "productName": "蒲公英環保捲筒衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E33220",
+      "brand": "蒲公英",
+      "productName": "蒲公英環保抽取衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "E33260",
+      "brand": "蒲公英",
+      "productName": "蒲公英環保大捲筒衛生紙",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "U21100",
+      "brand": "優品",
+      "productName": "優品馬桶自動清潔劑",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "U22010",
+      "brand": "優品",
+      "productName": "優品鑽石級抗菌鎖鮮袋 S",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "U22020",
+      "brand": "優品",
+      "productName": "優品鑽石級抗菌鎖鮮袋 M",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "U22030",
+      "brand": "優品",
+      "productName": "優品鑽石級抗菌鎖鮮袋 L",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "G10271",
+      "brand": "鱷魚",
+      "productName": "鱷魚水性快速殺螨滅蟑劑",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "G10305",
+      "brand": "鱷魚",
+      "productName": "鱷魚米白電蚊香器組",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "G10341",
+      "brand": "鱷魚",
+      "productName": "鱷魚水蒸式殺蹣滅蟑劑",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "G10342",
+      "brand": "鱷魚",
+      "productName": "鱷魚水蒸式殺蹣滅蟑劑",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "G10343",
+      "brand": "鱷魚",
+      "productName": "鱷魚水蒸式殺蹣滅蟑劑",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "G10360",
+      "brand": "鱷魚",
+      "productName": "鱷魚加強殺蟑餌劑",
+      "classification": "candidate_needs_review",
+      "priority": "Priority 2",
+      "nextStep": "依 image-review-candidates.json 核對規格、款式與包裝後再決定是否採用候選圖。",
+      "userAction": "確認候選圖的規格、款式與包裝。"
+    },
+    {
+      "sku": "N50001",
+      "brand": "南僑",
+      "productName": "***南僑水晶肥皂檸檬清香200g單顆*60塊",
+      "classification": "drive_folder_empty",
+      "priority": "Priority 3",
+      "nextStep": "取得正式商品圖後再補入；目前 Drive 品牌資料夾沒有可用圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N50010",
+      "brand": "南僑",
+      "productName": "280*南僑水晶肥皂160g3入*28組",
+      "classification": "drive_folder_empty",
+      "priority": "Priority 3",
+      "nextStep": "取得正式商品圖後再補入；目前 Drive 品牌資料夾沒有可用圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N50030",
+      "brand": "南僑",
+      "productName": "230@南僑水晶肥皂200g3入*24組",
+      "classification": "drive_folder_empty",
+      "priority": "Priority 3",
+      "nextStep": "取得正式商品圖後再補入；目前 Drive 品牌資料夾沒有可用圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N50050",
+      "brand": "南僑",
+      "productName": "283*南僑水晶肥皂檸檬清香150g3入*24組",
+      "classification": "drive_folder_empty",
+      "priority": "Priority 3",
+      "nextStep": "取得正式商品圖後再補入；目前 Drive 品牌資料夾沒有可用圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N50100",
+      "brand": "南僑",
+      "productName": "290*南僑洗衣液體皂檸檬香茅1400g*6袋",
+      "classification": "drive_folder_empty",
+      "priority": "Priority 3",
+      "nextStep": "取得正式商品圖後再補入；目前 Drive 品牌資料夾沒有可用圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N50150",
+      "brand": "南僑",
+      "productName": "290*南僑洗衣液體皂櫻花百合1400g*6袋",
+      "classification": "drive_folder_empty",
+      "priority": "Priority 3",
+      "nextStep": "取得正式商品圖後再補入；目前 Drive 品牌資料夾沒有可用圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "N50190",
+      "brand": "南僑",
+      "productName": "290*南僑洗衣液體皂薰衣馬鞭草1400g*6袋",
+      "classification": "drive_folder_empty",
+      "priority": "Priority 3",
+      "nextStep": "取得正式商品圖後再補入；目前 Drive 品牌資料夾沒有可用圖片。",
+      "userAction": "補拍商品圖，或從原廠網站找正式圖。"
+    },
+    {
+      "sku": "E50001",
+      "brand": "原萃",
+      "productName": "原萃抽取式衛生紙",
+      "classification": "no_brand_drive_folder",
+      "priority": "Priority 3",
+      "nextStep": "先建立或確認品牌圖片來源，再取得此 SKU 的正式圖片。",
+      "userAction": "提供正式圖來源或補拍商品圖。"
+    }
+  ]
 }
