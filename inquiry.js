@@ -6,6 +6,7 @@
   app.bindInquiryEvents = () => {
     document.querySelector("[data-generate-inquiry]").addEventListener("click", app.generateInquiry);
     document.querySelector("[data-copy-inquiry]").addEventListener("click", app.copyInquiry);
+    document.querySelector("[data-share-inquiry]").addEventListener("click", app.shareInquiry);
     app.el.form.addEventListener("input", () => {
       app.clearErrors();
       app.persistCustomer();
@@ -102,6 +103,34 @@
       app.el.generatedText.focus();
       app.el.generatedText.select();
       app.showToast("無法自動複製，文字已全選，請長按複製");
+    }
+  };
+
+  app.copyInquiryForShare = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      app.showToast("詢價內容已複製，可貼到 LINE 或其他通訊軟體");
+    } catch (error) {
+      app.el.generatedText.focus();
+      app.el.generatedText.select();
+      app.showToast("無法自動複製，文字已全選，請長按複製");
+    }
+  };
+
+  app.shareInquiry = async () => {
+    const text = app.el.generatedText.value;
+    if (!text) return app.showToast("請先產生詢價內容");
+
+    if (typeof navigator.share !== "function") {
+      await app.copyInquiryForShare(text);
+      return;
+    }
+
+    try {
+      await navigator.share({ title: "產品詢價", text });
+    } catch (error) {
+      if (error?.name === "AbortError") return;
+      await app.copyInquiryForShare(text);
     }
   };
 
