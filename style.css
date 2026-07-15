@@ -595,6 +595,10 @@ body.drawer-open { overflow: hidden; }
   font-size: 0.88rem;
 }
 .tutorial-notes p { margin: 0; }
+.tutorial-note-highlight {
+  color: #633821;
+  font-weight: 800;
+}
 
 @media (max-width: 720px) {
   .tutorial-section { padding: 0 16px 4px; }
