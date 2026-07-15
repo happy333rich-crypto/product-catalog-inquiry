@@ -68,19 +68,10 @@
       return;
     }
 
-    const lines = entries.map(({ product, quantity }, index) => {
-      const subtotal = app.lineSubtotal(product, quantity);
-      return [
-        `${index + 1}. SKU：${product.sku || product.id}`,
-        `品名：${product.name}`,
-        `規格：${product.spec}`,
-        `單價：${app.priceLabel(product.taxPrice)}`,
-        `建議售價：${app.priceLabel(product.suggestedPrice)}`,
-        `箱入數：${product.casePack || "待確認"}`,
-        `數量：${quantity}`,
-        `小計：${subtotal === null ? "待確認" : `$${subtotal}`}`
-      ].join("｜");
-    });
+    const lines = entries.map(({ product, quantity }, index) => [
+      `${index + 1}. ${product.name}（SKU：${product.sku || product.id}）`,
+      `規格：${product.spec || "待確認"}｜箱入數：${product.casePack || "待確認"}｜詢價數量：${quantity}`
+    ].join("\n"));
     app.el.generatedText.value = [
       "【產品詢價】",
       `店家名稱：${customer.storeName}`,
