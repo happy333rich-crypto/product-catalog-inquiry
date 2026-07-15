@@ -11,10 +11,10 @@
   <style>.product-meta > div:last-child { display: none; }</style>
   <script src="cache-bust.js?v=20260709-1" defer></script>
   <script src="script.js?v=20260713-1" defer></script>
-  <script src="cart.js?v=20260715-1" defer></script>
+  <script src="cart.js?v=20260715-2" defer></script>
   <script src="juwei-addon.js?v=20260709-1" defer></script>
   <script src="you-pin-addon.js?v=20260713-2" defer></script>
-  <script src="inquiry.js?v=20260715-2" defer></script>
+  <script src="inquiry.js?v=20260715-3" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -122,7 +122,7 @@
 
       <section class="customer-section" aria-labelledby="customer-title">
         <h3 id="customer-title">詢價人資料</h3>
-        <p class="form-help">標示 * 的欄位必填。第一版資料只暫存在這台裝置，不會上傳。</p>
+        <p class="form-help">店家名稱與聯絡人必填，請至少填一種聯絡方式。資料只暫存在這台裝置，不會上傳。</p>
         <form data-customer-form novalidate>
           <div class="form-grid">
             <label>
@@ -145,8 +145,8 @@
               <input type="text" name="area" autocomplete="address-level1" placeholder="例如：台中市太平區">
             </label>
             <label class="full-width">
-              <span>備註</span>
-              <textarea name="note" rows="3" placeholder="例如：希望週三前回覆、另詢問活動搭贈"></textarea>
+              <span>備註／需求</span>
+              <textarea name="note" rows="3" placeholder="例如：請報含稅價、預計需求數量、想詢問活動"></textarea>
             </label>
           </div>
         </form>
