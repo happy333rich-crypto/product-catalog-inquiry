@@ -82,6 +82,38 @@ window.CatalogApp = {
     }
   };
 
+  app.initTutorialCard = () => {
+    const { tutorialCard, tutorialContent, tutorialToggle } = app.el;
+    if (!tutorialCard || !tutorialContent || !tutorialToggle) return;
+
+    const storageKey = "productCatalogInquiry.tutorialCollapsed.v1";
+    const setCollapsed = (collapsed, save = false) => {
+      tutorialCard.classList.toggle("is-collapsed", collapsed);
+      tutorialContent.hidden = collapsed;
+      tutorialToggle.setAttribute("aria-expanded", String(!collapsed));
+      tutorialToggle.textContent = collapsed ? "查看使用方式" : "收合教學";
+
+      if (!save) return;
+      try {
+        localStorage.setItem(storageKey, collapsed ? "true" : "false");
+      } catch (error) {
+        console.warn("無法儲存教學卡狀態", error);
+      }
+    };
+
+    let collapsed = false;
+    try {
+      collapsed = localStorage.getItem(storageKey) === "true";
+    } catch (error) {
+      console.warn("無法讀取教學卡狀態", error);
+    }
+    setCollapsed(collapsed);
+
+    tutorialToggle.addEventListener("click", () => {
+      setCollapsed(!tutorialCard.classList.contains("is-collapsed"), true);
+    });
+  };
+
   app.showToast = (message) => {
     clearTimeout(app.toastTimer);
     app.el.toast.textContent = message;
@@ -178,6 +210,7 @@ window.CatalogApp = {
 
   app.init = async () => {
     app.cacheElements();
+    app.initTutorialCard();
     app.state.cart = app.loadJSON(app.keys.cart, {});
     app.bindCatalogEvents();
     app.bindCartEvents();
