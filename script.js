@@ -174,6 +174,9 @@ window.CatalogApp = {
       form: document.querySelector("[data-customer-form]"),
       generatedSection: document.querySelector("[data-generated-section]"),
       generatedText: document.querySelector("[data-generated-text]"),
+      tutorialCard: document.querySelector("[data-tutorial-card]"),
+      tutorialContent: document.querySelector("[data-tutorial-content]"),
+      tutorialToggle: document.querySelector("[data-tutorial-toggle]"),
       toast: document.querySelector("[data-toast]")
     };
   };
