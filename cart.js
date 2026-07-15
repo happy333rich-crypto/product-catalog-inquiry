@@ -8,9 +8,31 @@
     return Number.isFinite(parsed) ? Math.min(999, Math.max(1, parsed)) : 1;
   };
 
-  app.getCartEntries = () => Object.values(app.state.cart)
-    .map((entry) => ({ product: app.getProduct(entry.productId), quantity: app.clampQuantity(entry.quantity) }))
-    .filter((entry) => entry.product);
+  app.normalizeCartState = () => {
+    const stored = app.state.cart;
+    if (!stored || typeof stored !== "object" || Array.isArray(stored)) {
+      app.state.cart = {};
+      return;
+    }
+
+    const normalized = {};
+    Object.values(stored).forEach((entry) => {
+      if (!entry || typeof entry !== "object" || !entry.productId) return;
+      const productId = String(entry.productId);
+      normalized[productId] = {
+        productId,
+        quantity: app.clampQuantity(entry.quantity)
+      };
+    });
+    app.state.cart = normalized;
+  };
+
+  app.getCartEntries = () => {
+    app.normalizeCartState();
+    return Object.values(app.state.cart)
+      .map((entry) => ({ product: app.getProduct(entry.productId), quantity: app.clampQuantity(entry.quantity) }))
+      .filter((entry) => entry.product);
+  };
 
   app.persistCart = () => {
     if (!app.saveJSON(app.keys.cart, app.state.cart)) app.showToast("這個瀏覽器無法保存詢價清單");
@@ -73,7 +95,7 @@
   };
 
   app.clearCart = () => {
-    if (!app.getCartEntries().length || !window.confirm("確定要清空全部詢價商品嗎？")) return;
+    if (!app.getCartEntries().length || !window.confirm("確定要清空目前的詢價清單嗎？")) return;
     app.state.cart = {};
     app.persistCart();
     app.updateCartUI();
