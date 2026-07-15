@@ -38,6 +38,14 @@
     if (!app.saveJSON(app.keys.cart, app.state.cart)) app.showToast("這個瀏覽器無法保存詢價清單");
   };
 
+  app.clearPersistedCart = () => {
+    try {
+      localStorage.removeItem(app.keys.cart);
+    } catch (error) {
+      console.warn("無法清除詢價清單", error);
+    }
+  };
+
   app.bindCartEvents = () => {
     document.querySelectorAll("[data-open-cart]").forEach((button) => button.addEventListener("click", app.openCart));
     document.querySelector("[data-close-cart]").addEventListener("click", app.closeCart);
@@ -97,7 +105,7 @@
   app.clearCart = () => {
     if (!app.getCartEntries().length || !window.confirm("確定要清空目前的詢價清單嗎？")) return;
     app.state.cart = {};
-    app.persistCart();
+    app.clearPersistedCart();
     app.updateCartUI();
     app.showToast("詢價清單已清空");
   };
