@@ -45,7 +45,7 @@
     const messages = {
       storeName: "請填寫店家名稱",
       contactName: "請填寫聯絡人",
-      phone: "請填寫聯絡電話"
+      phone: "請至少填寫一種聯絡方式"
     };
     let valid = true;
     Object.entries(messages).forEach(([name, message]) => {
@@ -58,43 +58,54 @@
     return valid;
   };
 
-  app.generateInquiry = () => {
+  app.prepareInquiryText = () => {
     const entries = app.getCartEntries();
-    if (!entries.length) return app.showToast("請先加入至少一項商品");
+    if (!entries.length) {
+      app.showToast("請先加入至少一項商品");
+      return "";
+    }
 
     const customer = app.customerData();
     if (!app.validateCustomer(customer)) {
-      app.showToast("請先填完店家名稱、聯絡人與電話");
       app.el.form.querySelector(".has-error")?.focus();
-      return;
+      return "";
     }
 
     const lines = entries.map(({ product, quantity }, index) => [
       `${index + 1}. ${product.name}（SKU：${product.sku || product.id}）`,
       `規格：${product.spec || "待確認"}｜箱入數：${product.casePack || "待確認"}｜詢價數量：${quantity}`
-    ].join("\n"));
-    app.el.generatedText.value = [
-      "【產品詢價】",
+    ].join("\n")).join("\n\n");
+
+    const text = [
+      "【商品詢價】",
+      "",
       `店家名稱：${customer.storeName}`,
       `聯絡人：${customer.contactName}`,
-      `聯絡電話：${customer.phone}`,
-      `地區：${customer.area || "未填寫"}`,
+      ...(customer.phone ? [`聯絡電話：${customer.phone}`] : []),
+      ...(customer.area ? [`地區：${customer.area}`] : []),
       "",
       "詢價商品：",
-      ...lines,
       "",
-      `備註：${customer.note || "無"}`
+      lines,
+      ...(customer.note ? ["", "備註：", customer.note] : [])
     ].join("\n");
 
+    app.el.generatedText.value = text;
     app.el.generatedSection.hidden = false;
-    app.el.generatedSection.scrollIntoView({ behavior: "smooth", block: "start" });
     app.persistCustomer();
+    return text;
+  };
+
+  app.generateInquiry = () => {
+    const text = app.prepareInquiryText();
+    if (!text) return;
+    app.el.generatedSection.scrollIntoView({ behavior: "smooth", block: "start" });
     app.showToast("詢價內容已產生");
   };
 
   app.copyInquiry = async () => {
-    const text = app.el.generatedText.value;
-    if (!text) return app.showToast("請先產生詢價內容");
+    const text = app.prepareInquiryText();
+    if (!text) return;
     try {
       await navigator.clipboard.writeText(text);
       app.showToast("已複製，可以貼到 LINE");
@@ -118,8 +129,8 @@
   };
 
   app.shareInquiry = async () => {
-    const text = app.el.generatedText.value;
-    if (!text) return app.showToast("請先產生詢價內容");
+    const text = app.prepareInquiryText();
+    if (!text) return;
 
     if (typeof navigator.share !== "function") {
       await app.copyInquiryForShare(text);
