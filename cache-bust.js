@@ -8,11 +8,7 @@
     "890180", // 舒潔食品級摺疊紙巾 150張×2入
     "841870"  // 舒潔淨99抗菌濕巾
   ]);
-  const productNameOverrides = {
-    "811700": "舒潔雲絨舒適抽取衛生紙"
-  };
-
-  const withVersion = (url) => {
+const withVersion = (url) => {
     const separator = url.includes("?") ? "&" : "?";
     return `${url}${separator}v=${version}`;
   };
@@ -122,7 +118,7 @@
         })
         .map((product) => ({
           ...product,
-          name: productNameOverrides[String(product.id)] || product.name
+          name: product.name
         }));
 
       return new Response(JSON.stringify(combined), {

@@ -284,7 +284,7 @@
     "name": "優品防蟑防蠅清潔袋－小",
     "spec": "108張",
     "casePack": 20,
-    "image": "",
+    "image": "images/you-pin/U22100.jpg",
     "active": true
   },
   {
@@ -296,7 +296,7 @@
     "name": "優品防蟑防蠅清潔袋－中",
     "spec": "72張",
     "casePack": 20,
-    "image": "",
+    "image": "images/you-pin/U22110.jpg",
     "active": true
   },
   {
@@ -308,7 +308,7 @@
     "name": "優品防蟑防蠅清潔袋－大",
     "spec": "51張",
     "casePack": 20,
-    "image": "",
+    "image": "images/you-pin/U22120.jpg",
     "active": true
   }
 ]

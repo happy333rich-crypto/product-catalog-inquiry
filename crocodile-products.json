@@ -20,7 +20,7 @@
     "name": "鱷魚蚊香鐵罐",
     "spec": "60卷",
     "casePack": 12,
-    "image": "",
+    "image": "images/crocodile/G10250.jpg",
     "active": true
   },
   {
@@ -92,7 +92,7 @@
     "name": "鱷魚水性快速殺螨滅蟑劑",
     "spec": "600g",
     "casePack": 24,
-    "image": "",
+    "image": "images/crocodile/G10271.jpg",
     "active": true
   },
   {
@@ -116,7 +116,7 @@
     "name": "鱷魚電蚊香片",
     "spec": "33片",
     "casePack": 24,
-    "image": "",
+    "image": "images/crocodile/G10290.jpg",
     "active": true
   },
   {
@@ -128,7 +128,7 @@
     "name": "鱷魚電蚊香片",
     "spec": "60片",
     "casePack": 12,
-    "image": "",
+    "image": "images/crocodile/G10291.jpg",
     "active": true
   },
   {
@@ -176,7 +176,7 @@
     "name": "鱷魚三用型電蚊香器組",
     "spec": "電蚊香器＋液體蚊香",
     "casePack": 24,
-    "image": "",
+    "image": "images/crocodile/G10302.jpg",
     "active": true
   },
   {
@@ -188,7 +188,7 @@
     "name": "鱷魚全自動電蚊香器組",
     "spec": "電蚊香器＋液體蚊香",
     "casePack": 24,
-    "image": "",
+    "image": "images/crocodile/G10303.jpg",
     "active": true
   },
   {
@@ -212,7 +212,7 @@
     "name": "鱷魚米白電蚊香器組",
     "spec": "電蚊香器＋液體蚊香",
     "casePack": 12,
-    "image": "",
+    "image": "images/crocodile/G10305.jpg",
     "active": true
   },
   {
@@ -260,7 +260,7 @@
     "name": "鱷魚水蒸式殺蹣滅蟑劑",
     "spec": "25g",
     "casePack": 12,
-    "image": "",
+    "image": "images/crocodile/G10341.jpg",
     "active": true
   },
   {
@@ -272,7 +272,7 @@
     "name": "鱷魚水蒸式殺蹣滅蟑劑",
     "spec": "25g×2入",
     "casePack": 12,
-    "image": "",
+    "image": "images/crocodile/G10342.jpg",
     "active": true
   },
   {
@@ -284,7 +284,7 @@
     "name": "鱷魚水蒸式殺蹣滅蟑劑",
     "spec": "20g×3入",
     "casePack": 12,
-    "image": "",
+    "image": "images/crocodile/G10343.jpg",
     "active": true
   },
   {
@@ -296,7 +296,7 @@
     "name": "鱷魚加強殺蟑餌劑",
     "spec": "3g×12入",
     "casePack": 12,
-    "image": "",
+    "image": "images/crocodile/G10360.jpg",
     "active": true
   },
   {
@@ -347,18 +347,7 @@
     "image": "images/crocodile/G10391.jpg",
     "active": true
   },
-  {
-    "id": "G10520",
-    "brand": "鱷魚",
-    "category": "居家除蟲",
-    "sku": "G10520",
-    "barcode": "4710312012481",
-    "name": "鱷魚除蟲菊水性殺蟲噴霧",
-    "spec": "300ml",
-    "casePack": 12,
-    "image": "",
-    "active": true
-  },
+
   {
     "id": "G10501",
     "brand": "鱷魚",
