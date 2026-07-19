@@ -9,7 +9,7 @@ window.CatalogApp = {
     products: [],
     filtered: [],
     cart: {},
-    filters: { search: "", brand: "", category: "" },
+    filters: { search: "", brand: "", websiteCategory: "", websiteSubcategory: "" },
     sprite: { map: {}, image: null, cache: new Map() }
   },
   el: {},
@@ -40,6 +40,64 @@ window.CatalogApp = {
   const PRODUCT_NAME_OVERRIDES = {
     E14094: "春風三層絲嵐抽取衛生紙"
   };
+  const WEBSITE_CATEGORY_MAP = {
+    "抽取衛生紙": ["紙品", "抽取衛生紙"],
+    "捲筒衛生紙": ["紙品", "捲筒衛生紙"],
+    "平版衛生紙": ["紙品", "平版衛生紙"],
+    "盒裝面紙": ["紙品", "盒裝面紙"],
+    "袖珍面紙": ["紙品", "袖珍面紙"],
+    "旅行包面紙": ["紙品", "旅行包面紙"],
+    "隨行紙巾": ["紙品", "隨行紙巾"],
+    "摺疊紙巾": ["紙品", "摺疊紙巾"],
+    "廚房紙巾": ["紙品", "廚房紙巾"],
+    "擦手紙": ["紙品", "擦手紙"],
+    "家用紙": ["紙品", "家用紙"],
+    "面紙": ["紙品", "面紙"],
+    "濕巾": ["濕巾與個人衛生", "濕巾"],
+    "濕紙巾": ["濕巾與個人衛生", "濕紙巾"],
+    "濕式衛生紙": ["濕巾與個人衛生", "濕式衛生紙"],
+    "清潔濕巾": ["濕巾與個人衛生", "清潔濕巾"],
+    "化妝棉": ["濕巾與個人衛生", "化妝棉"],
+    "洗臉巾": ["濕巾與個人衛生", "洗臉巾"],
+    "潔顏巾": ["濕巾與個人衛生", "潔顏巾"],
+    "口罩": ["濕巾與個人衛生", "口罩"],
+    "酒精／消毒用品": ["濕巾與個人衛生", "酒精／消毒用品"],
+    "洗衣清潔": ["洗衣用品", "洗衣清潔"],
+    "家庭清潔": ["居家清潔", "家庭清潔"],
+    "浴廁清潔": ["居家清潔", "浴廁清潔"],
+    "廚房清潔": ["居家清潔", "廚房清潔"],
+    "清潔布／擦拭布": ["居家清潔", "清潔布／擦拭布"],
+    "清潔用品": ["居家清潔", "清潔用品"],
+    "清潔袋": ["居家清潔", "清潔袋"],
+    "家具保養": ["居家清潔", "家具保養"],
+    "香皂洗手": ["洗手與沐浴", "香皂洗手"],
+    "洗髮沐浴": ["洗手與沐浴", "洗髮沐浴"],
+    "母嬰用品": ["母嬰用品", "母嬰用品"],
+    "防蚊驅蟲": ["防蚊與除蟲", "防蚊驅蟲"],
+    "居家除蟲": ["防蚊與除蟲", "居家除蟲"],
+    "防霉抑菌": ["防蚊與除蟲", "防霉抑菌"],
+    "捕鼠用品": ["防蚊與除蟲", "捕鼠用品"],
+    "寵物用品": ["寵物用品", "寵物用品"],
+    "瓦斯用品": ["居家生活與五金", "瓦斯用品"],
+    "瓦斯爐具": ["居家生活與五金", "瓦斯爐具"],
+    "打火機": ["居家生活與五金", "打火機"],
+    "毛巾／浴巾": ["居家生活與五金", "毛巾／浴巾"],
+    "免洗餐具": ["居家生活與五金", "免洗餐具"],
+    "保鮮袋": ["居家生活與五金", "保鮮袋"]
+  };
+  const WEBSITE_CATEGORY_ORDER = [
+    "紙品",
+    "濕巾與個人衛生",
+    "衛生棉",
+    "洗衣用品",
+    "居家清潔",
+    "洗手與沐浴",
+    "母嬰用品",
+    "防蚊與除蟲",
+    "寵物用品",
+    "居家生活與五金",
+    "食品與其他"
+  ];
   const BRAND_GROUP_ORDER = [
     ["舒潔"],
     ["可麗舒", "可立雅"],
@@ -154,6 +212,14 @@ window.CatalogApp = {
     return orderDiff || a.localeCompare(b, "zh-Hant");
   });
 
+  app.getWebsiteClassification = (product) => {
+    const mapped = WEBSITE_CATEGORY_MAP[product.category];
+    return {
+      websiteCategory: mapped ? mapped[0] : "食品與其他",
+      websiteSubcategory: mapped ? mapped[1] : "其他"
+    };
+  };
+
   app.cacheElements = () => {
     app.el = {
       grid: document.querySelector("[data-product-grid]"),
@@ -164,7 +230,10 @@ window.CatalogApp = {
       resultCount: document.querySelector("[data-result-count]"),
       search: document.querySelector("[data-search]"),
       brand: document.querySelector("[data-brand-filter]"),
-      category: document.querySelector("[data-category-filter]"),
+      websiteCategory: document.querySelector("[data-website-category-filter]"),
+      websiteSubcategory: document.querySelector("[data-website-subcategory-filter]"),
+      // 保留既有 addon 對 category 篩選器的存取，相容於新細分類選單。
+      category: document.querySelector("[data-website-subcategory-filter]"),
       drawer: document.querySelector("[data-cart-drawer]"),
       backdrop: document.querySelector("[data-cart-backdrop]"),
       cartItems: document.querySelector("[data-cart-items]"),
@@ -235,7 +304,8 @@ window.CatalogApp = {
         .filter((p) => p && p.active === true && p.id && p.brand && p.category && p.name && p.spec)
         .map((product) => ({
           ...product,
-          name: PRODUCT_NAME_OVERRIDES[product.id] || product.name
+          name: PRODUCT_NAME_OVERRIDES[product.id] || product.name,
+          ...app.getWebsiteClassification(product)
         }));
       app.fillFilters();
       app.applyFilters();
@@ -255,8 +325,14 @@ window.CatalogApp = {
       app.state.filters.brand = event.target.value;
       app.applyFilters();
     });
-    app.el.category.addEventListener("change", (event) => {
-      app.state.filters.category = event.target.value;
+    app.el.websiteCategory.addEventListener("change", (event) => {
+      app.state.filters.websiteCategory = event.target.value;
+      app.state.filters.websiteSubcategory = "";
+      app.fillSubcategoryFilter();
+      app.applyFilters();
+    });
+    app.el.websiteSubcategory.addEventListener("change", (event) => {
+      app.state.filters.websiteSubcategory = event.target.value;
       app.applyFilters();
     });
     document.querySelectorAll("[data-reset-filters], [data-empty-reset]").forEach((button) => {
@@ -265,11 +341,20 @@ window.CatalogApp = {
   };
 
   app.fillFilters = () => {
+    app.state.products = app.state.products.map((product) => (
+      product.websiteCategory && product.websiteSubcategory
+        ? product
+        : { ...product, ...app.getWebsiteClassification(product) }
+    ));
     const unique = (key) => {
       const values = [...new Set(app.state.products.map((p) => p[key]).filter(Boolean))];
       return key === "brand" ? app.sortBrands(values) : values.sort((a, b) => a.localeCompare(b, "zh-Hant"));
     };
-    [[app.el.brand, unique("brand")], [app.el.category, unique("category")]].forEach(([select, values]) => {
+    [[app.el.brand, "全部品牌", unique("brand")], [app.el.websiteCategory, "全部大分類", WEBSITE_CATEGORY_ORDER]].forEach(([select, placeholderText, values]) => {
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = placeholderText;
+      select.replaceChildren(placeholder);
       values.forEach((value) => {
         const option = document.createElement("option");
         option.value = value;
@@ -277,10 +362,31 @@ window.CatalogApp = {
         select.appendChild(option);
       });
     });
+    app.fillSubcategoryFilter();
+  };
+
+  app.fillSubcategoryFilter = () => {
+    const selectedCategory = app.state.filters.websiteCategory;
+    const values = [...new Set(app.state.products
+      .filter((product) => !selectedCategory || product.websiteCategory === selectedCategory)
+      .map((product) => product.websiteSubcategory)
+      .filter(Boolean))]
+      .sort((a, b) => a.localeCompare(b, "zh-Hant"));
+    const select = app.el.websiteSubcategory;
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "全部細分類";
+    select.replaceChildren(placeholder);
+    values.forEach((value) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = value;
+      select.appendChild(option);
+    });
   };
 
   app.applyFilters = () => {
-    const { search, brand, category } = app.state.filters;
+    const { search, brand, websiteCategory, websiteSubcategory } = app.state.filters;
     app.state.filtered = app.state.products.filter((product) => {
       const haystack = app.normalizeText([
         product.id,
@@ -288,12 +394,15 @@ window.CatalogApp = {
         product.barcode,
         product.brand,
         product.category,
+        product.websiteCategory,
+        product.websiteSubcategory,
         product.name,
         product.spec
       ].join(" "));
       return (!search || haystack.includes(search)) &&
         (!brand || product.brand === brand) &&
-        (!category || product.category === category);
+        (!websiteCategory || product.websiteCategory === websiteCategory) &&
+        (!websiteSubcategory || product.websiteSubcategory === websiteSubcategory);
     });
     app.el.loading.hidden = true;
     app.el.empty.hidden = app.state.filtered.length > 0;
@@ -418,10 +527,12 @@ window.CatalogApp = {
   };
 
   app.resetFilters = () => {
-    app.state.filters = { search: "", brand: "", category: "" };
+    app.state.filters = { search: "", brand: "", websiteCategory: "", websiteSubcategory: "" };
     app.el.search.value = "";
     app.el.brand.value = "";
-    app.el.category.value = "";
+    app.el.websiteCategory.value = "";
+    app.fillSubcategoryFilter();
+    app.el.websiteSubcategory.value = "";
     app.applyFilters();
     app.el.search.focus();
   };
