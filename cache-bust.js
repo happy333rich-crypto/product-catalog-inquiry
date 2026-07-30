@@ -2,7 +2,7 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-const version = "20260725-1";
+const version = "20260731-1";
   const removedProductIds = new Set([
     "843070", // 舒潔 ufufy 濕式面紙
     "890180", // 舒潔食品級摺疊紙巾 150張×2入
@@ -18,7 +18,7 @@ const withVersion = (url) => {
 
     if (/^products\.json(?:\?|$)/.test(rawUrl)) {
       const requestOptions = { ...init, cache: "reload" };
-      const [productsResponse, yushengResponse, savlonResponse, unileverResponse, liuheResponse, wangwangResponse, namchowResponse, qinghuiResponse, wetWipesResponse, guoshaoResponse, crocodileResponse] = await Promise.all([
+      const [productsResponse, yushengResponse, savlonResponse, unileverResponse, liuheResponse, wangwangResponse, namchowResponse, qinghuiResponse, wetWipesResponse, guoshaoResponse, crocodileResponse, kotexResponse] = await Promise.all([
         originalFetch(withVersion("products.json"), requestOptions),
         originalFetch(withVersion("yusheng-products.json"), requestOptions),
         originalFetch(withVersion("savlon-products.json"), requestOptions),
@@ -29,7 +29,8 @@ const withVersion = (url) => {
         originalFetch(withVersion("qinghui-products.json"), requestOptions),
         originalFetch(withVersion("wet-wipes.json"), requestOptions),
         originalFetch(withVersion("guoshao-products.json"), requestOptions),
-        originalFetch(withVersion("crocodile-products.json"), requestOptions)
+        originalFetch(withVersion("crocodile-products.json"), requestOptions),
+        originalFetch(withVersion("kotex-products.json"), requestOptions)
       ]);
 
       if (!productsResponse.ok) return productsResponse;
@@ -45,6 +46,7 @@ const withVersion = (url) => {
       let wetWipes = [];
       let guoshao = [];
       let crocodile = [];
+      let kotex = [];
 
       if (yushengResponse.ok) {
         const data = await yushengResponse.json();
@@ -96,6 +98,11 @@ const withVersion = (url) => {
         if (Array.isArray(data)) crocodile = data;
       }
 
+      if (kotexResponse.ok) {
+        const data = await kotexResponse.json();
+        if (Array.isArray(data)) kotex = data;
+      }
+
       const seen = new Set();
       const combined = [
         ...(Array.isArray(products) ? products : []),
@@ -108,7 +115,8 @@ const withVersion = (url) => {
         ...qinghui,
         ...wetWipes,
         ...guoshao,
-        ...crocodile
+        ...crocodile,
+        ...kotex
       ]
         .filter((product) => {
           const id = product && product.id ? String(product.id) : "";
@@ -130,7 +138,7 @@ const withVersion = (url) => {
       });
     }
 
-    if (/^(yusheng-products\.json|savlon-products\.json|unilever-products\.json|liuhe-products\.json|wangwang-products\.json|namchow-products\.json|qinghui-products\.json|wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|image-data\/)/.test(rawUrl)) {
+    if (/^(yusheng-products\.json|savlon-products\.json|unilever-products\.json|liuhe-products\.json|wangwang-products\.json|namchow-products\.json|qinghui-products\.json|wet-wipes\.json|guoshao-products\.json|crocodile-products\.json|kotex-products\.json|image-data\/)/.test(rawUrl)) {
       return originalFetch(withVersion(rawUrl), {
         ...init,
         cache: "reload"
