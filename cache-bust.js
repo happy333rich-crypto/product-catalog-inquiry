@@ -2,7 +2,7 @@
 
 (() => {
   const originalFetch = window.fetch.bind(window);
-const version = "20260802-2";
+const version = "20260802-3";
   const removedProductIds = new Set([
     "843070", // 舒潔 ufufy 濕式面紙
     "890180", // 舒潔食品級摺疊紙巾 150張×2入
