@@ -113,8 +113,7 @@ window.CatalogApp = {
     ["春風"],
     ["蒲公英"],
     ["原萃"],
-    ["靠得住"],
-    ["護得住"],
+    ["靠得住", "護得住"],
     ["好奇"],
     ["力可潔"],
     ["居居加", "居美媞", "妙妙熊", "鉅瑋", "居美媞/居居加/妙妙熊/鉅瑋"],
@@ -129,6 +128,9 @@ window.CatalogApp = {
     ["汪汪寶貝"],
     ["唐鑫"]
   ];
+  const BRAND_GROUP_LABELS = new Map([
+    ["靠得住|護得住", "靠得住／護得住"]
+  ]);
 
   app.loadJSON = (key, fallback) => {
     try {
@@ -221,6 +223,32 @@ window.CatalogApp = {
     const orderDiff = app.brandOrderIndex(a) - app.brandOrderIndex(b);
     return orderDiff || a.localeCompare(b, "zh-Hant");
   });
+
+  app.brandGroupLabel = (group) => BRAND_GROUP_LABELS.get(group.join("|")) || "";
+
+  app.getBrandFilterOptions = (brands) => {
+    const available = new Set(brands);
+    const groupedBrands = new Set();
+    const groupLabels = [];
+
+    BRAND_GROUP_ORDER.forEach((group) => {
+      const label = app.brandGroupLabel(group);
+      const members = group.filter((brand) => available.has(brand));
+      if (!label || members.length === 0) return;
+      groupLabels.push(label);
+      members.forEach((brand) => groupedBrands.add(brand));
+    });
+
+    return app.sortBrands([
+      ...brands.filter((brand) => !groupedBrands.has(brand)),
+      ...groupLabels
+    ]);
+  };
+
+  app.getBrandFilterMembers = (value) => {
+    const group = BRAND_GROUP_ORDER.find((members) => app.brandGroupLabel(members) === value);
+    return group || [value];
+  };
 
   app.getWebsiteClassification = (product) => {
     const mapped = WEBSITE_CATEGORY_MAP[product.category];
@@ -360,7 +388,8 @@ window.CatalogApp = {
       const values = [...new Set(app.state.products.map((p) => p[key]).filter(Boolean))];
       return key === "brand" ? app.sortBrands(values) : values.sort((a, b) => a.localeCompare(b, "zh-Hant"));
     };
-    [[app.el.brand, "全部品牌", unique("brand")], [app.el.websiteCategory, "全部大分類", WEBSITE_CATEGORY_ORDER]].forEach(([select, placeholderText, values]) => {
+    const brandOptions = app.getBrandFilterOptions(unique("brand"));
+    [[app.el.brand, "全部品牌", brandOptions], [app.el.websiteCategory, "全部大分類", WEBSITE_CATEGORY_ORDER]].forEach(([select, placeholderText, values]) => {
       const placeholder = document.createElement("option");
       placeholder.value = "";
       placeholder.textContent = placeholderText;
@@ -397,6 +426,7 @@ window.CatalogApp = {
 
   app.applyFilters = () => {
     const { search, brand, websiteCategory, websiteSubcategory } = app.state.filters;
+    const selectedBrands = new Set(app.getBrandFilterMembers(brand));
     app.state.filtered = app.state.products.filter((product) => {
       const haystack = app.normalizeText([
         product.id,
@@ -410,7 +440,7 @@ window.CatalogApp = {
         product.spec
       ].join(" "));
       return (!search || haystack.includes(search)) &&
-        (!brand || product.brand === brand) &&
+        (!brand || selectedBrands.has(product.brand)) &&
         (!websiteCategory || product.websiteCategory === websiteCategory) &&
         (!websiteSubcategory || product.websiteSubcategory === websiteSubcategory);
     });
