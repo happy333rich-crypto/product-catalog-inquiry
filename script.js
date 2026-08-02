@@ -124,12 +124,15 @@ window.CatalogApp = {
     ["清檜"],
     ["優生"],
     ["沙威隆"],
-    ["六禾"],
+    ["金字塔"],
     ["汪汪寶貝"],
     ["唐鑫"]
   ];
   const BRAND_GROUP_LABELS = new Map([
     ["靠得住|護得住", "靠得住／護得住"]
+  ]);
+  const BRAND_DISPLAY_ALIASES = new Map([
+    ["六禾", "金字塔"]
   ]);
 
   app.loadJSON = (key, fallback) => {
@@ -195,6 +198,8 @@ window.CatalogApp = {
     .normalize("NFKC")
     .replace(/\s+/g, "")
     .toLowerCase();
+
+  app.getDisplayBrand = (brand) => BRAND_DISPLAY_ALIASES.get(brand) || brand;
 
   app.moneyValue = (value) => {
     const numeric = Number(value);
@@ -342,6 +347,8 @@ window.CatalogApp = {
         .filter((p) => p && p.active === true && p.id && p.brand && p.category && p.name && p.spec)
         .map((product) => ({
           ...product,
+          sourceBrand: product.sourceBrand || product.brand,
+          brand: app.getDisplayBrand(product.brand),
           name: PRODUCT_NAME_OVERRIDES[product.id] || product.name,
           ...app.getWebsiteClassification(product)
         }));
@@ -433,6 +440,7 @@ window.CatalogApp = {
         product.sku,
         product.barcode,
         product.brand,
+        product.sourceBrand,
         product.category,
         product.websiteCategory,
         product.websiteSubcategory,
