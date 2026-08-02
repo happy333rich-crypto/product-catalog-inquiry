@@ -1078,5 +1078,20 @@
     "casePack": 24,
     "active": true,
     "image": "images/kotex/585441.jpg"
+  },
+  {
+    "id": "612890",
+    "brand": "靠得住",
+    "category": "生理褲",
+    "sku": "612890",
+    "barcode": "4710036612899",
+    "name": "靠得住茶樹沁涼褲 L號 2件",
+    "spec": "L號／2件",
+    "unit": "包",
+    "taxPrice": 55,
+    "suggestedPrice": 65,
+    "casePack": 12,
+    "active": true,
+    "image": "images/kotex/612890.jpg"
   }
 ]
