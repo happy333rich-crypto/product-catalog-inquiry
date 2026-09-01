@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "E80650",
     "brand": "居美媞/居居加/妙妙熊/鉅瑋",
@@ -153,6 +153,21 @@
     "spec": "5入",
     "casePack": 120,
     "image": "images/juwei/E82000.jfif",
+    "active": true
+  },
+  {
+    "id": "E80860",
+    "brand": "居美媞/居居加/妙妙熊/鉅瑋",
+    "category": "毛巾／浴巾",
+    "sku": "E80860",
+    "barcode": "4713282014448",
+    "name": "98*5 居居加天絲特柔感毛浴巾旅行二入組*40包",
+    "spec": "2入",
+    "unit": "包",
+    "taxPrice": 55,
+    "suggestedPrice": 69,
+    "casePack": 40,
+    "image": "images/juwei/E80860.png",
     "active": true
   }
 ]
