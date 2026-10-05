@@ -3,13 +3,15 @@
 window.CatalogApp = {
   keys: {
     cart: "productCatalogInquiry.cart.v1",
-    customer: "productCatalogInquiry.customer.v1"
+    customer: "productCatalogInquiry.customer.v1",
+    view: "productCatalogInquiry.catalogView.v1"
   },
   state: {
     products: [],
     filtered: [],
     cart: {},
     filters: { search: "", brand: "", websiteCategory: "", websiteSubcategory: "" },
+    view: { filterMode: "brand", scrollY: 0, activeProductId: "" },
     sprite: { map: {}, image: null, cache: new Map() }
   },
   el: {},
@@ -88,6 +90,7 @@ window.CatalogApp = {
     "瓦斯用品": ["居家生活與五金", "瓦斯用品"],
     "瓦斯爐具": ["居家生活與五金", "瓦斯爐具"],
     "打火機": ["居家生活與五金", "打火機"],
+    "點火槍": ["居家生活與五金", "點火槍"],
     "毛巾／浴巾": ["居家生活與五金", "毛巾／浴巾"],
     "免洗餐具": ["居家生活與五金", "免洗餐具"],
     "烤肉用品": ["居家生活與五金", "烤肉用品"],
@@ -153,6 +156,46 @@ window.CatalogApp = {
       console.warn(`無法儲存 ${key}`, error);
       return false;
     }
+  };
+
+  app.restoreCatalogViewState = () => {
+    try {
+      const stored = JSON.parse(sessionStorage.getItem(app.keys.view) || "null");
+      if (!stored || typeof stored !== "object") return;
+      app.state.filters = {
+        search: String(stored.filters?.search || ""),
+        brand: String(stored.filters?.brand || ""),
+        websiteCategory: String(stored.filters?.websiteCategory || ""),
+        websiteSubcategory: String(stored.filters?.websiteSubcategory || "")
+      };
+      app.state.view.filterMode = stored.filterMode === "category" ? "category" : "brand";
+      app.state.view.scrollY = Number.isFinite(Number(stored.scrollY)) ? Number(stored.scrollY) : 0;
+    } catch (error) {
+      console.warn("無法還原型錄瀏覽狀態", error);
+    }
+  };
+
+  app.persistCatalogViewState = () => {
+    try {
+      sessionStorage.setItem(app.keys.view, JSON.stringify({
+        filters: app.state.filters,
+        filterMode: app.state.view.filterMode,
+        scrollY: app.state.view.scrollY
+      }));
+    } catch (error) {
+      console.warn("無法保存型錄瀏覽狀態", error);
+    }
+  };
+
+  app.getProductIdFromHash = () => {
+    const match = window.location.hash.match(/^#product=(.+)$/);
+    return match ? decodeURIComponent(match[1]) : "";
+  };
+
+  app.prepareCatalogHistory = () => {
+    app.initialDetailId = app.getProductIdFromHash();
+    const baseUrl = `${window.location.pathname}${window.location.search}`;
+    window.history.replaceState({ catalogBase: true }, "", baseUrl);
   };
 
   app.initTutorialCard = () => {
@@ -277,6 +320,25 @@ window.CatalogApp = {
       websiteSubcategory: document.querySelector("[data-website-subcategory-filter]"),
       // 保留既有 addon 對 category 篩選器的存取，相容於新細分類選單。
       category: document.querySelector("[data-website-subcategory-filter]"),
+      brandChips: document.querySelector("[data-brand-chips]"),
+      categoryChips: document.querySelector("[data-category-chips]"),
+      subcategoryChips: document.querySelector("[data-subcategory-chips]"),
+      filterModeButtons: document.querySelectorAll("[data-filter-mode]"),
+      filterPanels: document.querySelectorAll("[data-filter-panel]"),
+      detail: document.querySelector("[data-product-detail]"),
+      detailImage: document.querySelector("[data-detail-image]"),
+      detailImagePlaceholder: document.querySelector("[data-detail-image-placeholder]"),
+      detailBrand: document.querySelector("[data-detail-brand]"),
+      detailCategory: document.querySelector("[data-detail-category]"),
+      detailName: document.querySelector("[data-detail-name]"),
+      detailSpec: document.querySelector("[data-detail-spec]"),
+      detailCasePack: document.querySelector("[data-detail-case-pack]"),
+      detailFeatures: document.querySelector("[data-detail-features]"),
+      detailFeatureList: document.querySelector("[data-detail-feature-list]"),
+      detailMore: document.querySelector("[data-detail-more]"),
+      detailBarcode: document.querySelector("[data-detail-barcode]"),
+      detailSku: document.querySelector("[data-detail-sku]"),
+      detailAdd: document.querySelector("[data-detail-add]"),
       drawer: document.querySelector("[data-cart-drawer]"),
       backdrop: document.querySelector("[data-cart-backdrop]"),
       cartItems: document.querySelector("[data-cart-items]"),
@@ -325,6 +387,8 @@ window.CatalogApp = {
 
   app.init = async () => {
     app.cacheElements();
+    app.restoreCatalogViewState();
+    app.prepareCatalogHistory();
     app.initTutorialCard();
     app.state.cart = app.loadJSON(app.keys.cart, {});
     app.bindCatalogEvents();
@@ -355,6 +419,11 @@ window.CatalogApp = {
       app.fillFilters();
       app.applyFilters();
       app.updateCartUI();
+      if (app.initialDetailId && app.getProduct(app.initialDetailId)) {
+        app.openProductDetail(app.initialDetailId, { pushHistory: true, preserveScroll: false });
+      } else if (app.state.view.scrollY > 0) {
+        requestAnimationFrame(() => window.scrollTo({ top: app.state.view.scrollY, behavior: "auto" }));
+      }
     } catch (error) {
       console.error(error);
       app.showLoadError();
@@ -363,11 +432,12 @@ window.CatalogApp = {
 
   app.bindCatalogEvents = () => {
     app.el.search.addEventListener("input", (event) => {
-      app.state.filters.search = app.normalizeText(event.target.value);
+      app.state.filters.search = event.target.value;
       app.applyFilters();
     });
     app.el.brand.addEventListener("change", (event) => {
       app.state.filters.brand = event.target.value;
+      app.fillCategoryFilter();
       app.applyFilters();
     });
     app.el.websiteCategory.addEventListener("change", (event) => {
@@ -379,6 +449,58 @@ window.CatalogApp = {
     app.el.websiteSubcategory.addEventListener("change", (event) => {
       app.state.filters.websiteSubcategory = event.target.value;
       app.applyFilters();
+    });
+    document.querySelector("[data-focus-search]")?.addEventListener("click", () => {
+      app.el.search.scrollIntoView({ block: "center", behavior: "smooth" });
+      app.el.search.focus({ preventScroll: true });
+    });
+    app.el.filterModeButtons.forEach((button) => {
+      button.addEventListener("click", () => app.setFilterMode(button.dataset.filterMode));
+    });
+    app.el.brandChips?.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-filter-value]");
+      if (!button) return;
+      app.state.filters.brand = button.dataset.filterValue || "";
+      app.fillCategoryFilter();
+      app.applyFilters();
+    });
+    app.el.categoryChips?.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-filter-value]");
+      if (!button) return;
+      app.state.filters.websiteCategory = button.dataset.filterValue || "";
+      app.state.filters.websiteSubcategory = "";
+      app.fillSubcategoryFilter();
+      app.applyFilters();
+    });
+    app.el.subcategoryChips?.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-filter-value]");
+      if (!button) return;
+      app.state.filters.websiteSubcategory = button.dataset.filterValue || "";
+      app.applyFilters();
+    });
+    document.querySelector("[data-close-product-detail]")?.addEventListener("click", () => app.closeProductDetail());
+    app.el.detailAdd?.addEventListener("click", () => {
+      const productId = app.el.detailAdd.dataset.productId;
+      if (!productId) return;
+      app.addToCart(productId);
+      app.updateAddButton(app.el.detailAdd, productId);
+    });
+    window.addEventListener("popstate", (event) => {
+      const productId = event.state?.catalogProductId || "";
+      if (productId && app.getProduct(productId)) {
+        app.openProductDetail(productId, { pushHistory: false, preserveScroll: false });
+      } else {
+        app.hideProductDetail({ restoreScroll: true });
+      }
+    });
+    window.addEventListener("pagehide", () => {
+      if (!document.body.classList.contains("detail-open")) app.state.view.scrollY = window.scrollY;
+      app.persistCatalogViewState();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && document.body.classList.contains("detail-open") && !app.el.drawer.classList.contains("open")) {
+        app.closeProductDetail();
+      }
     });
     document.querySelectorAll("[data-reset-filters], [data-empty-reset]").forEach((button) => {
       button.addEventListener("click", app.resetFilters);
@@ -396,43 +518,128 @@ window.CatalogApp = {
       return key === "brand" ? app.sortBrands(values) : values.sort((a, b) => a.localeCompare(b, "zh-Hant"));
     };
     const brandOptions = app.getBrandFilterOptions(unique("brand"));
-    [[app.el.brand, "全部品牌", brandOptions], [app.el.websiteCategory, "全部大分類", WEBSITE_CATEGORY_ORDER]].forEach(([select, placeholderText, values]) => {
-      const placeholder = document.createElement("option");
-      placeholder.value = "";
-      placeholder.textContent = placeholderText;
-      select.replaceChildren(placeholder);
-      values.forEach((value) => {
-        const option = document.createElement("option");
-        option.value = value;
-        option.textContent = value;
-        select.appendChild(option);
-      });
+    app.replaceSelectOptions(app.el.brand, "全部品牌", brandOptions);
+    if (app.state.filters.brand && !brandOptions.includes(app.state.filters.brand)) {
+      app.state.filters.brand = "";
+      app.state.filters.websiteCategory = "";
+      app.state.filters.websiteSubcategory = "";
+    }
+    app.fillCategoryFilter();
+    app.syncFilterControls();
+    app.renderFilterChips();
+  };
+
+  app.replaceSelectOptions = (select, placeholderText, values) => {
+    const fragment = document.createDocumentFragment();
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = placeholderText;
+    fragment.appendChild(placeholder);
+    values.forEach((value) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = value;
+      fragment.appendChild(option);
     });
+    select.replaceChildren(fragment);
+  };
+
+  app.getProductsForSelectedBrand = () => {
+    const selectedBrand = app.state.filters.brand;
+    if (!selectedBrand) return app.state.products;
+    const members = new Set(app.getBrandFilterMembers(selectedBrand));
+    return app.state.products.filter((product) => members.has(product.brand));
+  };
+
+  app.sortWebsiteCategories = (values) => values.sort((a, b) => {
+    const aIndex = WEBSITE_CATEGORY_ORDER.indexOf(a);
+    const bIndex = WEBSITE_CATEGORY_ORDER.indexOf(b);
+    const normalizedA = aIndex === -1 ? WEBSITE_CATEGORY_ORDER.length : aIndex;
+    const normalizedB = bIndex === -1 ? WEBSITE_CATEGORY_ORDER.length : bIndex;
+    return normalizedA - normalizedB || a.localeCompare(b, "zh-Hant");
+  });
+
+  app.fillCategoryFilter = () => {
+    const values = app.sortWebsiteCategories([...new Set(app.getProductsForSelectedBrand()
+      .map((product) => product.websiteCategory)
+      .filter(Boolean))]);
+    if (app.state.filters.websiteCategory && !values.includes(app.state.filters.websiteCategory)) {
+      app.state.filters.websiteCategory = "";
+      app.state.filters.websiteSubcategory = "";
+    }
+    app.replaceSelectOptions(app.el.websiteCategory, "全部大分類", values);
     app.fillSubcategoryFilter();
   };
 
   app.fillSubcategoryFilter = () => {
     const selectedCategory = app.state.filters.websiteCategory;
-    const values = [...new Set(app.state.products
+    const values = [...new Set(app.getProductsForSelectedBrand()
       .filter((product) => !selectedCategory || product.websiteCategory === selectedCategory)
       .map((product) => product.websiteSubcategory)
       .filter(Boolean))]
       .sort((a, b) => a.localeCompare(b, "zh-Hant"));
-    const select = app.el.websiteSubcategory;
-    const placeholder = document.createElement("option");
-    placeholder.value = "";
-    placeholder.textContent = "全部細分類";
-    select.replaceChildren(placeholder);
-    values.forEach((value) => {
-      const option = document.createElement("option");
-      option.value = value;
-      option.textContent = value;
-      select.appendChild(option);
+    if (app.state.filters.websiteSubcategory && !values.includes(app.state.filters.websiteSubcategory)) {
+      app.state.filters.websiteSubcategory = "";
+    }
+    app.replaceSelectOptions(app.el.websiteSubcategory, "全部細分類", values);
+    app.el.websiteSubcategory.value = app.state.filters.websiteSubcategory;
+  };
+
+  app.setFilterMode = (mode) => {
+    app.state.view.filterMode = mode === "category" ? "category" : "brand";
+    app.el.filterModeButtons.forEach((button) => {
+      const active = button.dataset.filterMode === app.state.view.filterMode;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-selected", String(active));
+    });
+    app.el.filterPanels.forEach((panel) => {
+      panel.hidden = panel.dataset.filterPanel !== app.state.view.filterMode;
+    });
+    app.persistCatalogViewState();
+  };
+
+  app.createFilterChip = (value, label, selected) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "filter-chip";
+    button.dataset.filterValue = value;
+    button.textContent = label;
+    button.classList.toggle("is-active", value === selected);
+    button.setAttribute("aria-pressed", String(value === selected));
+    return button;
+  };
+
+  app.renderFilterChips = () => {
+    const renderFromSelect = (select, container, selected) => {
+      if (!select || !container) return;
+      const fragment = document.createDocumentFragment();
+      [...select.options].forEach((option) => {
+        fragment.appendChild(app.createFilterChip(option.value, option.textContent, selected));
+      });
+      container.replaceChildren(fragment);
+    };
+    renderFromSelect(app.el.brand, app.el.brandChips, app.state.filters.brand);
+    renderFromSelect(app.el.websiteCategory, app.el.categoryChips, app.state.filters.websiteCategory);
+    renderFromSelect(app.el.websiteSubcategory, app.el.subcategoryChips, app.state.filters.websiteSubcategory);
+    if (app.el.subcategoryChips) app.el.subcategoryChips.hidden = !app.state.filters.websiteCategory;
+    app.setFilterMode(app.state.view.filterMode);
+  };
+
+  app.syncFilterControls = () => {
+    app.el.search.value = app.state.filters.search;
+    [
+      [app.el.brand, app.state.filters.brand],
+      [app.el.websiteCategory, app.state.filters.websiteCategory],
+      [app.el.websiteSubcategory, app.state.filters.websiteSubcategory]
+    ].forEach(([select, value]) => {
+      if (!select) return;
+      select.value = [...select.options].some((option) => option.value === value) ? value : "";
     });
   };
 
   app.applyFilters = () => {
     const { search, brand, websiteCategory, websiteSubcategory } = app.state.filters;
+    const normalizedSearch = app.normalizeText(search);
     const selectedBrands = new Set(app.getBrandFilterMembers(brand));
     app.state.filtered = app.state.products.filter((product) => {
       const haystack = app.normalizeText([
@@ -447,7 +654,7 @@ window.CatalogApp = {
         product.name,
         product.spec
       ].join(" "));
-      return (!search || haystack.includes(search)) &&
+      return (!normalizedSearch || haystack.includes(normalizedSearch)) &&
         (!brand || selectedBrands.has(product.brand)) &&
         (!websiteCategory || product.websiteCategory === websiteCategory) &&
         (!websiteSubcategory || product.websiteSubcategory === websiteSubcategory);
@@ -456,17 +663,21 @@ window.CatalogApp = {
     app.el.empty.hidden = app.state.filtered.length > 0;
     app.el.resultCount.textContent = String(app.state.filtered.length);
     app.renderProducts();
+    app.syncFilterControls();
+    app.renderFilterChips();
+    app.persistCatalogViewState();
   };
 
   app.showProductImage = (product, image, placeholder, source) => {
+    image.onerror = null;
     image.src = source;
     image.alt = `${product.name}商品圖片`;
     image.hidden = false;
     placeholder.hidden = true;
-    image.addEventListener("error", () => {
+    image.onerror = () => {
       image.hidden = true;
       placeholder.hidden = false;
-    }, { once: true });
+    };
   };
 
   app.readStoredImageData = async (productId) => {
@@ -546,15 +757,11 @@ window.CatalogApp = {
       const card = app.el.productTemplate.content.firstElementChild.cloneNode(true);
       const image = card.querySelector(".product-image");
       const placeholder = card.querySelector(".image-placeholder");
-      const button = card.querySelector(".add-button");
 
       card.dataset.productId = product.id;
-      card.querySelector(".brand-pill").textContent = product.brand;
-      card.querySelector(".product-category").textContent = product.category;
+      card.setAttribute("aria-label", `查看 ${product.name}`);
       card.querySelector(".product-name").textContent = product.name;
       card.querySelector(".product-spec").textContent = product.spec;
-      card.querySelector(".product-case-pack").textContent = String(product.casePack);
-      card.querySelector(".product-sku").textContent = product.sku;
 
       const spriteSource = app.getSpriteProductImage(product.id);
       if (product.image) {
@@ -567,20 +774,116 @@ window.CatalogApp = {
         app.loadStoredProductImage(product, image, placeholder);
       }
 
-      app.updateAddButton(button, product.id);
-      button.addEventListener("click", () => app.addToCart(product.id));
+      card.addEventListener("click", () => app.openProductDetail(product.id, { trigger: card }));
+      card.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        app.openProductDetail(product.id, { trigger: card });
+      });
       fragment.appendChild(card);
     });
     app.el.grid.replaceChildren(fragment);
+  };
+
+  app.getProductFeatures = (product) => {
+    const value = product.features ?? product.productFeatures ?? product.feature ?? product.description ?? "";
+    if (Array.isArray(value)) return value.map((item) => String(item).trim()).filter(Boolean);
+    const text = String(value).trim();
+    return text ? [text] : [];
+  };
+
+  app.renderProductImage = (product, image, placeholder) => {
+    image.hidden = true;
+    image.removeAttribute("src");
+    placeholder.hidden = false;
+    const spriteSource = app.getSpriteProductImage(product.id);
+    if (product.image) {
+      app.showProductImage(product, image, placeholder, product.image);
+    } else if (STORED_IMAGE_PRIORITY.has(product.id)) {
+      app.loadStoredProductImage(product, image, placeholder, spriteSource);
+    } else if (spriteSource) {
+      app.showProductImage(product, image, placeholder, spriteSource);
+    } else {
+      app.loadStoredProductImage(product, image, placeholder);
+    }
+  };
+
+  app.renderProductDetail = (product) => {
+    app.el.detailBrand.textContent = product.brand;
+    app.el.detailCategory.textContent = product.category;
+    app.el.detailName.textContent = product.name;
+    app.el.detailSpec.textContent = product.spec || "待確認";
+    app.el.detailCasePack.textContent = product.casePack ? String(product.casePack) : "待確認";
+    app.el.detailBarcode.textContent = product.barcode || "未提供";
+    app.el.detailSku.textContent = product.sku || product.id;
+    app.el.detailMore.open = false;
+    const features = app.getProductFeatures(product);
+    app.el.detailFeatures.hidden = features.length === 0;
+    app.el.detailFeatureList.replaceChildren();
+    if (features.length === 1) {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = features[0];
+      app.el.detailFeatureList.appendChild(paragraph);
+    } else if (features.length > 1) {
+      const list = document.createElement("ul");
+      features.forEach((feature) => {
+        const item = document.createElement("li");
+        item.textContent = feature;
+        list.appendChild(item);
+      });
+      app.el.detailFeatureList.appendChild(list);
+    }
+    app.el.detailAdd.dataset.productId = product.id;
+    app.updateAddButton(app.el.detailAdd, product.id);
+    app.renderProductImage(product, app.el.detailImage, app.el.detailImagePlaceholder);
+  };
+
+  app.openProductDetail = (id, options = {}) => {
+    const product = app.getProduct(id);
+    if (!product) return;
+    const { pushHistory = true, preserveScroll = true, trigger = null } = options;
+    if (preserveScroll && !document.body.classList.contains("detail-open")) {
+      app.state.view.scrollY = window.scrollY;
+      app.persistCatalogViewState();
+    }
+    app.lastProductTrigger = trigger || app.lastProductTrigger;
+    app.state.view.activeProductId = product.id;
+    app.renderProductDetail(product);
+    app.el.detail.hidden = false;
+    app.el.detail.setAttribute("aria-hidden", "false");
+    app.el.detail.scrollTop = 0;
+    document.body.classList.add("detail-open");
+    if (pushHistory) {
+      const url = new URL(window.location.href);
+      url.hash = `product=${encodeURIComponent(product.id)}`;
+      window.history.pushState({ catalogProductId: product.id }, "", url);
+    }
+    document.querySelector("[data-close-product-detail]")?.focus();
+  };
+
+  app.hideProductDetail = ({ restoreScroll = true } = {}) => {
+    if (!app.el.detail || app.el.detail.hidden) return;
+    app.el.detail.hidden = true;
+    app.el.detail.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("detail-open");
+    app.state.view.activeProductId = "";
+    if (restoreScroll) requestAnimationFrame(() => window.scrollTo({ top: app.state.view.scrollY, behavior: "auto" }));
+    app.lastProductTrigger?.focus?.({ preventScroll: true });
+  };
+
+  app.closeProductDetail = () => {
+    if (window.history.state?.catalogProductId) {
+      window.history.back();
+    } else {
+      app.hideProductDetail({ restoreScroll: true });
+    }
   };
 
   app.resetFilters = () => {
     app.state.filters = { search: "", brand: "", websiteCategory: "", websiteSubcategory: "" };
     app.el.search.value = "";
     app.el.brand.value = "";
-    app.el.websiteCategory.value = "";
-    app.fillSubcategoryFilter();
-    app.el.websiteSubcategory.value = "";
+    app.fillCategoryFilter();
     app.applyFilters();
     app.el.search.focus();
   };

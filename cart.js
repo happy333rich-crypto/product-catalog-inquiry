@@ -119,8 +119,8 @@
     app.el.clearCart.disabled = count === 0;
     document.querySelector("[data-generate-inquiry]").disabled = count === 0;
     app.renderCart(entries);
-    document.querySelectorAll(".product-card").forEach((card) => {
-      app.updateAddButton(card.querySelector(".add-button"), card.dataset.productId);
+    document.querySelectorAll(".add-button[data-product-id]").forEach((button) => {
+      app.updateAddButton(button, button.dataset.productId);
     });
     app.el.generatedSection.hidden = true;
   };

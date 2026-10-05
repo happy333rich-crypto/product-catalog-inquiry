@@ -3,15 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#6d9278">
+  <meta name="theme-color" content="#173b2b">
   <meta name="description" content="產品電子型錄與詢價清單">
   <meta name="build-version" content="20260709-1">
-  <title>產品電子型錄｜加入詢價清單</title>
-  <link rel="stylesheet" href="style.css?v=20260802-1">
-  <style>.product-meta > div:last-child { display: none; }</style>
+  <title>商品型錄</title>
+  <link rel="stylesheet" href="style-v1.css?v=20260903-1">
   <script src="cache-bust.js?v=20260802-3" defer></script>
-  <script src="script.js?v=20260803-1" defer></script>
-  <script src="cart.js?v=20260715-2" defer></script>
+  <script src="script.js?v=20260901-1" defer></script>
+  <script src="cart.js?v=20260901-1" defer></script>
   <script src="juwei-addon.js?v=20260709-1" defer></script>
   <script src="you-pin-addon.js?v=20260713-2" defer></script>
   <script src="inquiry.js?v=20260715-3" defer></script>
@@ -20,69 +19,26 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand-mark" href="#top" aria-label="回到商品列表頂端">
-        <span class="brand-icon" aria-hidden="true">紙</span>
-        <span>
-          <strong>產品電子型錄</strong>
-          <small>挑選商品，快速整理詢價內容</small>
-        </span>
+        <strong>商品型錄</strong>
       </a>
-      <button class="header-cart-button" type="button" data-open-cart aria-label="開啟詢價清單">
-        詢價清單
-        <span class="cart-badge" data-cart-count>0</span>
-      </button>
+      <div class="header-actions">
+        <button class="header-search-button" type="button" data-focus-search aria-label="前往搜尋商品">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>搜尋</span>
+        </button>
+        <button class="header-cart-button" type="button" data-open-cart aria-label="開啟詢價清單">
+          詢價
+          <span class="cart-badge" data-cart-count>0</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">新利珍產品型錄</p>
-        <h1 id="hero-title">精選商品，輕鬆完成詢價</h1>
-        <p>瀏覽商品規格，將需要的品項加入詢價清單，我們將依您的需求提供報價與合作方案。</p>
-      </div>
-    </section>
-
-    <section class="tutorial-section" aria-labelledby="tutorial-title">
-      <div class="tutorial-card" data-tutorial-card>
-        <div class="tutorial-header">
-          <div>
-            <p class="eyebrow">使用方式</p>
-            <h2 id="tutorial-title">👋 歡迎使用商品型錄</h2>
-            <p class="tutorial-subtitle">第一次使用也很簡單，只要 3 個步驟。</p>
-          </div>
-          <button class="button button-ghost tutorial-toggle" type="button" data-tutorial-toggle aria-expanded="true" aria-controls="tutorial-content">收合教學</button>
-        </div>
-
-        <div class="tutorial-content" id="tutorial-content" data-tutorial-content>
-          <ol class="tutorial-steps">
-            <li class="tutorial-step">
-              <strong>搜尋商品</strong>
-              <p>可搜尋商品名稱、品牌或 SKU。</p>
-              <p class="tutorial-example">例如：舒潔、春風、817580</p>
-            </li>
-            <li class="tutorial-step">
-              <strong>加入詢價</strong>
-              <p>點選商品加入詢價清單，並調整所需數量。</p>
-            </li>
-            <li class="tutorial-step">
-              <strong>送出詢價</strong>
-              <p>填寫基本資料後，按【傳送詢價內容】即可送出詢價。</p>
-            </li>
-          </ol>
-
-          <div class="tutorial-notes">
-            <p>商品圖片持續更新中，若顯示「圖片整理中」屬正常情況。</p>
-            <p class="tutorial-note-highlight">實際價格及促銷方案將由業務另行提供。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="catalog-section" aria-labelledby="catalog-title">
       <div class="catalog-heading">
         <div>
-          <p class="eyebrow">產品型錄</p>
-          <h2 id="catalog-title">紙品、濕巾、居家清潔與生活用品</h2>
+          <h1 id="catalog-title">商品型錄</h1>
         </div>
         <p class="result-count" aria-live="polite"><span data-result-count>0</span> 項商品</p>
       </div>
@@ -91,31 +47,39 @@
         <label class="search-field">
           <span class="sr-only">搜尋商品</span>
           <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <input type="search" data-search placeholder="搜尋商品（例如：舒潔、春風、817580）" autocomplete="off">
+          <input type="search" data-search placeholder="搜尋品名、品牌或商品編號" autocomplete="off">
         </label>
+        <button class="text-button reset-button" type="button" data-reset-filters>清除</button>
 
-        <label>
-          <span>品牌</span>
-          <select data-brand-filter>
-            <option value="">全部品牌</option>
-          </select>
-        </label>
+        <div class="mobile-filter-controls" aria-label="商品篩選條件">
+          <label class="filter-select-field filter-select-brand">
+            <span>品牌</span>
+            <select data-brand-filter><option value="">全部品牌</option></select>
+          </label>
+          <label class="filter-select-field">
+            <span>大分類</span>
+            <select data-website-category-filter><option value="">全部大分類</option></select>
+          </label>
+          <label class="filter-select-field">
+            <span>細分類</span>
+            <select data-website-subcategory-filter><option value="">全部細分類</option></select>
+          </label>
+        </div>
 
-        <label>
-          <span>大分類</span>
-          <select data-website-category-filter>
-            <option value="">全部大分類</option>
-          </select>
-        </label>
+        <div class="filter-navigation">
+          <div class="filter-mode-tabs" role="tablist" aria-label="瀏覽商品方式">
+            <button type="button" class="filter-mode-button is-active" role="tab" aria-selected="true" data-filter-mode="brand">品牌</button>
+            <button type="button" class="filter-mode-button" role="tab" aria-selected="false" data-filter-mode="category">分類</button>
+          </div>
+          <div class="filter-panel" data-filter-panel="brand" role="tabpanel">
+            <div class="filter-chip-row" data-brand-chips aria-label="品牌篩選"></div>
+          </div>
+          <div class="filter-panel" data-filter-panel="category" role="tabpanel" hidden>
+            <div class="filter-chip-row" data-category-chips aria-label="大分類篩選"></div>
+            <div class="filter-chip-row subcategory-row" data-subcategory-chips aria-label="細分類篩選" hidden></div>
+          </div>
+        </div>
 
-        <label>
-          <span>細分類</span>
-          <select data-website-subcategory-filter>
-            <option value="">全部細分類</option>
-          </select>
-        </label>
-
-        <button class="button button-ghost reset-button" type="button" data-reset-filters>清除篩選</button>
       </div>
 
       <div class="status-panel" data-loading-status>
@@ -133,6 +97,54 @@
       </div>
     </section>
   </main>
+
+  <section class="product-detail-view" data-product-detail aria-hidden="true" hidden>
+    <header class="detail-header">
+      <div class="detail-header-inner">
+        <button class="detail-back-button" type="button" data-close-product-detail>
+          <span aria-hidden="true">←</span>
+          <span>商品列表</span>
+        </button>
+        <button class="detail-inquiry-button" type="button" data-open-cart>
+          詢價清單 <span data-cart-count>0</span>
+        </button>
+      </div>
+    </header>
+    <div class="detail-layout">
+      <div class="detail-image-column">
+        <div class="detail-image-wrap">
+          <img class="detail-product-image" data-detail-image alt="" hidden>
+          <div class="detail-image-placeholder" data-detail-image-placeholder aria-hidden="true">
+            <span>商品圖片</span>
+            <small>圖片整理中</small>
+          </div>
+        </div>
+      </div>
+      <article class="detail-copy">
+        <p class="detail-context"><span data-detail-brand></span><span aria-hidden="true">・</span><span data-detail-category></span></p>
+        <h1 data-detail-name></h1>
+        <dl class="detail-primary-meta">
+          <div><dt>規格</dt><dd data-detail-spec></dd></div>
+          <div><dt>箱入</dt><dd data-detail-case-pack></dd></div>
+        </dl>
+
+        <section class="detail-features" data-detail-features hidden>
+          <h2>產品特色</h2>
+          <div data-detail-feature-list></div>
+        </section>
+
+        <details class="detail-more" data-detail-more>
+          <summary>更多商品資訊 <span aria-hidden="true"></span></summary>
+          <dl>
+            <div><dt>條碼</dt><dd data-detail-barcode></dd></div>
+            <div><dt>商品編號／SKU</dt><dd data-detail-sku></dd></div>
+          </dl>
+        </details>
+
+        <button class="button button-primary detail-add-button add-button" type="button" data-detail-add>加入詢價</button>
+      </article>
+    </div>
+  </section>
 
   <button class="mobile-cart-bar" type="button" data-open-cart>
     <span>查看詢價清單</span>
@@ -217,24 +229,17 @@
   <div class="toast" data-toast role="status" aria-live="polite" aria-atomic="true"></div>
 
   <template id="product-card-template">
-    <article class="product-card">
+    <article class="product-card" tabindex="0" role="button">
       <div class="product-image-wrap">
         <img class="product-image" alt="" loading="lazy" hidden>
         <div class="image-placeholder" aria-hidden="true">
           <span>商品圖片</span>
           <small>圖片整理中</small>
         </div>
-        <span class="brand-pill"></span>
       </div>
       <div class="product-content">
-        <div class="product-category"></div>
         <h3 class="product-name"></h3>
-        <dl class="product-meta">
-          <div><dt>規格</dt><dd class="product-spec"></dd></div>
-          <div><dt>箱入數</dt><dd class="product-case-pack"></dd></div>
-          <div><dt>貨號</dt><dd class="product-sku"></dd></div>
-        </dl>
-        <button class="button button-primary add-button" type="button">加入詢價</button>
+        <p class="product-spec"></p>
       </div>
     </article>
   </template>
