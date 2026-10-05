@@ -3,10 +3,20 @@
 ## 專案目的
 建立可供客戶查閱與詢價的商品型錄網站，並在後續製作獨立的自動報價 MVP。
 
-## GitHub
+## Current Production / Source of Truth
+- 現行商品型錄: `https://product-catalog-ui-redesign-preview.pages.dev/`
+- 本機 Source: `F:\project\product-catalog-ui-redesign-v1`
+- Branch: `feature/catalog-ui-redesign-v1`
+- Cloudflare Pages project: `product-catalog-ui-redesign-preview`
 - Repository: `happy333rich-crypto/product-catalog-inquiry`
-- Branch: `main`
-- 正式網址: `https://happy333rich-crypto.github.io/product-catalog-inquiry/`
+
+新商品、商品圖片、分類與 UI 維護，一律以此 V2 Cloudflare source 為準。在任何 Commit、Push 或 Deploy 前，必須先確認部署目標為 `product-catalog-ui-redesign-preview`。
+
+## Legacy
+- 舊 GitHub Pages: `https://happy333rich-crypto.github.io/product-catalog-inquiry/`
+- 狀態: `LEGACY / DO NOT DEPLOY`
+
+不得再將日常商品更新部署到舊 GitHub Pages。不得因舊文件、`main` branch 或 GitHub Pages 自動部署設定，而將舊站誤判為現行站。舊站資料保留，但不再作為日常維護與部署目標。
 
 ## 已完成
 - 品牌整併
@@ -110,10 +120,10 @@
 ## 開發規則
 - 不重新規劃已完成的品牌、分類或資料結構。
 - 不再新增多個臨時測試頁。
-- GitHub `main` 為唯一真實來源。
+- V2 Cloudflare source 與 `feature/catalog-ui-redesign-v1` 為唯一真實來源。
 - 找不到精確圖片就不放。
 - 每次變更後必須確認公開頁可開、商品能載入、品牌下拉可操作，再提供網址。
 - 除非有資料缺失、刪除風險或新版／舊版需要決策，否則不反覆要求使用者確認。
 
 ## 新對話／Codex 接手指令
-開始工作前先讀取 `PROJECT.md`，再讀取 GitHub `main` 現況。不要重新規劃，直接接續「家用紙逐 SKU 配圖」。
+開始工作前先讀取 `PROJECT.md`，確認 Source 為 `F:\project\product-catalog-ui-redesign-v1`、Branch 為 `feature/catalog-ui-redesign-v1`，且部署目標為 `product-catalog-ui-redesign-preview`。不要把舊 `main` 或 GitHub Pages 當成現行站。

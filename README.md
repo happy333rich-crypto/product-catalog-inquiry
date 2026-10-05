@@ -1,5 +1,21 @@
 # 產品電子型錄＋詢價清單
 
+## Current Production / Source of Truth
+
+- 現行商品型錄: `https://product-catalog-ui-redesign-preview.pages.dev/`
+- 本機 Source: `F:\project\product-catalog-ui-redesign-v1`
+- Branch: `feature/catalog-ui-redesign-v1`
+- Cloudflare Pages project: `product-catalog-ui-redesign-preview`
+
+新商品、商品圖片、分類與 UI 維護，一律以此 V2 Cloudflare source 為準。在任何 Commit、Push 或 Deploy 前，先確認部署目標為 `product-catalog-ui-redesign-preview`。
+
+## Legacy
+
+- 舊 GitHub Pages: `https://happy333rich-crypto.github.io/product-catalog-inquiry/`
+- 狀態: `LEGACY / DO NOT DEPLOY`
+
+不得再將日常商品更新部署到舊 GitHub Pages。不得因舊 `PROJECT.md`、`main` branch 或 GitHub Pages 自動部署設定，而將舊站誤判為現行站。舊站資料保留，但不再作為部署目標。
+
 第一版為純前端網站，使用原生 HTML、CSS、JavaScript，讀取 `products.json` 顯示18項公開商品資料。
 
 ## 已完成

@@ -1,5 +1,19 @@
 # 產品電子型錄＋詢價清單：第一版需求
 
+## Current Production / Source of Truth
+- 現行商品型錄: `https://product-catalog-ui-redesign-preview.pages.dev/`
+- 本機 Source: `F:\project\product-catalog-ui-redesign-v1`
+- Branch: `feature/catalog-ui-redesign-v1`
+- Cloudflare Pages project: `product-catalog-ui-redesign-preview`
+
+新商品、商品圖片、分類與 UI 維護，一律以此 V2 Cloudflare source 為準。任何 Commit、Push 或 Deploy 前，先確認部署目標為 `product-catalog-ui-redesign-preview`。
+
+## Legacy
+- 舊 GitHub Pages: `https://happy333rich-crypto.github.io/product-catalog-inquiry/`
+- 狀態: `LEGACY / DO NOT DEPLOY`
+
+不得將日常商品更新部署到舊 GitHub Pages，也不得因舊文件、`main` branch 或 GitHub Pages 自動部署設定而將其誤判為現行站。舊站資料保留。
+
 ## 專案目標
 建立一個以手機操作為優先的繁體中文產品型錄網站，讓客戶可以瀏覽商品、加入詢價清單、填寫數量與聯絡資料，最後產生一段可直接複製到 LINE 的詢價文字。
 
