@@ -140,7 +140,7 @@
     "name": "鱷魚快速殺螨滅蟑劑",
     "spec": "600g",
     "casePack": 24,
-    "image": "images/crocodile/G10270.jpg",
+    "image": "",
     "active": true
   },
   {
@@ -320,16 +320,16 @@
     "name": "鱷魚水蒸式殺蹣滅蟑劑",
     "spec": "25g",
     "casePack": 12,
-    "image": "images/crocodile/G10341.jpg",
+    "image": "",
     "active": true
   },
   {
     "id": "G10342",
-    "brand": "鱷魚",
+    "brand": "必安住",
     "category": "居家除蟲",
     "sku": "G10342",
     "barcode": "4710312010999",
-    "name": "鱷魚水蒸式殺蹣滅蟑劑",
+    "name": "必安住水蒸式殺蹣滅蟑劑",
     "spec": "25g×2入",
     "casePack": 12,
     "image": "images/crocodile/G10342.jpg",
@@ -337,11 +337,11 @@
   },
   {
     "id": "G10343",
-    "brand": "鱷魚",
+    "brand": "必安住",
     "category": "居家除蟲",
     "sku": "G10343",
     "barcode": "4710312010814",
-    "name": "鱷魚水蒸式殺蹣滅蟑劑",
+    "name": "必安住水蒸式殺蹣滅蟑劑",
     "spec": "20g×3入",
     "casePack": 12,
     "image": "images/crocodile/G10343.jpg",
@@ -368,7 +368,7 @@
     "name": "鱷魚加強殺蟑餌劑",
     "spec": "3g×12入",
     "casePack": 12,
-    "image": "images/crocodile/G10360.jpg",
+    "image": "",
     "active": true
   },
   {
