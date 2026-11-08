@@ -374,7 +374,7 @@ window.CatalogApp = {
     await new Promise((resolve, reject) => {
       sprite.onload = resolve;
       sprite.onerror = () => reject(new Error("商品圖片圖庫解碼失敗"));
-      sprite.src = `data:image/webp;base64,${base64}`;
+      sprite.src = `data:image/${product.id === "U20130" ? "jpeg" : "webp"};base64,${base64}`;
     });
 
     if (sprite.naturalWidth !== SPRITE_COLUMNS * SPRITE_CELL_SIZE) {
