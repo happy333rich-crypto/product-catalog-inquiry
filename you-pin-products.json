@@ -48,16 +48,17 @@
     "active": true
   },
   {
-    "id": "U20110",
+    "id": "U20130",
     "brand": "優品",
     "category": "居家除蟲",
-    "sku": "U20110",
-    "barcode": "4713317901675",
-    "name": "優品愛潔美A+除蟑錠",
+    "sku": "U20130",
+    "barcode": "4713317901859",
+    "name": "優品蟑全滅除蟑錠",
     "spec": "10入",
     "casePack": 24,
     "image": "",
-    "active": true
+    "active": true,
+    "supplierProductCode": "1310510"
   },
   {
     "id": "U20200",
