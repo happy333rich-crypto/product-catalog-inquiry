@@ -48,6 +48,66 @@
     "active": true
   },
   {
+    "id": "G10260",
+    "brand": "必安住",
+    "category": "居家除蟲",
+    "sku": "G10260",
+    "barcode": "4710312020066",
+    "name": "必安住自動噴霧殺蟲劑",
+    "spec": "600ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10261",
+    "brand": "必安住",
+    "category": "居家除蟲",
+    "sku": "G10261",
+    "barcode": "",
+    "name": "必安住居家殺蟲劑",
+    "spec": "600ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10262",
+    "brand": "必安住",
+    "category": "居家除蟲",
+    "sku": "G10262",
+    "barcode": "4710312020134",
+    "name": "必安住水性殺蟲劑",
+    "spec": "600ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10263",
+    "brand": "必安住",
+    "category": "居家除蟲",
+    "sku": "G10263",
+    "barcode": "4710312020219",
+    "name": "必安住除蟎殺蟲劑",
+    "spec": "600ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10264",
+    "brand": "紅恐龍",
+    "category": "居家除蟲",
+    "sku": "G10264",
+    "barcode": "4710312030324",
+    "name": "紅恐龍紅火蟻蟑螂螞蟻藥",
+    "spec": "600ml",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
     "id": "G10268",
     "brand": "鱷魚",
     "category": "居家除蟲",
@@ -288,6 +348,18 @@
     "active": true
   },
   {
+    "id": "G10344",
+    "brand": "鱷魚",
+    "category": "居家除蟲",
+    "sku": "G10344",
+    "barcode": "4710312011378",
+    "name": "鱷魚水蒸式殺蟲劑",
+    "spec": "25g",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  },
+  {
     "id": "G10360",
     "brand": "鱷魚",
     "category": "居家除蟲",
@@ -300,6 +372,30 @@
     "active": true
   },
   {
+    "id": "G10362",
+    "brand": "蟑愛呷",
+    "category": "居家除蟲",
+    "sku": "G10362",
+    "barcode": "4710312150015",
+    "name": "蟑愛呷殺蟑餌劑",
+    "spec": "3g×12入",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10363",
+    "brand": "鱷魚",
+    "category": "居家除蟲",
+    "sku": "G10363",
+    "barcode": "4710312013242",
+    "name": "鱷魚連環殺蟑餌劑",
+    "spec": "3g×12入",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  },
+  {
     "id": "G10370",
     "brand": "鱷魚",
     "category": "居家除蟲",
@@ -309,6 +405,30 @@
     "spec": "2入",
     "casePack": 48,
     "image": "images/crocodile/G10370.jpg",
+    "active": true
+  },
+  {
+    "id": "G10371",
+    "brand": "蟻愛呷",
+    "category": "居家除蟲",
+    "sku": "G10371",
+    "barcode": "4710312160014",
+    "name": "蟻愛呷攻巢螞蟻餌劑（黑盒）",
+    "spec": "2入",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10372",
+    "brand": "蟻愛呷",
+    "category": "居家除蟲",
+    "sku": "G10372",
+    "barcode": "4710312160021",
+    "name": "蟻愛呷除蟻特攻",
+    "spec": "2入",
+    "casePack": 12,
+    "image": "",
     "active": true
   },
   {
@@ -347,7 +467,54 @@
     "image": "images/crocodile/G10391.jpg",
     "active": true
   },
-
+  {
+    "id": "G10397",
+    "brand": "鱷魚",
+    "category": "捕鼠用品",
+    "sku": "G10397",
+    "barcode": "4710312020394",
+    "name": "鱷魚牌擒鼠皇",
+    "spec": "200g",
+    "casePack": 24,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10400",
+    "brand": "鱷魚",
+    "category": "居家除蟲",
+    "sku": "G10400",
+    "barcode": "4710312012481",
+    "name": "鱷魚除蟲菊水性殺蟲噴霧",
+    "spec": "300ml",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10401",
+    "brand": "鱷魚",
+    "category": "園藝驅蟲",
+    "sku": "G10401",
+    "barcode": "4710312012498",
+    "name": "鱷魚不快害蟲園藝型除蟲噴霧",
+    "spec": "300ml",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "G10410",
+    "brand": "鱷魚",
+    "category": "防蚊驅蟲",
+    "sku": "G10410",
+    "barcode": "4710312013013",
+    "name": "鱷魚廚餘消臭防果蠅噴劑",
+    "spec": "250ml",
+    "casePack": 12,
+    "image": "",
+    "active": true
+  },
   {
     "id": "G10501",
     "brand": "鱷魚",
