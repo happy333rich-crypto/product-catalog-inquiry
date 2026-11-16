@@ -762,7 +762,16 @@ window.CatalogApp = {
       card.dataset.productId = product.id;
       card.setAttribute("aria-label", `查看 ${product.name}`);
       card.querySelector(".product-name").textContent = product.name;
-      card.querySelector(".product-spec").textContent = product.spec;
+      const spec = card.querySelector(".product-spec");
+      spec.textContent = `規格：${product.spec || "待確認"}`;
+      const sku = document.createElement("p");
+      sku.className = "product-sku";
+      sku.textContent = `SKU：${product.sku || product.id}`;
+      const casePack = document.createElement("p");
+      casePack.className = "product-case-pack";
+      casePack.textContent = `箱入：${product.casePack ?? "待確認"}`;
+      spec.before(sku);
+      spec.after(casePack);
 
       const spriteSource = app.getSpriteProductImage(product.id);
       if (product.image) {
