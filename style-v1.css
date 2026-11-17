@@ -361,3 +361,64 @@ button:disabled { cursor: not-allowed; opacity: 0.48; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
+
+
+/* V2.1 截圖友善：列表一鍵製作商品圖片（不影響原詢價流程） */
+.capture-trigger {
+  flex: 0 0 auto;
+  border: 1px solid var(--primary-green);
+  border-radius: 12px;
+  background: var(--primary-green);
+  color: #fff;
+  min-height: 44px;
+  padding: 9px 14px;
+  font-size: 0.95rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+.capture-trigger:disabled { opacity: .65; cursor: wait; }
+.capture-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(19, 32, 24, .65);
+}
+.capture-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(100%, 520px);
+  max-height: min(94dvh, 900px);
+  padding: 16px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, .25);
+}
+.capture-sheet-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.capture-sheet-header h2 { margin: 0; font-size: 1.1rem; }
+.capture-close { border: 0; background: #eef3ef; min-width: 40px; min-height: 40px; border-radius: 50%; font-size: 24px; }
+.capture-preview-scroll { min-height: 0; overflow: auto; background: #faf8f2; border-radius: 10px; text-align: center; }
+.capture-preview-scroll img { display: block; width: 100%; height: auto; }
+.capture-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.capture-actions button { min-height: 46px; padding: 10px 7px; font-weight: 700; border-radius: 11px; cursor: pointer; }
+.capture-save { border: 1px solid var(--divider); background: #eef3ef; color: var(--primary-green); }
+.capture-share { border: 0; background: var(--primary-green); color: #fff; }
+.capture-help { margin: 0; color: var(--text-secondary); font-size: .85rem; }
+body.capture-open { overflow: hidden; }
+body.drawer-open .capture-trigger, body.detail-open .capture-trigger { display: none; }
+@media (max-width: 720px) {
+  .capture-trigger {
+    position: fixed;
+    right: 16px;
+    bottom: calc(var(--safe-bottom) + 64px);
+    z-index: 26;
+    box-shadow: 0 6px 20px rgba(22, 65, 44, .2);
+  }
+  .capture-sheet { max-height: 94dvh; }
+}
+@media (max-width: 370px) {
+  .capture-actions { grid-template-columns: 1fr; }
+}
