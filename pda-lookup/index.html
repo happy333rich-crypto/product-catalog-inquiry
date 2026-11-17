@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123B45">
+<meta name="description" content="GT PDA 高頻貨號速查：只顯示已選商品，直接搜尋與複製貨號。">
+<title>GT 貨號速查｜手機版</title>
+<style>
+:root{--navy:#123B45;--ink:#173640;--muted:#657c82;--bg:#f3f7f7;--line:#d8e5e5;--brand:#0b7f83;--soft:#e4f4f1;--white:#fff;--amber:#c36b1f}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}body{margin:0;background:var(--bg);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink)}
+button,input{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible,input:focus-visible{outline:3px solid #60c2be;outline-offset:2px}
+.shell{max-width:740px;margin:0 auto;min-height:100vh;padding-bottom:calc(42px + env(safe-area-inset-bottom))}
+.top{background:var(--navy);color:#fff;padding:22px 18px 18px;border-radius:0 0 24px 24px}
+.eyebrow{font-size:11px;letter-spacing:.12em;opacity:.7;font-weight:700}
+.headline{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;margin:2px 0 0}
+h1{font-size:25px;line-height:1.22;margin:0;font-weight:900;letter-spacing:.02em}
+.top p{color:#d6eeee;font-size:13px;margin:8px 0 0}.count-pill{padding:6px 10px;border:1px solid #5e8a92;border-radius:999px;white-space:nowrap;font-size:12px;color:#e7f7f6}
+.search-wrap{position:sticky;top:0;z-index:3;padding:12px 13px 6px;background:linear-gradient(var(--bg) 94%,transparent)}
+.search{background:#fff;border:2px solid #91bdbe;box-shadow:0 6px 15px #123b4510;border-radius:15px;display:flex;align-items:center;gap:9px;padding:5px 11px;height:59px}
+.magnify{font-size:21px;color:var(--brand);line-height:1}
+.search input{min-width:0;flex:1;border:0;outline:none;font-size:17px;font-weight:500;color:var(--ink);background:transparent}
+.search input::placeholder{color:#8b9fa2;font-weight:400}
+.clear{border:0;background:#eef3f4;color:#47626c;border-radius:999px;min-width:29px;height:29px;display:none}
+.tabs{display:flex;gap:7px;overflow-x:auto;padding:10px 13px 5px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tab{white-space:nowrap;border:1px solid var(--line);background:#fff;color:#4b696f;border-radius:999px;padding:9px 13px;font-size:14px;font-weight:750;min-height:39px}
+.tab[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.meta{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 8px;gap:12px}
+.meta b{font-size:14px}.meta small{font-size:12px;color:var(--muted)}
+.cards{padding:0 12px;display:grid;grid-template-columns:1fr;gap:9px}
+.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:13px 13px 12px;box-shadow:0 2px 5px #123b4508}
+.card-top{display:flex;align-items:center;gap:8px;min-height:42px}
+.code{font-size:27px;font-weight:950;letter-spacing:.01em;font-variant-numeric:tabular-nums;line-height:1.13;flex:1;word-break:break-word;color:#103e4a}
+.copy{border:none;border-radius:11px;padding:8px 11px;color:#fff;background:var(--brand);font-size:13px;font-weight:800;min-width:65px;min-height:39px}
+.star{border:none;border-radius:11px;background:#eef4f4;color:#5a7880;font-size:20px;min-width:38px;min-height:39px;line-height:1}
+.star[aria-pressed=true]{background:#fff3da;color:#ba6b00}
+.name{font-size:15px;font-weight:600;color:#263f47;margin-top:6px;line-height:1.48;overflow-wrap:anywhere}
+.detail{margin-top:7px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:11px;color:#647c83}
+.detail span{background:#f1f5f5;border-radius:6px;padding:3px 7px}
+.detail .warning{background:#fff4e4;color:#9a571d}
+.empty{text-align:center;background:#fff;border-radius:15px;border:1px solid var(--line);padding:38px 14px;margin:8px 13px;color:var(--muted)}
+.help{color:#6a8187;font-size:12px;text-align:center;margin:27px 20px 0;line-height:1.75}
+.toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom));transform:translate(-50%,15px);background:#133a43;color:#fff;padding:10px 18px;border-radius:100px;font-weight:750;font-size:14px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;box-shadow:0 5px 25px #061d2f33;z-index:99;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:680px){.top{padding:28px 27px 23px}.search-wrap{padding:16px 17px 8px}.tabs{padding-left:17px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 16px}.headline h1{font-size:30px}.code{font-size:30px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top">
+  <div class="eyebrow">GT · PDA QUICK LOOKUP</div>
+  <div class="headline"><h1>貨號速查</h1><span class="count-pill">已選 95 項</span></div>
+  <p>看貨架 → 搜尋 → 點一下複製貨號</p>
+</header>
+<div class="search-wrap">
+  <label class="search" for="q"><span class="magnify" aria-hidden="true">⌕</span>
+    <input id="q" type="search" placeholder="搜尋貨號、品名、尺寸…" autocomplete="off" enterkeyhint="search" aria-label="搜尋貨號或商品名稱">
+    <button id="clear" class="clear" aria-label="清除搜尋">×</button>
+  </label>
+</div>
+<nav class="tabs" aria-label="分類" id="tabs"></nav>
+<div class="meta"><b id="result">共 95 項</b><small>點貨號旁的複製即可使用</small></div>
+<main id="cards" class="cards" aria-live="polite"></main>
+<p class="help">資料：依 2026/11/17 所選 95 項整理。<br>本頁不包含售價、成本或客戶資料。<br>疑似新舊貨號／相同條碼的商品，請以 PDA 系統核對。</p>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+"use strict";
+const PRODUCTS=[{"cat":"抽衛","code":"721020","name":"可麗舒抽取衛生紙100抽10包*8串","sub":"可麗舒","caution":false},{"cat":"抽衛","code":"721210","name":"可麗舒抽取衛生紙100抽24包*3串","sub":"可麗舒","caution":false},{"cat":"抽衛","code":"E14018","name":"春風抽取衛生紙110抽12包*6串","sub":"春風","caution":false},{"cat":"抽衛","code":"E14094","name":"春風三層絲柔抽取衛生紙120抽24包*3串","sub":"春風","caution":false},{"cat":"抽衛","code":"E14100","name":"春風三層抽取衛生紙100抽10包*7串","sub":"春風","caution":false},{"cat":"抽衛","code":"E14105","name":"春風布丁狗三層厚手抽取衛生紙90抽20包*3串","sub":"春風","caution":false},{"cat":"抽衛","code":"817520","name":"舒潔棉柔厚韌三層抽衛90抽6包*8串","sub":"舒潔","caution":false},{"cat":"抽衛","code":"817580","name":"舒潔雲絨抽取衛生紙90抽×8包×8串（83049）","sub":"舒潔","caution":false},{"cat":"抽衛","code":"830550","name":"舒潔雲柔抽取衛生紙100抽10包*6串","sub":"舒潔","caution":true},{"cat":"廚紙","code":"160040","name":"可立雅廚房紙巾66張6捲*6串","sub":"可立雅","caution":false},{"cat":"廚紙","code":"750140","name":"可麗舒廚房紙巾60張6捲*6串(75019)","sub":"可麗舒","caution":false},{"cat":"廚紙","code":"E16202","name":"春風巧撕秒吸收廚房紙巾120張6捲*8串","sub":"春風","caution":false},{"cat":"廚紙","code":"E16203","name":"春風大尺寸秒吸收廚房紙巾60張6捲*8串","sub":"春風","caution":false},{"cat":"廚紙","code":"E16205","name":"春風一秒抽（綠色版）廚房紙巾120抽×3包×8串","sub":"春風","caution":false},{"cat":"廚紙","code":"E16209","name":"春風一秒抽三層廚紙80抽3包*8串","sub":"春風","caution":false},{"cat":"廚紙","code":"882560","name":"舒潔抽取式廚房紙巾110抽3包*6串","sub":"舒潔","caution":false},{"cat":"廚紙","code":"882630","name":"舒潔食安級隨意撕廚房紙巾108張6捲*6串","sub":"舒潔","caution":false},{"cat":"廚紙","code":"882650","name":"舒潔食安級大尺寸廚房紙巾65張6捲*6串","sub":"舒潔","caution":false},{"cat":"衛生棉","code":"600231","name":"靠得住超吸洞日用23cm15片*24包","sub":"超吸洞","caution":false},{"cat":"衛生棉","code":"600241","name":"靠得住超吸洞夜用28cm13片*24包","sub":"超吸洞","caution":false},{"cat":"衛生棉","code":"600251","name":"靠得住超吸洞夜加長35cm9片*24包","sub":"超吸洞","caution":false},{"cat":"衛生棉","code":"561760","name":"靠得住產墊35cm20片*24包","sub":"其他","caution":false},{"cat":"衛生棉","code":"608291","name":"靠草本抑菌蔓越莓23cm13片*12(60919)","sub":"草本抑菌蔓越莓","caution":false},{"cat":"衛生棉","code":"608301","name":"靠草本抑菌蔓越莓28cm11片*12(60920)","sub":"草本抑菌蔓越莓","caution":false},{"cat":"衛生棉","code":"614511","name":"靠得住草本抑菌平日護墊17.5cm26片*20包","sub":"草本抑菌平日","caution":false},{"cat":"衛生棉","code":"606130","name":"靠得住草本抑菌夜特長41cm7片*24包","sub":"草本抑菌","caution":false},{"cat":"衛生棉","code":"606141","name":"靠得住草本抑菌量少型19cm13片*24包","sub":"草本抑菌","caution":false},{"cat":"衛生棉","code":"606151","name":"靠得住草本抑菌日用23cm14片*30包","sub":"草本抑菌","caution":false},{"cat":"衛生棉","code":"606161","name":"靠得住草本抑菌夜用28cm12片*30包","sub":"草本抑菌","caution":false},{"cat":"衛生棉","code":"606171","name":"靠得住草本抑菌夜加長35cm8片*24包","sub":"草本抑菌","caution":false},{"cat":"衛生棉","code":"606901","name":"靠得住草本抑菌日用量多26cm13片*30包","sub":"草本抑菌","caution":false},{"cat":"衛生棉","code":"613451","name":"靠得住草本抑菌瞬吸護墊17.5cm24片*24包","sub":"草本抑菌","caution":false},{"cat":"衛生棉","code":"609721","name":"靠得住好菌PLUS+24cm10片*24包","sub":"好菌PLUS+","caution":false},{"cat":"衛生棉","code":"609751","name":"靠得住好菌PLUS+28cm9片*24包","sub":"好菌PLUS+","caution":false},{"cat":"衛生棉","code":"609781","name":"靠得住好菌PLUS+35cm6片*24包","sub":"好菌PLUS+","caution":false},{"cat":"衛生棉","code":"585441","name":"靠得住乾爽超薄較多23cm18片*24包","sub":"乾爽超薄","caution":false},{"cat":"衛生棉","code":"585451","name":"靠得住乾爽超薄夜用28cm16片*24包","sub":"乾爽超薄","caution":false},{"cat":"衛生棉","code":"585501","name":"靠得住柔棉超薄較多23cm18片*24包","sub":"柔棉超薄","caution":false},{"cat":"衛生棉","code":"585511","name":"靠得住柔棉超薄夜用28cm16片*24包","sub":"柔棉超薄","caution":false},{"cat":"衛生棉","code":"607620","name":"靠得住茶樹舒涼棉23cm18片*30包","sub":"茶樹舒涼","caution":false},{"cat":"衛生棉","code":"607630","name":"靠得住茶樹舒涼棉26cm17片*30包","sub":"茶樹舒涼","caution":false},{"cat":"衛生棉","code":"607640","name":"靠得住茶樹舒涼棉28cm16片*24包","sub":"茶樹舒涼","caution":false},{"cat":"衛生棉","code":"607650","name":"靠得住茶樹舒涼棉35cm10片*24包","sub":"茶樹舒涼","caution":false},{"cat":"衛生棉","code":"608410","name":"靠得住茶樹舒涼棉小蒼蘭23cm18片*30包","sub":"茶樹舒涼","caution":false},{"cat":"衛生棉","code":"608420","name":"靠得住茶樹舒涼棉小蒼蘭28cm16片*24包","sub":"茶樹舒涼","caution":false},{"cat":"衛生棉","code":"613430","name":"靠得住茶樹舒涼護墊14.5cm26片*24包","sub":"茶樹舒涼","caution":false},{"cat":"衛生棉","code":"613440","name":"靠得住茶樹舒涼護墊17.5cm18片*24包","sub":"茶樹舒涼","caution":false},{"cat":"衛生棉","code":"614230","name":"靠得住茶樹舒涼平日護墊17.5cm26片*24包","sub":"茶樹舒涼","caution":false},{"cat":"衛生棉","code":"608350","name":"靠得住茶樹沁涼棉23cm18片*30包","sub":"茶樹沁涼","caution":false},{"cat":"衛生棉","code":"608360","name":"靠得住茶樹沁涼棉28cm16片*24包","sub":"茶樹沁涼","caution":false},{"cat":"衛生棉","code":"609090","name":"靠得住茶樹沁涼棉35cm10片*8包","sub":"茶樹沁涼","caution":false},{"cat":"衛生棉","code":"614340","name":"靠得住茶樹沁涼平日護墊17.5cm26片*18包","sub":"茶樹沁涼","caution":false},{"cat":"衛生棉","code":"611651","name":"靠得住完美封漏棉柔35cm11片*24包","sub":"完美封漏棉柔","caution":false},{"cat":"衛生棉","code":"611691","name":"靠得住完美封漏棉柔41cm8片*24包","sub":"完美封漏棉柔","caution":false},{"cat":"衛生棉","code":"615091","name":"靠得住完美封漏棉柔28cm14片*24包","sub":"完美封漏棉柔","caution":false},{"cat":"衛生棉","code":"615131","name":"靠得住完美封漏棉柔35cm8片*36包","sub":"完美封漏棉柔","caution":false},{"cat":"衛生棉","code":"615171","name":"靠得住完美封漏棉柔41cm7片*24包","sub":"完美封漏棉柔","caution":false},{"cat":"衛生棉","code":"611671","name":"靠得住完美封漏網層35cm11片*24包","sub":"完美封漏網層","caution":false},{"cat":"衛生棉","code":"611711","name":"靠得住完美封漏網層41cm8片*24包","sub":"完美封漏網層","caution":false},{"cat":"衛生棉","code":"615111","name":"靠得住完美封漏網層28cm14片*24包","sub":"完美封漏網層","caution":false},{"cat":"衛生棉","code":"615151","name":"靠得住完美封漏網層35cm8片*36包","sub":"完美封漏網層","caution":false},{"cat":"衛生棉","code":"615191","name":"靠得住完美封漏網層41cm7片*24包","sub":"完美封漏網層","caution":false},{"cat":"衛生棉","code":"615290","name":"靠得住晚安好眠褲Ｍ2件*18入","sub":"好眠褲","caution":false},{"cat":"衛生棉","code":"615300","name":"靠得住晚安好眠褲Ｌ2件*18入","sub":"好眠褲","caution":false},{"cat":"衛生棉","code":"615310","name":"靠得住晚安好眠褲ＸＬ2件*18入","sub":"好眠褲","caution":false},{"cat":"衛生棉","code":"615360","name":"靠得住抑菌好眠褲Ｍ2件*16入","sub":"好眠褲","caution":false},{"cat":"衛生棉","code":"615370","name":"靠得住抑菌好眠褲Ｌ2件*16入","sub":"好眠褲","caution":false},{"cat":"衛生棉","code":"615380","name":"靠得住抑菌好眠褲ＸＬ2件*16入","sub":"好眠褲","caution":false},{"cat":"衛生棉","code":"615720","name":"靠得住蔓越莓好眠褲Ｌ2件*14包","sub":"好眠褲","caution":false},{"cat":"衛生棉","code":"615730","name":"靠得住蔓越莓好眠褲XL2件*14包","sub":"好眠褲","caution":false},{"cat":"衛生棉","code":"613771","name":"靠得住安全瞬吸護墊無香14.5cm30片*24包","sub":"安全瞬吸護墊","caution":false},{"cat":"衛生棉","code":"613791","name":"靠得住安全瞬吸護墊無香17.5cm26片*24包","sub":"安全瞬吸護墊","caution":false},{"cat":"衛生棉","code":"614051","name":"靠得住蘆薈高透氧護墊無香14.5cm26片*24包","sub":"蘆薈","caution":false},{"cat":"衛生棉","code":"614061","name":"靠得住蘆薈高透氧護墊無香17.5cm24片*24包","sub":"蘆薈","caution":false},{"cat":"衛生棉","code":"614121","name":"靠得住蘆薈高透氧護墊含香17.5cm24片*24包","sub":"蘆薈","caution":false},{"cat":"衛生棉","code":"613721","name":"靠得住梔子花瞬吸護墊17.5cm24片*24包","sub":"護墊","caution":false},{"cat":"衛生棉","code":"613731","name":"靠得住梔子花香氛護墊14.5cm25片*24包","sub":"護墊","caution":false},{"cat":"鱷魚","code":"G10250","name":"鱷魚蚊香鐵罐60卷*12罐","sub":"盤式蚊香","caution":false},{"cat":"鱷魚","code":"G10251","name":"鱷魚蚊香鐵罐30卷*24罐","sub":"盤式蚊香","caution":false},{"cat":"鱷魚","code":"G10252","name":"鱷魚蚊香經濟包30卷*24罐","sub":"盤式蚊香","caution":false},{"cat":"鱷魚","code":"G10253","name":"鱷魚蚊香經濟包50卷*12罐","sub":"盤式蚊香","caution":false},{"cat":"鱷魚","code":"G10260","name":"必安住自動噴霧殺蟲劑600ml*24(BB61)","sub":"噴霧殺蟲劑","caution":true},{"cat":"鱷魚","code":"G10261","name":"必安住居家殺蟲劑600ml*24罐(BB60)","sub":"噴霧殺蟲劑","caution":true},{"cat":"鱷魚","code":"G10262","name":"必安住水性殺蟲劑600ml*24罐","sub":"噴霧殺蟲劑","caution":false},{"cat":"鱷魚","code":"G10263","name":"必安住除蟎殺蟲劑600ml*24罐","sub":"噴霧殺蟲劑","caution":false},{"cat":"鱷魚","code":"G10264","name":"紅恐龍紅火蟻蟑螂螞蟻藥600ml*24罐","sub":"噴霧殺蟲劑","caution":false},{"cat":"鱷魚","code":"G10265","name":"必安住油性跳蚤蟑螂藥600ml*24罐","sub":"噴霧殺蟲劑","caution":false},{"cat":"鱷魚","code":"G10290","name":"鱷魚電蚊香片33片*24盒","sub":"電蚊香／器具","caution":false},{"cat":"鱷魚","code":"G10291","name":"鱷魚電蚊香片66片*12盒","sub":"電蚊香／器具","caution":false},{"cat":"鱷魚","code":"G10292","name":"鱷魚水性液體電蚊香2入*24盒","sub":"電蚊香／器具","caution":false},{"cat":"鱷魚","code":"G10293","name":"鱷魚液體電蚊香含香*24罐","sub":"電蚊香／器具","caution":false},{"cat":"鱷魚","code":"G10295","name":"鱷魚液體電蚊香無香*24罐","sub":"電蚊香／器具","caution":false},{"cat":"鱷魚","code":"G10340","name":"必安住水蒸式殺蹣滅蟑劑15g*12盒","sub":"水蒸式殺蟲","caution":false},{"cat":"鱷魚","code":"G10342","name":"必安住水蒸式殺蹣滅蟑劑25g2入*12盒","sub":"水蒸式殺蟲","caution":false},{"cat":"鱷魚","code":"G10343","name":"必安住水蒸式殺蹣滅蟑劑20g3入*12盒","sub":"水蒸式殺蟲","caution":false}];
+const CATS=["全部","抽衛","廚紙","衛生棉","鱷魚","★常用"];
+const STORAGE="gt-pda-fav-v1";
+let favorites=new Set(),selected="全部",text="";
+try{favorites=new Set(JSON.parse(localStorage.getItem(STORAGE)||"[]"))}catch(e){}
+const cards=document.getElementById("cards"),tabs=document.getElementById("tabs"),result=document.getElementById("result");
+const input=document.getElementById("q"),clear=document.getElementById("clear"),toast=document.getElementById("toast");
+function norm(s){return String(s).normalize("NFKC").toLocaleLowerCase("zh-Hant")}
+function saveFav(){try{localStorage.setItem(STORAGE,JSON.stringify([...favorites]))}catch(e){}}
+function say(s){toast.textContent=s;toast.classList.add("show");clearTimeout(say.t);say.t=setTimeout(()=>toast.classList.remove("show"),1700)}
+async function copySku(s){
+ try{
+   if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(s)}
+   else{const t=document.createElement("textarea");t.value=s;t.style.cssText="position:fixed;left:-9999px";document.body.appendChild(t);t.select();if(!document.execCommand("copy"))throw Error("copy");t.remove()}
+   say("已複製 "+s);
+ }catch(e){say("複製未成功，請長按貨號選取")}
+}
+function el(tag,klass,txt){const e=document.createElement(tag);if(klass)e.className=klass;if(txt!=null)e.textContent=txt;return e}
+function renderTabs(){
+ tabs.replaceChildren();
+ for(const c of CATS){
+  const b=el("button","tab",c);b.type="button";b.setAttribute("aria-pressed",String(selected===c));
+  b.addEventListener("click",()=>{selected=c;render();b.scrollIntoView({block:"nearest",inline:"nearest"})});tabs.append(b);
+ }
+}
+function render(){
+ renderTabs();
+ const q=norm(text.trim());
+ const visible=PRODUCTS.filter(p=>(selected==="全部"||(selected==="★常用"?favorites.has(p.code):p.cat===selected))&&(!q||norm(p.code+" "+p.name+" "+p.cat+" "+(p.sub||"")).includes(q)));
+ result.textContent="找到 "+visible.length+" 項";
+ cards.replaceChildren();
+ if(!visible.length){const empty=el("div","empty","沒有符合的商品，試著換個關鍵字或分類。");cards.append(empty);return}
+ const frag=document.createDocumentFragment();
+ for(const p of visible){
+  const card=el("article","card"),top=el("div","card-top");
+  const code=el("span","code",p.code),copy=el("button","copy","複製");
+  copy.type="button";copy.setAttribute("aria-label","複製貨號 "+p.code);copy.addEventListener("click",()=>copySku(p.code));
+  const star=el("button","star",favorites.has(p.code)?"★":"☆");star.type="button";star.setAttribute("aria-label","常用貨號 "+p.code);star.setAttribute("aria-pressed",String(favorites.has(p.code)));
+  star.addEventListener("click",()=>{if(favorites.has(p.code)) favorites.delete(p.code);else favorites.add(p.code);saveFav();render()});
+  top.append(code,star,copy);
+  const name=el("div","name",p.name),details=el("div","detail");details.append(el("span","",p.cat));
+  if(p.sub&&p.sub!==p.cat&&p.sub!=="抽取衛生紙")details.append(el("span","",p.sub));
+  if(p.caution)details.append(el("span","warning","貨號請核對"));
+  card.append(top,name,details);frag.append(card);
+ }
+ cards.append(frag);
+}
+input.addEventListener("input",e=>{text=e.target.value;clear.style.display=text?"block":"none";render()});
+clear.addEventListener("click",()=>{input.value="";text="";clear.style.display="none";render();input.focus()});
+render();
+</script>
+</body>
+</html>
