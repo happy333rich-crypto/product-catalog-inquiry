@@ -100,7 +100,11 @@
     ctx.strokeStyle = "#dce3de";
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.roundRect(x, y, w, size.cardHeight, 18);
+    if (typeof ctx.roundRect === "function") {
+      ctx.roundRect(x, y, w, size.cardHeight, 18);
+    } else {
+      ctx.rect(x, y, w, size.cardHeight);
+    }
     ctx.fill();
     ctx.stroke();
 
