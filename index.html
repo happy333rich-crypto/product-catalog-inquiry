@@ -7,13 +7,13 @@
   <meta name="description" content="產品電子型錄與詢價清單">
   <meta name="build-version" content="20260709-1">
   <title>商品型錄</title>
-  <link rel="stylesheet" href="style-v1.css?v=20261118-v21">
+  <link rel="stylesheet" href="style-v1.css?v=20261122-single">
   <script src="cache-bust.js?v=20261108-1" defer></script>
   <script src="script.js?v=20261118-v21" defer></script>
   <script src="cart.js?v=20260901-1" defer></script>
   <script src="juwei-addon.js?v=20260709-1" defer></script>
   <script src="you-pin-addon.js?v=20260713-2" defer></script>
-  <script src="capture.js?v=20261118-v21a" defer></script>
+  <script src="capture.js?v=20261122-single" defer></script>
   <script src="inquiry.js?v=20260715-3" defer></script>
 </head>
 <body>
@@ -42,7 +42,6 @@
           <h1 id="catalog-title">商品型錄</h1>
         </div>
         <p class="result-count" aria-live="polite"><span data-result-count>0</span> 項商品</p>
-        <button class="capture-trigger" type="button" data-capture-button>▣ 存圖／傳 LINE</button>
       </div>
 
       <div class="filters" aria-label="商品搜尋與篩選">
@@ -249,6 +248,7 @@
 
   <template id="product-card-template">
     <article class="product-card" tabindex="0" role="button">
+      <button class="capture-trigger" type="button" data-capture-button aria-label="儲存此商品圖片" title="存圖">⇩<span>存圖</span></button>
       <div class="product-image-wrap">
         <img class="product-image" alt="" loading="lazy" hidden>
         <div class="image-placeholder" aria-hidden="true">
